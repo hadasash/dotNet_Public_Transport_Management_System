@@ -102,7 +102,7 @@ public enum Choice { a, b,c ,d ,e};
                             if (i.getLicenseNum() == license)
                             {
                                flag = true;
-                                if((i.getkmToTratment()<20000)&&(i.getfuel()-km>=0) &&(i.getlastTratment()<= currentTime.AddYears(-1)))
+                                if((i.getkmToTratment()<20000)&&(i.getfuel()-km>=0) &&(i.getlastTratment()>= currentTime.AddYears(-1)))
                                 { 
                                     
                                     i.setkmToTratment(i.getkmToTratment()+km) ;
@@ -135,7 +135,7 @@ public enum Choice { a, b,c ,d ,e};
                             license = Console.ReadLine();
                         }
                         Console.WriteLine
-                (@"Do you want to refoul or do do treatment?
+                (@"Do you want to refoul or to do treatment?
         To refoul press 1,
         To treatment press 2." );
                        
