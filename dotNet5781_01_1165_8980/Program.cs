@@ -21,10 +21,10 @@ public enum Choice { a, b,c ,d ,e};
             Console.WriteLine(
                 @"Enter your choice :
          0- To add a bus to the list.
-         1- To choice a bus to your drive.
-         2- Perform treatment or refuel for the bus.
-         3- Print the data of all the busses.
-         4- exit.");
+         1- To choose a bus for the drive.
+         2- To perform treatment or refuel the bus.
+         3- To Print the data of all the busses.
+         4- TO exit.");
 
            int number;
             
@@ -36,7 +36,7 @@ public enum Choice { a, b,c ,d ,e};
            
             
            
-            while (ch != Choice.e)
+            while (ch != Choice.e) //If the selection is equal to 4 exit the loop.
             {
                 Bus bus1= new Bus();
                 
@@ -46,8 +46,8 @@ public enum Choice { a, b,c ,d ,e};
                     case Choice.a:
 
                        bool succes = false;
-                        while (succes == false)
-                        {
+                        while (succes == false)  // Performs a check to see if the input is correct.
+                            {
                             Console.WriteLine("Enter the start working date");
                             succes = DateTime.TryParse(Console.ReadLine(), out start);
                             if(succes==false)
@@ -58,8 +58,9 @@ public enum Choice { a, b,c ,d ,e};
                         }
                         bus1.setbeginingOfWork(start);
 
-                        Console.WriteLine("Enter the license number of bus.");
-                        if (((bus1.getbeginingOfWork()).Year) > 2018|| ((bus1.getbeginingOfWork()).Year)==2018)
+                        Console.WriteLine("Enter the bus license number:");
+                        if (((bus1.getbeginingOfWork()).Year) > 2018|| ((bus1.getbeginingOfWork()).Year)==2018)//How many numbers should a license number have
+
                         {
                             string str = Console.ReadLine();
                             while (str.Length!=8)
@@ -85,24 +86,24 @@ public enum Choice { a, b,c ,d ,e};
                    
                    case Choice.b:
                         string license;
-                        Console.WriteLine("Enter the license number of bus.");
+                        Console.WriteLine("Enter the bus license number:");
                         license = Console.ReadLine();
-                       while ((license.Length != 7)&& (license.Length != 8))
-                            {
+                       while ((license.Length != 7)&& (license.Length != 8))//Performs a check to see if the input is correct.
+                        {
                             Console.WriteLine("ERROR");
                             license = Console.ReadLine();
                              }
                         
-                        int km = rand.Next(1200);
+                        int km = rand.Next(1200);//How many kilometers will the trip be (up to 1200).
                         Console.WriteLine("The number of Km is "+km);
                         bool flag = false;
                         DateTime currentTime = DateTime.Now;
-                        foreach (Bus i in busses)
+                        foreach (Bus i in busses)//Go through each bus on the list to see if the selected bus can make the trip.
                         {
                             if (i.getLicenseNum() == license)
                             {
                                flag = true;
-                                if((i.getkmToTratment()<20000)&&(i.getfuel()-km>=0) &&(i.getlastTratment()>= currentTime.AddYears(-1)))
+                                if((i.getkmToTratment()<20000)&&(i.getfuel()-km>=0) &&(i.getlastTratment()>= currentTime.AddYears(-1)))//Go through each bus on the list to see if the selected bus can make the trip
                                 { 
                                     
                                     i.setkmToTratment(i.getkmToTratment()+km) ;
@@ -112,7 +113,7 @@ public enum Choice { a, b,c ,d ,e};
                                 }
                                 else
                                 {
-                                    Console.WriteLine("The drive is impossible");
+                                    Console.WriteLine("The drive is impossible");//If the bus cannot travel it prints an appropriate message
 
                                 }
                             }
@@ -120,16 +121,16 @@ public enum Choice { a, b,c ,d ,e};
                         }
                         if (flag==false)
                         {
-                            Console.WriteLine("The license number was'nt found");
+                            Console.WriteLine("The license number was'nt found");//If the bus does not exist it prints an appropriate message.
                         }
                         break;
                     
                     
                     case Choice.c:
                         
-                        Console.WriteLine("Enter the license number of bus.");
+                        Console.WriteLine("Enter the bus license number:");
                        license = Console.ReadLine();
-                        while ((license.Length != 7) && (license.Length != 8))
+                        while ((license.Length != 7) && (license.Length != 8))//Checks if the license number is correct
                         {
                             Console.WriteLine("ERROR");
                             license = Console.ReadLine();
@@ -142,18 +143,18 @@ public enum Choice { a, b,c ,d ,e};
                         while (!int.TryParse(Console.ReadLine(), out number))
                         { Console.WriteLine("wrong number!!! enter again:"); }
                         flag = false;
-                        foreach (Bus i in busses)
+                        foreach (Bus i in busses)//Looking for the requested bus.
                         {
                             if (i.getLicenseNum() == license)
                             {
                                 flag = true;
-                              if(number==1)
-                                {
+                              if(number==1)//If you ask for refueling, refuel.
+                                                                    {
                                     i.setfuel(1200);
                                     Console.WriteLine("refouling was performed" );
                                 }
 
-                              if(number==2)
+                              if(number==2)//If you ask for treatment, do the treatment.
                                 { 
                                     DateTime currentTime1 = DateTime.Now;
                                     i.setkmToTratment(0);
@@ -174,14 +175,14 @@ public enum Choice { a, b,c ,d ,e};
                         break;
                    
                     case Choice.d:
-                         foreach (Bus i in busses)
+                         foreach (Bus i in busses)//Prints the license numbers of all buses
                         {
                             string last;
                             string first;
                             string middle;
                             int totalKm;
                             totalKm = i.gettotalKm();
-                            if (((i.getLicenseNum()).Length)==7)
+                            if (((i.getLicenseNum()).Length)==7)//If the license number is 7 digits
                             {
                                
                                 first = i.getLicenseNum().Substring(0, 2);
@@ -190,8 +191,9 @@ public enum Choice { a, b,c ,d ,e};
                                 Console.WriteLine("{0}-{1}-{2}",first, middle, last);
                                 Console.WriteLine(totalKm);
                             }
-                            else
+                            else //If the license number is 8 digits
                             {
+                                
                                 
                                 first = i.getLicenseNum().Substring(0, 3);
                                 middle = i.getLicenseNum().Substring(3, 2);
