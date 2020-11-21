@@ -62,7 +62,7 @@ namespace dotNet5781_02_1165_8980
             }
             if (flag1 == false || counter >= 2)
             {
-                  Console.WriteLine("ddff");
+                  Console.WriteLine("ERROR");
                 //throw new MyExeption("ERROR");
               
             }
@@ -91,13 +91,14 @@ namespace dotNet5781_02_1165_8980
                 mybus.FirstStation.TimeBToS1 = 0;
                 mybus.LastStation.Distance = mybus.CalculateDistance(mybus.FirstStation, mybus.LastStation);
                 mybus.LastStation.TimeBToS1 = mybus.LastStation.DifferenceTime1;
+                mybus.NumberBus = myline;
                 // mybus.area = Ereas.myArea;
                 Buses.Add(mybus);
                 Console.WriteLine("The line added");
             }
 
         }
-        public void DeleteLine(busStation myfirststation, busStation mylaststation, int myline)
+        public void DeleteLine(int myfirststationcode, int mylaststationcode, int myline)
         {
             bool flag=false;
             foreach (lineBus item in Buses)
@@ -105,17 +106,20 @@ namespace dotNet5781_02_1165_8980
                 if (item.NumberBus == myline)
                 {
 
-                    if (((item.FirstStation.getCode()) == (myfirststation.getCode())) && ((item.LastStation.getCode()) == (mylaststation.getCode())))
+                    if (((item.FirstStation.getCode()) == myfirststationcode) && ((item.LastStation.getCode()) == mylaststationcode))
                     {
                         Buses.Remove(item);
                         flag = true;
                         Console.WriteLine("The line has been deleted");
+                        
                     }
+                    if (flag == true) { break; }
                 }
             }
             if (flag == false)
             {
-                throw new MyExeption("ERROR");
+                Console.WriteLine("the line wasn't found");
+                //throw new MyExeption("ERROR");
             }
         }
         public List<lineBus> AllLinesAtStation (int mycode)

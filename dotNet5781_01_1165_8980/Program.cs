@@ -17,8 +17,6 @@ public enum Choice { a, b,c ,d ,e};
         static Random rand = new Random(DateTime.Now.Millisecond);
         static void Main(string[] args)
         {
-
-            
             Console.WriteLine(
                 @"Enter your choice :
          0- To add a bus to the list.
@@ -34,9 +32,7 @@ public enum Choice { a, b,c ,d ,e};
             Choice ch = (Choice)number;
              DateTime start= new DateTime ();
             List<Bus> busses= new List<Bus>();
-           
-            
-           
+          
             while (ch != Choice.e) //If the selection is equal to 4 exit the loop.
             {
                 Bus bus1= new Bus();
@@ -206,7 +202,6 @@ public enum Choice { a, b,c ,d ,e};
 
 
                         break;
-              
                 }
                 
                 while (!int.TryParse(Console.ReadLine(), out number))

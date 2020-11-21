@@ -46,7 +46,7 @@ namespace dotNet5781_02_1165_8980
             }
             stations.Insert(indexStation - 1, other);
 
-            for (int i = 0; i <= stations.Count; i++)
+            for (int i = 0; i < stations.Count; i++)
             {
                 if (i == 0)
                 {
@@ -70,12 +70,7 @@ namespace dotNet5781_02_1165_8980
                     else
                     {
                         double t = 0;
-                        t = (stations[j + 1].TimeBToS1 - stations[j].TimeBToS1);
-                        if (t < 0)
-                        {
-                            t *= -1;
-                        }
-
+                        t =stations[j].DifferenceTime1;
                         mytime += t;
                     }
                 }
