@@ -43,6 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="allBusLines.cs" />
+    <Compile Include="busLineStation.cs" />
+    <Compile Include="busStation.cs" />
+    <Compile Include="lineBus.cs" />
+    <Compile Include="MyExeption.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
