@@ -21,7 +21,7 @@ namespace dotNet5781_02_1165_8980
             code = mycode;
         }
 
-        public busStation()
+        public busStation()//ctr
         {
             lengthLine = r.NextDouble() * (35.5 - 34.3) + 34.3;
             widthLine = r.NextDouble() * (33.3 - 31) + 31;
@@ -42,7 +42,7 @@ namespace dotNet5781_02_1165_8980
         }
         public override string ToString()
         {
-            return "Bus Station Code: " + code + ", " + lengthLine + "°N " + widthLine + "°E" + "\n";
+            return  "code- " + code +" "+ lengthLine + "°N " + widthLine + "°E" + "\n";
         }
        
 

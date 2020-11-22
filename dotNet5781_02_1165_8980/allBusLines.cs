@@ -7,7 +7,10 @@ using System.Threading.Tasks;
 
 namespace dotNet5781_02_1165_8980
 {
-    class allBusLines:IEnumerable
+    /// <summary>
+    /// The class represents the collection of lines of the system
+    /// </summary>
+    class allBusLines :IEnumerable
     {
        
         public List<lineBus> Buses = new List<lineBus>();
@@ -19,7 +22,7 @@ namespace dotNet5781_02_1165_8980
 
             }
         }
-        public lineBus this[int index]
+        public lineBus this[int index]//indexer
         {
             get
             {
@@ -33,6 +36,13 @@ namespace dotNet5781_02_1165_8980
                 Buses[index] = value;
             }
         }
+        /// <summary>
+        /// The function adds a line into the trajectory
+        /// </summary>
+        /// <param name="myfirststation">first station</param>
+        /// <param name="mylaststation">last station</param>
+        /// <param name="myline">The line we want to add</param>
+
         public void AddLine( busStation myfirststation, busStation mylaststation, int myline)
         {
             
@@ -98,6 +108,12 @@ namespace dotNet5781_02_1165_8980
             }
 
         }
+        /// <summary>
+        /// The function deletes the requested line
+        /// </summary>
+        /// <param name="myfirststationcode">first station</param>
+        /// <param name="mylaststationcode">last station</param>
+        /// <param name="myline">The line we want to delete</param>
         public void DeleteLine(int myfirststationcode, int mylaststationcode, int myline)
         {
             bool flag=false;
@@ -122,6 +138,11 @@ namespace dotNet5781_02_1165_8980
                 //throw new MyExeption("ERROR");
             }
         }
+        /// <summary>
+        /// The function returns a list of all lines passing through the station
+        /// </summary>
+        /// <param name="mycode">code station</param>
+        
         public List<lineBus> AllLinesAtStation (int mycode)
         {
             List<lineBus> mylist = new List<lineBus>();
@@ -135,12 +156,19 @@ namespace dotNet5781_02_1165_8980
                     }
                 }
             }
-            if(mylist.Count==0)
-            {
-                throw new MyExeption("ERROR");
-            }
+            //if (mylist.Count == 0)
+            //{
+            //    throw new MyExeption("ERROR");
+            //}
             return mylist;
         }
+        /// <summary>
+        /// The function calculates the travel time of the line
+        /// </summary>
+        /// <param name="s1">first station</param>
+        /// <param name="s2">last station</param>
+        /// <returns>Returns a list of lines sorted by times</returns>
+
         public List<lineBus> linesByTime (busStation s1, busStation s2)
         {
             List<lineBus> myBusLineCollection = new List<lineBus>();
@@ -165,9 +193,9 @@ namespace dotNet5781_02_1165_8980
                             mystation2 = station;
                         }
                     }
-                   
+                   myBusLineCollection.Add(myLine.subRoute(mystation1, mystation2));
                 }
-                myBusLineCollection.Add(myLine.subRoute(mystation1, mystation2));
+                
 
             }
             myBusLineCollection.Sort();

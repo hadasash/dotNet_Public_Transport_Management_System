@@ -12,7 +12,7 @@ namespace dotNet5781_02_1165_8980
     public class busLineStation : busStation
     {
         private static Random r = new Random();
-        public busLineStation ()
+        public busLineStation ()//ctr
         {
             
             timeBToS = 0 ;
@@ -23,8 +23,6 @@ namespace dotNet5781_02_1165_8980
       
         public busStation bs;
 
-       
-        
         private double distance1;
         public double Distance
         {
@@ -37,7 +35,7 @@ namespace dotNet5781_02_1165_8980
             get { return differenceTime; } set { }
 
         }
-        private double timeBToS;
+        private double timeBToS;//Prints all the data 
         public double TimeBToS1
         {
             set { }
@@ -47,5 +45,3 @@ namespace dotNet5781_02_1165_8980
 }
 
 
-
-//distance1 = Math.Sqrt(Math.Pow(latitude - busStation.width, 2) - Math.Pow(longitude - busStation.Length, 2));

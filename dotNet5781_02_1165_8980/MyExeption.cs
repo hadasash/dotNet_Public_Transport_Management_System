@@ -7,9 +7,11 @@ using System.Runtime.Serialization;
 
 namespace dotNet5781_02_1165_8980
 {
-  
-    
-         class MyExeption : Exception
+
+    /// <summary>
+    /// Realizes the exeption class
+    /// </summary>
+    class MyExeption : Exception
         {
         public int capacity { get; private set; }
             public MyExeption() : base() { }
