@@ -15,7 +15,7 @@ namespace dotNet5781_02_1165_8980
         public busLineStation ()//ctr
         {
             
-            timeBToS = 0 ;
+            timeBToS = r.Next(10,59);
             distance1 = 0;
             differenceTime = r.Next(300);
             
@@ -40,6 +40,10 @@ namespace dotNet5781_02_1165_8980
         {
             set { }
             get { return timeBToS; }
+        }
+        public override string ToString()
+        {
+            return "bus station:  "+getCode()+"  " + Length + "°N  " + width + "°E" + "  00:"+ timeBToS+"\n";
         }
     }
 }

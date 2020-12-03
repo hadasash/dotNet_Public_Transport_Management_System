@@ -7,23 +7,61 @@ using System.Threading.Tasks;
 
 namespace dotNet5781_02_1165_8980
 {
-    public enum Areas
-    {
-        General, North, South, Center, Jerusalem
-    }
+   
     public enum Options
     {
         AddBus, AddStation, DeleteBus, DeleteStation, SearchBuses, SearchPath, PrintBusLines, PrintAll, Exit
     }
-    class Program
+    public class Program
     {
-        
         public static int firstStationCode = 0;
         public static int lastStationCode = 4;
         static Random rand = new Random(DateTime.Now.Millisecond);
         static Random r = new Random();
         static void Main(string[] args)
         {
+            allBusLines busline = new allBusLines();
+            void initialization1()
+            {
+                int myNumBus;
+                for (int i = 0; i < 10; i++)
+                {
+                    lineBus busToInitial = new lineBus();
+                    myNumBus = r.Next(10, 200);
+                    busToInitial.NumberBus = myNumBus;
+                    for (int j = 0; j < 4; j++)
+                    {
+                        busLineStation busLineToInitial = new busLineStation();
+                        busToInitial.stations.Add(busLineToInitial);
+                        if (j == 0)
+                        {
+                            busToInitial.FirstStation = busLineToInitial;
+                        }
+                        if (j == 3)
+                        {
+                            busToInitial.LastStation = busLineToInitial;
+                        }
+
+                    }
+                    int a = r.Next(0, 4);
+                    busToInitial.Area = (Areas)a;
+                    busline.Buses.Add(busToInitial);
+                }
+
+            }
+
+            initialization1();
+            foreach (lineBus item in busline)
+            {
+                Console.WriteLine(item.Area);
+                Console.WriteLine(item.NumberBus);
+                foreach (busLineStation u in item.stations)
+                {
+                    Console.WriteLine(u.getCode());
+                }
+            }
+
+
             List<busStation> StationsCollection = new List<busStation>();
             for (int i = 0; i <50; i++)//A loop that adds 50 bus stops to the collection
             {

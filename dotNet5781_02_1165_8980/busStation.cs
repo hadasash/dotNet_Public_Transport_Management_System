@@ -42,7 +42,7 @@ namespace dotNet5781_02_1165_8980
         }
         public override string ToString()
         {
-            return  "code- " + code +" "+ lengthLine + "°N " + widthLine + "°E" + "\n";
+            return  "bus station: " + code +" "+ lengthLine + "°N " + widthLine + "°E" + "\n";
         }
        
 

@@ -10,7 +10,7 @@ namespace dotNet5781_02_1165_8980
     /// <summary>
     /// The class represents the collection of lines of the system
     /// </summary>
-    class allBusLines :IEnumerable
+   public class allBusLines :IEnumerable
     {
        
         public List<lineBus> Buses = new List<lineBus>();
@@ -26,10 +26,16 @@ namespace dotNet5781_02_1165_8980
         {
             get
             {
-                if (index <= Buses.Count - 1)
-                    return Buses[index];
-                else
-                    throw new MyExeption("ERROR");
+                int number = 0;
+                foreach (lineBus item in Buses)
+                {
+                    if (item.NumberBus == index)
+                    {
+                        break;
+                    }
+                    number++; 
+                }
+                return Buses[number] == null ? throw new MyExeption("ERROR") : Buses[number];   
             }
             set
             {
@@ -63,7 +69,7 @@ namespace dotNet5781_02_1165_8980
                     }
                     if (((item.LastStation.getCode()) == (myfirststation.getCode())) && ((item.FirstStation.getCode()) == (mylaststation.getCode())))
                     {
-                       // myArea = (int)item.area;
+                       // myArea = (int)item.Area;
                         flag2 = false;
                         
                     }
@@ -78,7 +84,7 @@ namespace dotNet5781_02_1165_8980
             }
             //if(counter==0)
             //{
-            //    Console.WriteLine("enter the area line");
+            //    Console.WriteLine("enter the Area line");
             //    flag = int.TryParse(Console.ReadLine(), out myArea);
             //    if (flag==false)
             //    {
@@ -102,7 +108,7 @@ namespace dotNet5781_02_1165_8980
                 mybus.LastStation.Distance = mybus.CalculateDistance(mybus.FirstStation, mybus.LastStation);
                 mybus.LastStation.TimeBToS1 = mybus.LastStation.DifferenceTime1;
                 mybus.NumberBus = myline;
-                // mybus.area = Ereas.myArea;
+                // mybus.Area = Ereas.myArea;
                 Buses.Add(mybus);
                 Console.WriteLine("The line added");
             }

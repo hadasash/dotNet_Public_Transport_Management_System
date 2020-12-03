@@ -6,10 +6,13 @@ using System.Threading.Tasks;
 
 namespace dotNet5781_02_1165_8980
 {
-   
-    class lineBus : IComparable <lineBus>
+    public enum Areas
     {
-
+        General, North, South, Center, Jerusalem
+    }
+    public class lineBus : IComparable <lineBus>
+    {
+       
         public List<busLineStation> stations=new List<busLineStation>();
         public busLineStation FirstStation;
         public busLineStation LastStation;
@@ -19,12 +22,14 @@ namespace dotNet5781_02_1165_8980
             LastStation = new busLineStation();
            
         }
-        private int NumberBus1;
-        public int NumberBus { set { NumberBus1 = value; } get { return NumberBus1; } }
-        Areas area;
+        public int NumberBus 
+        {  set ; get ;  }
+        public Areas Area
+        { set; get; }
+        
         public override string ToString()
         {
-            return "Bus line number:" + NumberBus + "Area:" + area + "Stations:" + stations.ToString();
+            return "Bus line number:" + NumberBus + "Area:" + Area + "Stations:" + stations.ToString();
         }
         /// <summary>
         /// the func adds a station
