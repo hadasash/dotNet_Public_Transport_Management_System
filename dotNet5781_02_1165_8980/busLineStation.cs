@@ -17,6 +17,7 @@ namespace dotNet5781_02_1165_8980
             
             timeBToS = r.Next(10,59);
             distance1 = 0;
+
             differenceTime = r.Next(300);
             
         }
