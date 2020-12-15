@@ -32,12 +32,13 @@ namespace dotNet5781_03B_1165_8980
         {
             set
             {
+              //  bool flag = MainWindow.Check(licenseNum);
 
-                if (value.Length == 7 && BeginingOfWork.Year < 2018)
+                if (value.Length == 7 && BeginingOfWork.Year < 2018 )
                 {
                     licenseNum = value;
                 }
-                if (value.Length == 8 && BeginingOfWork.Year >= 2018)
+                if (value.Length == 8 && BeginingOfWork.Year >= 2018 )
                 {
                     licenseNum = value;
                 }
@@ -65,6 +66,7 @@ namespace dotNet5781_03B_1165_8980
 
             }
         }
+
         public DateTime BeginingOfWork
         {
             set { beginingOfWork = value; }
@@ -94,7 +96,7 @@ namespace dotNet5781_03B_1165_8980
         {
             set
             {
-                if (this.beginingOfWork < lastTratment)
+                if (this.beginingOfWork > lastTratment)
                 {
                     MessageBox.Show("ERROR 2");
                 }
@@ -124,7 +126,7 @@ namespace dotNet5781_03B_1165_8980
         {
             set
             {
-                statusBus = (Status)3;
+                statusBus = (Status)value;
             }
             get { return statusBus; }
         }
@@ -132,6 +134,7 @@ namespace dotNet5781_03B_1165_8980
         {
             return "License Number: " + LicenseNum + "    " + "Km: " + KmToTratment + "\n";
         }
+        
     }
     
 }

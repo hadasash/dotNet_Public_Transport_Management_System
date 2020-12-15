@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:dotNet5781_03B_1165_8980"
         mc:Ignorable="d"
-        Title="Bus information" Height="425.621" Width="392.664" Icon="אגד-קריות-פתיחה-לוגו.bmp" >
+        Title="Bus information" Height="425.621" Width="392.664" Icon="אגד.png" >
 
     <Grid HorizontalAlignment="Left" Width="393" Margin="0,0,-6.6,0">
         <Grid.ColumnDefinitions>
@@ -42,8 +42,8 @@
             <Label Content="Total Km:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,4.6" Grid.Row="5" VerticalAlignment="Center" Height="26" Width="107"/>
             <TextBox x:Name="totalKmTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="26" Margin="2.6,4,0,5.6" Grid.Row="5" Text="{Binding TotalKm, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="115"/>
         </Grid>
-        <Button Content="Reafueling" HorizontalAlignment="Left" Margin="32,309,0,0" VerticalAlignment="Top" Width="115" Height="24" Grid.ColumnSpan="2"/>
-        <Button Content="Get treatment" HorizontalAlignment="Left" Margin="119.4,309,0,0" VerticalAlignment="Top" Width="115" Height="24" Grid.Column="1" RenderTransformOrigin="0.159,0.771"/>
+        <Button x:Name="refueling1" Content="Reafueling" HorizontalAlignment="Left" Margin="44,309,0,0" VerticalAlignment="Top" Width="115" Height="24" Grid.ColumnSpan="2" Click="refueling1_Click" />
+        <Button x:Name="gettreatment" Content="Get treatment" HorizontalAlignment="Left" Margin="119.4,309,0,0" VerticalAlignment="Top" Width="115" Height="24" Grid.Column="1" RenderTransformOrigin="0.159,0.771" Click="gettreatment_Click"/>
 
     </Grid>
 </Window>
