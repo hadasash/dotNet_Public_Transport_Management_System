@@ -89,8 +89,8 @@ namespace dotNet5781_03B_1165_8980
             b.Background = Brushes.White;
             c.Background = Brushes.White;
             d.Background = Brushes.White;
-            f.Background = Brushes.White;
-            g.Background = Brushes.White;
+            f.Background = Brushes.ForestGreen;
+            g.Background = Brushes.DeepPink;
             h.Background = Brushes.White;
 
             curBus1.Fuel = 1200;
@@ -171,13 +171,13 @@ namespace dotNet5781_03B_1165_8980
             MyList.Add(MyProgress);
             if (curBus1.Fuel < 1200)
             {
-                MyLic.Background = Brushes.Red;
-                MyLic1.Background = Brushes.Red;
-                MyKm.Background = Brushes.Red;
-                MyKm1.Background = Brushes.Red;
-                MyRefuel.Background = Brushes.Red;
-                MyDrive.Background = Brushes.Red;
-                MyProgress.Background = Brushes.Red;
+                MyLic.Background = Brushes.LightGreen;
+                MyLic1.Background = Brushes.LightGreen;
+                MyKm.Background = Brushes.LightGreen;
+                MyKm1.Background = Brushes.LightGreen;
+                MyRefuel.Background = Brushes.LightGreen;
+                MyDrive.Background = Brushes.LightGreen;
+                MyProgress.Background = Brushes.White;
                 curBus1.StatusBus = (Status)2;
                 bwRefuel.RunWorkerAsync(MyList);
             }
