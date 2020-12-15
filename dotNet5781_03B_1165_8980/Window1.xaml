@@ -42,8 +42,9 @@
             <Label Content="Total Km:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,4.6" Grid.Row="5" VerticalAlignment="Center" Height="26" Width="107"/>
             <TextBox x:Name="totalKmTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="26" Margin="2.6,4,0,5.6" Grid.Row="5" Text="{Binding TotalKm, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="115"/>
         </Grid>
+        
         <Button Content="Reafueling" HorizontalAlignment="Left" Margin="32,309,0,0" VerticalAlignment="Top" Width="115" Height="24" Grid.ColumnSpan="2"/>
-        <Button Content="Get treatment" HorizontalAlignment="Left" Margin="119.4,309,0,0" VerticalAlignment="Top" Width="115" Height="24" Grid.Column="1" RenderTransformOrigin="0.159,0.771"/>
+        <Button Content="Get treatment" HorizontalAlignment="Left" Margin="115.4,309,0,0" VerticalAlignment="Top" Width="115" Height="24" Grid.Column="1" RenderTransformOrigin="0.159,0.771"/>
 
     </Grid>
 </Window>
