@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
          xmlns:local="clr-namespace:dotNet5781_03B_1165_8980" 
         mc:Ignorable="d"     
-        Title="Buses info" Height="450" Width="800" Icon="אגד.png">
+        Title="Buses info" Height="450" Width="800" Icon="אגד.png" Background="White">
     <Window.Resources>
         <DataTemplate x:Key="onebustemplate" DataType="local: Bus">
             <Grid>
@@ -14,16 +14,16 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="90"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Column="0" Text="License Number:  "/>
                 <TextBlock Grid.Column="1" Text="{Binding Path=LicenseNum}"/>
-                <TextBlock Grid.Column="2" Text="    Km:  "/>
+                <TextBlock Grid.Column="2" Text="Km:"/>
                 <TextBlock Grid.Column="3" Text="{Binding Path=KmToTratment}"/>
                 <Button Grid.Column="4" Content="Reafuling" Margin="10,2,10,10"/>
                 <Button Grid.Column="5" Content="Start driving" Margin="10,2,10,10"/>
@@ -32,9 +32,15 @@
         </DataTemplate>
 
     </Window.Resources>
+    <Window.BorderBrush>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="Black" Offset="0"/>
+            <GradientStop Color="White" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.BorderBrush>
 
     <StackPanel>
-        <ListBox x:Name="lbbuses" ItemsSource="{Binding}"  ItemTemplate="{StaticResource onebustemplate}" HorizontalAlignment="Left" Height="230" Margin="120,40,0,0" VerticalAlignment="Top" Width="550" MouseDoubleClick="lbbuses_MouseDoubleClick"/>
-        <Button x:Name="bcAdd" Content="Add a new bus" Margin="120,0,123.6,0" Height="48" Click="bcAdd_Click"/>
+        <ListBox x:Name="lbbuses" ItemsSource="{Binding}"  ItemTemplate="{StaticResource onebustemplate}" HorizontalAlignment="Left" Height="331" Margin="120,40,0,0" VerticalAlignment="Top" Width="569" MouseDoubleClick="lbbuses_MouseDoubleClick" SelectionChanged="lbbuses_SelectionChanged"/>
+        <Button x:Name="bcAdd" Content="Add a new bus" Margin="120,0,104.6,0" Height="25" Click="bcAdd_Click"/>
     </StackPanel>
 </Window>
