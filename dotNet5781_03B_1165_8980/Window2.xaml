@@ -1,0 +1,14 @@
+﻿<Window x:Name="gridWindow2" x:Class="dotNet5781_03B_1165_8980.Window2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:dotNet5781_03B_1165_8980"
+        mc:Ignorable="d"
+        Title="egged" Height="200" Width="363.205" Icon="אגד.png">
+    <Grid x:Name="progress" Height="284" Margin="0,0,-6.2,-4" VerticalAlignment="Top">
+        <ProgressBar x:Name="pbGeneral" HorizontalAlignment="Left" Margin="35,78,0,169" Width="258" Minimum="0" Maximum="100" Value="0"/>
+        <Label x:Name="resultLabel" Content="0 %"  HorizontalAlignment="Left" Margin="298,78,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.085,-0.279" Height="33"/>
+        <Label Content="In process..." HorizontalAlignment="Left" Margin="137,37,0,0" VerticalAlignment="Top" Width="77"/>
+    </Grid>
+</Window>
