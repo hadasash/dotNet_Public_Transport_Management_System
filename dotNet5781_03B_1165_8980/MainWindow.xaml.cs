@@ -90,7 +90,7 @@ namespace dotNet5781_03B_1165_8980
             c.Background = Brushes.White;
             d.Background = Brushes.White;
             f.Background = Brushes.ForestGreen;
-            g.Background = Brushes.DeepPink;
+            g.Background = Brushes.PaleVioletRed;
             h.Background = Brushes.White;
 
             curBus1.Fuel = 1200;
