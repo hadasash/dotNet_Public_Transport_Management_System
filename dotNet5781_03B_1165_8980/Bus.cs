@@ -10,7 +10,7 @@ namespace dotNet5781_03B_1165_8980
     /// <summary>
     /// class representing bus, with data of fuel, number of miles, licensing tax, last treatment date.
     /// </summary>
-    public class Bus
+    public class Bus:DependencyObject
     {
         public Bus() { }
         private string licenseNum;
@@ -96,7 +96,7 @@ namespace dotNet5781_03B_1165_8980
         {
             set
             {
-                if (this.beginingOfWork > lastTratment)
+                if (this.beginingOfWork > value)
                 {
                     MessageBox.Show("ERROR 2");
                 }
@@ -134,7 +134,19 @@ namespace dotNet5781_03B_1165_8980
         {
             return "License Number: " + LicenseNum + "    " + "Km: " + KmToTratment + "\n";
         }
-        
+
+
+        public Visibility ImageV
+        {
+            get { return (Visibility)GetValue(ImageVProperty); }
+            set { SetValue(ImageVProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ImageV.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ImageVProperty =
+            DependencyProperty.Register("ImageV", typeof(Visibility), typeof(Bus), new PropertyMetadata(Visibility.Hidden));
+
+
     }
     
 }

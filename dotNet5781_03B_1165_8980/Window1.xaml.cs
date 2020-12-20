@@ -29,7 +29,7 @@ namespace dotNet5781_03B_1165_8980
         BackgroundWorker bwTreatment;
         Window2 MyNew = new Window2();
         DateTime currentTime = DateTime.Now;
-        MainWindow MyMain = new MainWindow();
+       
         public Window1(Bus mynewbus)
         {
             InitializeComponent();
@@ -53,10 +53,12 @@ namespace dotNet5781_03B_1165_8980
             if (curBus.KmToTratment < 20000 )
             {
                 curBus.StatusBus = (Status)0;
+                curBus.ImageV = Visibility.Visible;
             }
             else
             {
                 curBus.StatusBus = (Status)4;
+                curBus.ImageV = Visibility.Hidden;
 
             }
             MyNew.Close();
@@ -83,14 +85,15 @@ namespace dotNet5781_03B_1165_8980
         {
             curBus.Fuel = 1200;
             MessageBox.Show(" refueling was successful");
-            if ( curBus.KmToTratment < 20000 && curBus.LastTratment >= currentTime.AddYears(-1))
+            if (curBus.KmToTratment < 20000 && curBus.LastTratment >= currentTime.AddYears(-1))
             {
                 curBus.StatusBus = (Status)0;
+                curBus.ImageV = Visibility.Visible;
             }
             else
             {
                 curBus.StatusBus = (Status)4;
-
+                curBus.ImageV = Visibility.Hidden;
             }
 
             MyNew.Close();
@@ -125,7 +128,7 @@ namespace dotNet5781_03B_1165_8980
             if (curBus.Fuel < 1200)
             {
                 
-                curBus.StatusBus = (Status)2;
+                curBus.StatusBus = Status.InReafuel;
                 bwRefuel.RunWorkerAsync();
                 MyNew.ShowDialog();  
             }
