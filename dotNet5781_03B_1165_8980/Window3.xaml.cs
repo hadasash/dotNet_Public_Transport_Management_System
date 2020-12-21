@@ -20,12 +20,15 @@ namespace dotNet5781_03B_1165_8980
     public partial class Window3 : Window
     {
         Bus b1 = new Bus();
-        public Window3(Bus currentBus)
+        public Window3(Bus currentBus)//ctr
         {
             InitializeComponent();
             b1 = currentBus;
         }
-
+        /// <summary>
+        /// A function that as soon as the user presses Enter closes the data window.
+        /// </summary>
+       
         private void Grid_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)

@@ -173,6 +173,7 @@ namespace dotNet5781_03B_1165_8980
             h.Background = Brushes.White;
             curBus1.Fuel = 1200;//Fuel refueling update.
             MessageBox.Show(" refueling was successful");
+            //Changes the status as needed and of course the marking of whether the bus is ready for travel or not
             if (curBus1.KmToTratment < 20000 && curBus1.LastTratment >= currentTime.AddYears(-1))
             {
                 curBus1.StatusBus = (Status)0;
@@ -184,9 +185,14 @@ namespace dotNet5781_03B_1165_8980
                 curBus1.StatusBus = (Status)4;
                 curBus1.ImageV = Visibility.Hidden;
             }
-            h.Value = 0;
-           
+            h.Value = 0;//Returns the progress bar to be empty
+
         }
+        /// <summary>
+        /// The function activates the process and determines the time of the process.
+        /// </summary>
+        /// <param name="sender">the object</param>
+        /// <param name="e">The data that the function receives - the list.</param>
 
         private void BwRefuel_DoWork(object sender, DoWorkEventArgs e)
         {
@@ -199,6 +205,11 @@ namespace dotNet5781_03B_1165_8980
             }
             e.Result = MyList;
         }
+        /// <summary>
+        /// The event of a button that adds a bus to the list.
+        /// </summary>
+        /// <param name="sender">the object</param>
+        /// <param name="e">The data that the function receives - the list.</param>
 
         private void bcAdd_Click(object sender, RoutedEventArgs e)
         {
@@ -209,8 +220,13 @@ namespace dotNet5781_03B_1165_8980
             BusesList.Add(MyNewBus);
 
             Window1 MyNew = new Window1(MyNewBus);
-            MyNew.ShowDialog();
+            MyNew.ShowDialog();//Opens the window for updating the new bus details.
         }
+        /// <summary>
+        /// By double-clicking on a line in the list, the window with the bus details opens.
+        /// </summary>
+        /// <param name="sender">the object</param>
+        /// <param name="e">The data that the function receives - the list.</param>
 
         private void lbbuses_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
@@ -219,31 +235,38 @@ namespace dotNet5781_03B_1165_8980
 
                 Bus mybus = (lbbuses.SelectedItem as Bus);
                 Window1 MyNew = new Window1(mybus);
-                MyNew.ShowDialog();
+                MyNew.ShowDialog();//Window of current bus details.
 
             }
         }
         
        int dis;
+        /// <summary>
+        /// The button to start a trip.
+        /// </summary>
+        /// <param name="sender">the object</param>
+        /// <param name="e">The data that the function receives - the list.</param>
+
         private void startdrive_Click(object sender, RoutedEventArgs e)
         {
             Button btnBus = sender as Button;
-            Bus myBus1 = (Bus) btnBus.DataContext;
+            Bus myBus1 = (Bus) btnBus.DataContext;//Connects a bus to the text box that opens.
             Window3 win3 = new Window3(myBus1);
-            win3.ShowDialog();
+            win3.ShowDialog();//The window that opens to tap the travel distance.
             BackgroundWorker bwStartdriving = new BackgroundWorker();
             bwStartdriving.DoWork += BwStartdriving_DoWork;
             bwStartdriving.RunWorkerCompleted += BwStartdriving_RunWorkerCompleted;
             bwStartdriving.ProgressChanged += BwStartdriving_ProgressChanged;      
             bwStartdriving.WorkerReportsProgress = true;
             
-            bool  flag = int.TryParse((win3.tbDistance.Text).ToString(), out dis);
-           if (flag==false)
+            bool  flag = int.TryParse((win3.tbDistance.Text).ToString(), out dis);//Does not allow typing characters or strings but only numbers.
+            if (flag==false)
             {
                 MessageBox.Show("what was typed is incorrect");
             }
             if (flag == true)
             {
+                //Converts each field in Data Template to its type.
                 var v = btnBus.Parent as Grid;
                 var MyLic = v.Children[0] as TextBlock;
                 var MyLic1 = v.Children[1] as TextBlock;
@@ -252,7 +275,7 @@ namespace dotNet5781_03B_1165_8980
                 var MyRefuel = v.Children[4] as Button;
                 var MyDrive = v.Children[5] as Button;
                 var MyProgress = v.Children[6] as ProgressBar;
-
+                //Puts the data in a list.
                 List<Object> MyList = new List<Object>();
                 MyList.Add(MyLic);
                 MyList.Add(MyLic1);
@@ -262,7 +285,7 @@ namespace dotNet5781_03B_1165_8980
                 MyList.Add(MyDrive);
                 MyList.Add(MyProgress);
                 MyList.Add(myBus1);
-
+                //If a suitable number has been entered for the bus data, the bus leaves for the trip and the background is painted pink
                 if (myBus1.Fuel >= dis && myBus1.LastTratment >=currentTime.AddYears(-1))
                 {
                     MyLic.Background = Brushes.LightPink;
@@ -274,8 +297,8 @@ namespace dotNet5781_03B_1165_8980
                     MyProgress.Background = Brushes.White;
                     MyProgress.Foreground = Brushes.DeepPink;
 
-                    myBus1.StatusBus = (Status)2;
-                    bwStartdriving.RunWorkerAsync(MyList);
+                    myBus1.StatusBus = (Status)2;//status change.
+                    bwStartdriving.RunWorkerAsync(MyList);//A function that activates the process.
                 }
                 else
                 {
@@ -283,6 +306,11 @@ namespace dotNet5781_03B_1165_8980
                 }
             }
         }
+        /// <summary>
+        /// An event of the process that performs the actions performed during the process.
+        /// </summary>
+        /// <param name="sender">the object</param>
+        /// <param name="e">The data that the function receives - the list.</param>
 
         private void BwStartdriving_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
@@ -291,9 +319,15 @@ namespace dotNet5781_03B_1165_8980
             int Progress = e.ProgressPercentage;
             p.Value = Progress;
         }
+        /// <summary>
+        /// The event of the process that performs operations at the end of the process.
+        /// </summary>
+        /// <param name="sender">the object</param>
+        /// <param name="e">The data that the function receives - the list.</param>
 
         private void BwStartdriving_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
+            //Converts each field in Data Template to its type.
             List<Object> MyList = e.Result as List<Object>;
             var a = MyList[0] as TextBlock;
             var b = MyList[1] as TextBlock;
@@ -303,8 +337,8 @@ namespace dotNet5781_03B_1165_8980
             var g = MyList[5] as Button;
             var h = MyList[6] as ProgressBar;
             var curBus1 = MyList[7] as Bus;
+            //Returns the color of the line to the original color.
             a.Background = Brushes.White;
-
             b.Background = Brushes.White;
             c.Background = Brushes.White;
             d.Background = Brushes.White;
@@ -312,10 +346,9 @@ namespace dotNet5781_03B_1165_8980
             g.Background = Brushes.PaleVioletRed;
             h.Background = Brushes.White;
             h.Foreground = Brushes.White;
-
-
             h.Value = 0;
             MessageBox.Show("the travel is over");
+            //Changes the status of the bus to the appropriate status and the check whether the bus is ready for travel or not, and of course refuel if it is missing.
             if (curBus1.KmToTratment < 20000 && curBus1.LastTratment >= currentTime.AddYears(-1))
             {
                 curBus1.StatusBus = (Status)0;
@@ -329,6 +362,11 @@ namespace dotNet5781_03B_1165_8980
             curBus1.Fuel = 1200;
 
         }
+        /// <summary>
+        /// The function activates the process and determines the time of the process.
+        /// </summary>
+        /// <param name="sender">the object</param>
+        /// <param name="e">The data that the function receives - the list.</param>
 
         private void BwStartdriving_DoWork(object sender, DoWorkEventArgs e)
         {
@@ -337,7 +375,7 @@ namespace dotNet5781_03B_1165_8980
             int KmPh = r.Next(20, 50);
             BackgroundWorker bgw = sender as BackgroundWorker;
             List<Object> MyList = e.Argument as List<Object>;
-            for (int i = 0; i <= (dis/KmPh)*6+ (KmPh / (dis % KmPh) * 60) * 0.1; i++)
+            for (int i = 0; i <= (dis/KmPh)*6+ (KmPh / (dis % KmPh) * 60) * 0.1; i++)//Calculates the time by the distance traveled.
             {
                 Thread.Sleep(1000);
                 bgw.ReportProgress((i * 100) /( (dis / KmPh) * 6 + (KmPh / (dis % KmPh) * 6)), MyList);

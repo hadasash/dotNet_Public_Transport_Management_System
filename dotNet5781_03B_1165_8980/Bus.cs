@@ -27,7 +27,7 @@ namespace dotNet5781_03B_1165_8980
         /// </summanry>
         /// <param name="s">The variable that receives the data sent to it in the function</param>
         /// 
-
+        //the properties of the fileds of the class bus.
         public string LicenseNum
         {
             set

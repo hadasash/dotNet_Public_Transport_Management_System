@@ -30,11 +30,12 @@ namespace dotNet5781_03B_1165_8980
         Window2 MyNew = new Window2();
         DateTime currentTime = DateTime.Now;
        
-        public Window1(Bus mynewbus)
+        public Window1(Bus mynewbus)//The ctr of the window.
         {
             InitializeComponent();
-            gridOneBus.DataContext = mynewbus;
+            gridOneBus.DataContext = mynewbus;//Links the data of the bus bus sent to the ctr.
             curBus = mynewbus;
+
             bwRefuel = new BackgroundWorker();
             bwRefuel.DoWork += BwRefuel_DoWork;
             bwRefuel.ProgressChanged += BwRefuel_ProgressChanged;
@@ -46,6 +47,11 @@ namespace dotNet5781_03B_1165_8980
             bwTreatment.RunWorkerCompleted += BwTreatment_RunWorkerCompleted;
             bwTreatment.WorkerReportsProgress = true;
         }
+        /// <summary>
+        /// The event of the process that performs operations at the end of the process.
+        /// </summary>
+        /// <param name="sender">the object</param>
+        /// <param name="e">The data that the function receives - the list.</param>
 
         private void BwTreatment_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
@@ -63,6 +69,11 @@ namespace dotNet5781_03B_1165_8980
             }
             MyNew.Close();
         }
+        /// <summary>
+        /// An event of the process that performs the actions performed during the process.
+        /// </summary>
+        /// <param name="sender">the object</param>
+        /// <param name="e">The data that the function receives - the list.</param>
 
         private void BwTreatment_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
@@ -70,6 +81,11 @@ namespace dotNet5781_03B_1165_8980
             MyNew.resultLabel.Content = (Progress + " %");
             MyNew.pbGeneral.Value = Progress;
         }
+        /// <summary>
+        /// The function activates the process and determines the time of the process.
+        /// </summary>
+        /// <param name="sender">the object</param>
+        /// <param name="e">The data that the function receives - the list.</param>
 
         private void BwTreatment_DoWork(object sender, DoWorkEventArgs e)
         {
@@ -80,7 +96,12 @@ namespace dotNet5781_03B_1165_8980
             }
         }
 
-       
+        /// <summary>
+        /// The event of the process that performs operations at the end of the process.
+        /// </summary>
+        /// <param name="sender">the object</param>
+        /// <param name="e">The data that the function receives - the list.</param>
+
         private void BwRefuel_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             curBus.Fuel = 1200;
@@ -98,6 +119,11 @@ namespace dotNet5781_03B_1165_8980
 
             MyNew.Close();
         }
+        /// <summary>
+        /// An event of the process that performs the actions performed during the process.
+        /// </summary>
+        /// <param name="sender">the object</param>
+        /// <param name="e">The data that the function receives - the list.</param>
 
         private void BwRefuel_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
@@ -105,6 +131,11 @@ namespace dotNet5781_03B_1165_8980
             MyNew.resultLabel.Content = (Progress + " %");
             MyNew.pbGeneral.Value = Progress;
         }
+        /// <summary>
+        /// The function activates the process and determines the time of the process.
+        /// </summary>
+        /// <param name="sender">the object</param>
+        /// <param name="e">The data that the function receives - the list.</param>
 
         private void BwRefuel_DoWork(object sender, DoWorkEventArgs e)
         {
@@ -115,6 +146,7 @@ namespace dotNet5781_03B_1165_8980
                     bwRefuel.ReportProgress(i * 100 / 12);
                 }    
         }
+        //As soon as the user presses Enter the window closes.
         private void gridOneBus_KeyUp(object sender, KeyEventArgs e)
         {
             if(e.Key==Key.Enter)
@@ -122,7 +154,7 @@ namespace dotNet5781_03B_1165_8980
                 this.Close();
             }
         }
-
+        //The button that activates the treadmill of refueling bus.
         private void refueling1_Click(object sender, RoutedEventArgs e)
         {
             if (curBus.Fuel < 1200)
@@ -137,7 +169,7 @@ namespace dotNet5781_03B_1165_8980
                 MessageBox.Show("The fuel tank is full.");
             }
         }
-
+        //The button that takes out a bus for treatment and activates its procession
         private void gettreatment_Click(object sender, RoutedEventArgs e)
         {
             if(curBus.LastTratment <= currentTime.AddYears(-1))
