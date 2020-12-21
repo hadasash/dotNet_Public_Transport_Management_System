@@ -82,6 +82,57 @@ namespace dotNet5781_03B_1165_8980
 
 
         }
+        private void reful_Click(object sender, RoutedEventArgs e)
+        {
+            Button btnBus = sender as Button;
+            Bus curBus1 = (Bus)btnBus.DataContext;
+            BackgroundWorker bwRefuel = new BackgroundWorker();
+            bwRefuel.DoWork += BwRefuel_DoWork;
+            bwRefuel.RunWorkerCompleted += BwRefuel_RunWorkerCompleted;
+            bwRefuel.ProgressChanged += BwRefuel_ProgressChanged;
+            bwRefuel.WorkerReportsProgress = true;
+
+
+
+            var v = btnBus.Parent as Grid;
+            var MyLic = v.Children[0] as TextBlock;
+            var MyLic1 = v.Children[1] as TextBlock;
+            var MyKm = v.Children[2] as TextBlock;
+            var MyKm1 = v.Children[3] as TextBlock;
+            var MyRefuel = v.Children[4] as Button;
+            var MyDrive = v.Children[5] as Button;
+            var MyProgress = v.Children[6] as ProgressBar;
+
+
+            List<Object> MyList = new List<Object>();
+            MyList.Add(MyLic);
+            MyList.Add(MyLic1);
+            MyList.Add(MyKm);
+            MyList.Add(MyKm1);
+            MyList.Add(MyRefuel);
+            MyList.Add(MyDrive);
+            MyList.Add(MyProgress);
+            MyList.Add(curBus1);
+
+            if (curBus1.Fuel < 1200)
+            {
+                MyLic.Background = Brushes.LightGreen;
+                MyLic1.Background = Brushes.LightGreen;
+                MyKm.Background = Brushes.LightGreen;
+                MyKm1.Background = Brushes.LightGreen;
+                MyRefuel.Background = Brushes.LightGreen;
+                MyDrive.Background = Brushes.LightGreen;
+                MyProgress.Background = Brushes.White;
+
+                curBus1.StatusBus = (Status)3;
+                bwRefuel.RunWorkerAsync(MyList);
+            }
+            else
+            {
+                MessageBox.Show("There is not enough fuel to the travel.");
+            }
+
+        }
         /// <summary>
         /// An event of the process that performs the actions performed during the process.
         /// </summary>
@@ -111,7 +162,7 @@ namespace dotNet5781_03B_1165_8980
             var g = MyList[5] as Button;
             var h = MyList[6] as ProgressBar;
             var curBus1 = MyList[7] as Bus;
-            var myimage = MyList[8] as Image;
+            
             //After completing the operation, return the color of the objects to the original color.
             a.Background = Brushes.White;
             b.Background = Brushes.White;
@@ -120,7 +171,6 @@ namespace dotNet5781_03B_1165_8980
             f.Background = Brushes.ForestGreen;
             g.Background = Brushes.PaleVioletRed;
             h.Background = Brushes.White;
-
             curBus1.Fuel = 1200;//Fuel refueling update.
             MessageBox.Show(" refueling was successful");
             if (curBus1.KmToTratment < 20000 && curBus1.LastTratment >= currentTime.AddYears(-1))
@@ -173,56 +223,7 @@ namespace dotNet5781_03B_1165_8980
 
             }
         }
-        private void reful_Click(object sender, RoutedEventArgs e)
-        {
-            Button btnBus = sender as Button;
-           Bus curBus1 = (Bus)btnBus.DataContext;
-            BackgroundWorker bwRefuel = new BackgroundWorker();
-            bwRefuel.DoWork += BwRefuel_DoWork;
-            bwRefuel.RunWorkerCompleted += BwRefuel_RunWorkerCompleted;
-            bwRefuel.ProgressChanged += BwRefuel_ProgressChanged;
-            bwRefuel.WorkerReportsProgress = true;
-           
-
-           
-            var v = btnBus.Parent as Grid;
-            var MyLic = v.Children[0] as TextBlock;
-            var MyLic1 = v.Children[1] as TextBlock;
-            var MyKm = v.Children[2] as TextBlock;
-            var MyKm1 = v.Children[3] as TextBlock;
-            var MyRefuel = v.Children[4] as Button;
-            var MyDrive = v.Children[5] as Button;
-            var MyProgress = v.Children[6] as ProgressBar;
-           
-
-            List<Object> MyList = new List<Object>();
-            MyList.Add(MyLic);
-            MyList.Add(MyLic1);
-            MyList.Add(MyKm);
-            MyList.Add(MyKm1);
-            MyList.Add(MyRefuel);
-            MyList.Add(MyDrive);
-            MyList.Add(MyProgress);
-            MyList.Add(curBus1);
-           
-            if (curBus1.Fuel < 1200)
-            {
-                MyLic.Background = Brushes.LightPink;
-                MyLic1.Background = Brushes.LightPink;
-                MyKm.Background = Brushes.LightPink;
-                MyKm1.Background = Brushes.LightPink;
-                MyRefuel.Background = Brushes.LightPink;
-                MyDrive.Background = Brushes.LightPink;
-                MyProgress.Background = Brushes.White;
-                curBus1.StatusBus = (Status)3;
-                bwRefuel.RunWorkerAsync(MyList);
-            }
-            else
-            {
-                MessageBox.Show("There is not enough fuel to the travel.");
-            }
-
-        }
+        
        int dis;
         private void startdrive_Click(object sender, RoutedEventArgs e)
         {
@@ -264,13 +265,15 @@ namespace dotNet5781_03B_1165_8980
 
                 if (myBus1.Fuel >= dis && myBus1.LastTratment >=currentTime.AddYears(-1))
                 {
-                    MyLic.Background = Brushes.LightGreen;
-                    MyLic1.Background = Brushes.LightGreen;
-                    MyKm.Background = Brushes.LightGreen;
-                    MyKm1.Background = Brushes.LightGreen;
-                    MyRefuel.Background = Brushes.LightGreen;
-                    MyDrive.Background = Brushes.LightGreen;
+                    MyLic.Background = Brushes.LightPink;
+                    MyLic1.Background = Brushes.LightPink;
+                    MyKm.Background = Brushes.LightPink;
+                    MyKm1.Background = Brushes.LightPink;
+                    MyRefuel.Background = Brushes.LightPink;
+                    MyDrive.Background = Brushes.LightPink;
                     MyProgress.Background = Brushes.White;
+                    MyProgress.Foreground = Brushes.DeepPink;
+
                     myBus1.StatusBus = (Status)2;
                     bwStartdriving.RunWorkerAsync(MyList);
                 }
@@ -308,9 +311,11 @@ namespace dotNet5781_03B_1165_8980
             f.Background = Brushes.ForestGreen;
             g.Background = Brushes.PaleVioletRed;
             h.Background = Brushes.White;
+            h.Foreground = Brushes.White;
+
 
             h.Value = 0;
-            MessageBox.Show("done");
+            MessageBox.Show("the travel is over");
             if (curBus1.KmToTratment < 20000 && curBus1.LastTratment >= currentTime.AddYears(-1))
             {
                 curBus1.StatusBus = (Status)0;

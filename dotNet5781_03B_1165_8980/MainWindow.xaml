@@ -9,7 +9,6 @@
     <Window.Resources>
         <DataTemplate x:Key="onebustemplate" DataType="local: Bus">
             <Grid>
-
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
@@ -20,15 +19,15 @@
                     <ColumnDefinition Width="50"/>
                     <ColumnDefinition Width="100"/>
                     <ColumnDefinition Width="100"/>
-                    <ColumnDefinition Width="100"/>
-                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="0"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Column="0" Text="      License Number:   " FontWeight="Bold" Focusable="True"/>
                 <TextBlock Grid.Column="1" Text="{Binding Path=LicenseNum}"/>
                 <TextBlock Grid.Column="2" Text="Km:" FontWeight="Bold"/>
                 <TextBlock Grid.Column="3" Text="{Binding Path=TotalKm}"/>
-                <Button x:Name="reful" Grid.Column="4" Content="Refuling" Margin="10,1.5,10,10" Click="reful_Click"  Background= "ForestGreen" Height="20"  Foreground="White" BorderBrush="Black" />
-                <Button x:Name="startdrive" Grid.Column="5" Content="Start driving" Margin="10,1.5,10,10" Click="startdrive_Click" Background= "PaleVioletRed" Height="20" Foreground="White" BorderBrush="Black"/>
+                <Button x:Name="reful" Grid.Column="4" Content="Refuling" Margin="10,1.5,10,10" Click="reful_Click"  Background= "ForestGreen" Height="20" Foreground="White" BorderBrush="Black" />
+                <Button x:Name="startdrive" Grid.Column="5" Content="Start driving" Margin="10,1.5,10,10" Click="startdrive_Click" Background= "PaleVioletRed" Height="20"  Foreground="White" BorderBrush="Black"/>
                 <ProgressBar x:Name="pbMain" Grid.Column="6" HorizontalAlignment="Left" Margin="10,1.5,10,10"  Width="90" Minimum="0" Maximum="100" Value="0" BorderBrush="White" Height="20" Background="White" Foreground="ForestGreen" Visibility="Visible" />
                 <Image x:Name="myimage" Source="וי.png" Grid.Column="6" Height="20" Width="20" Visibility="{Binding ImageV}" Margin="10,2,10,10" />
             </Grid>
@@ -38,6 +37,6 @@
 
     <StackPanel Margin="-26,0,-0.4,-20">
         <ListBox x:Name="lbbuses" ItemsSource="{Binding}"  ItemTemplate="{StaticResource onebustemplate}" HorizontalAlignment="Left" Height="400" Margin="60,40,60,0" VerticalAlignment="Top" Width="700" MouseDoubleClick="lbbuses_MouseDoubleClick"/>
-        <Button x:Name="bcAdd" Content="Add a new bus" Margin="60,0,69,0" Height="25" Width="700" Click="bcAdd_Click" BorderBrush="Gray" Background="LightGreen"  Foreground="#FF196B1A" FontWeight="Bold" />
+        <Button x:Name="bcAdd"  Content="Add a new bus" Margin="44,0,89.6,0" Height="25" Width="700" Click="bcAdd_Click" BorderBrush="Black" Background="LightGreen"  Foreground="Black" FontWeight="Bold" />
     </StackPanel>
 </Window>
