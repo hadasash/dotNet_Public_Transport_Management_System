@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
          xmlns:local="clr-namespace:dotNet5781_03B_1165_8980" 
         mc:Ignorable="d"     
-        Title="Buses info" Height="550" Width="850" Icon="אגד.png" Background="White" WindowStartupLocation="CenterScreen">
+        Title="Buses info" Height="600" Width="850" Icon="אגד.png" Background="White" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <DataTemplate x:Key="onebustemplate" DataType="local: Bus">
             <Grid>
@@ -36,7 +36,18 @@
     </Window.Resources>
 
     <StackPanel Margin="-26,0,-0.4,-20">
+        <StackPanel.Background>
+            <ImageBrush/>
+        </StackPanel.Background>
         <ListBox x:Name="lbbuses" ItemsSource="{Binding}"  ItemTemplate="{StaticResource onebustemplate}" HorizontalAlignment="Left" Height="400" Margin="60,40,60,0" VerticalAlignment="Top" Width="700" MouseDoubleClick="lbbuses_MouseDoubleClick"/>
         <Button x:Name="bcAdd"  Content="Add a new bus" Margin="44,0,89.6,0" Height="25" Width="700" Click="bcAdd_Click" BorderBrush="Black" Background="LightGreen"  Foreground="Black" FontWeight="Bold" />
+        <Label Content="o the bus is now traveling" Margin="62,0,580.6,0" Height="30" FontWeight="Bold" Foreground="LightPink"/>
+        <Label Content="o the bus is in the middle of refueling" Margin="62,0,580.6,0" Height="30" FontWeight="Bold" Foreground="LightGreen"/>
+        <Label Content="        the bus is ready to go" Margin="55,0,644.6,0" Height="30" FontWeight="Bold" Foreground="ForestGreen">
+            <Label.Background>
+                <ImageBrush ImageSource="‏‏צילום מסך (12).png"/>
+            </Label.Background>
+        </Label>
+
     </StackPanel>
 </Window>

@@ -129,5 +129,8 @@
   <ItemGroup>
     <Resource Include="וי.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="‏‏צילום מסך %2812%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
