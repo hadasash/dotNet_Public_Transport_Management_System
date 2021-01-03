@@ -8,7 +8,7 @@
         Title="egged " Height="450" Width="550" Icon="אגד.png">
 
     <Grid>
-        <GroupBox Header="Choose Option:"  HorizontalAlignment="Left" Height="115" Margin="24,170,0,0" VerticalAlignment="Top" Width="333" FontSize="16" FontFamily="Arial" FontWeight="Bold">
+        <GroupBox Header="Choose Option:"  HorizontalAlignment="Left" Height="115" Margin="10,209,0,0" VerticalAlignment="Top" Width="333" FontSize="16" FontFamily="Arial" FontWeight="Bold">
             <StackPanel Margin="50,10,-2.2,33.8">
                 <RadioButton x:Name ="rbStations" Content="Bus Stations" Height="24" Width="300" IsChecked="True"/>
                 <RadioButton x:Name ="rbLines" Content="Bus Lines" Height="23" Margin="0,0,-10.8,0" HorizontalAlignment="Right" Width="282"/>
@@ -22,10 +22,8 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Grid HorizontalAlignment="Left" Height="108" Margin="0,29,0,0" VerticalAlignment="Top" Width="544" >
-            <MediaElement x:Name="media" Source="" LoadedBehavior="Play" IsMuted="True" Margin="0,0,0,-28" Stretch="Fill" UnloadedBehavior="Play">
-            </MediaElement>
-        </Grid>
-
+        <MediaElement x:Name="media" HorizontalAlignment="Left" Height="182" Margin="0,22,0,0" VerticalAlignment="Top" Width="544" Source="Video Egged.mp4" Stretch="Fill" Volume="0" UnloadedBehavior="Play" StretchDirection="DownOnly" Cursor="None"/>
+        <TextBox x:Name="tbcolor" HorizontalAlignment="Left" Height="22" TextWrapping="Wrap"  VerticalAlignment="Top" Width="544" Background="#FF0A8846"/>
+        <Image HorizontalAlignment="Left" Height="22" Margin="243,0,0,0" VerticalAlignment="Top" Width="87" Source="אגד.png"/>
     </Grid>
 </Window>

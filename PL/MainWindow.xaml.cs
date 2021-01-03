@@ -19,11 +19,14 @@ namespace PL
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {
+    { 
+        
        // IBL bl = BLFactory.GetBL("1");
         public MainWindow()
         {
+           
             InitializeComponent();
+            
         }
 
         private void btnGO_Click(object sender, RoutedEventArgs e)
@@ -32,6 +35,8 @@ namespace PL
             {
                 StationsWindow win = new StationsWindow();
                 win.Show();
+                
+
             }
             else if (rbLines.IsChecked == true)
             {
@@ -46,5 +51,7 @@ namespace PL
                 MessageBox.Show("This method is under construction!", "TBD", MessageBoxButton.OK, MessageBoxImage.Asterisk);
             }
         }
+
+       
     }
 }

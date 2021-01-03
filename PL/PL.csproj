@@ -110,5 +110,10 @@
   <ItemGroup>
     <Resource Include="אגד.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Video Egged.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
