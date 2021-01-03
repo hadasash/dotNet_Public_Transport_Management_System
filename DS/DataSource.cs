@@ -500,7 +500,8 @@ namespace DS
                 {
                     NumberBus = 56,
                     Area = Areas.Jerusalem,
-                    FirstStation = 73,                    LastStation = 76,
+                    FirstStation = 73,
+                    LastStation = 76,
                 },
                 new Line
                 {
@@ -580,7 +581,13 @@ namespace DS
                     FirstStation = 46422,
                     LastStation = 32298,
                 },
-               new Line                {                    NumberBus = 108,                    Area = Areas.Jerusalem,                    FirstStation = 106,                    LastStation = 88,                },
+               new Line
+                {
+                    NumberBus = 108,
+                    Area = Areas.Jerusalem,
+                    FirstStation = 106,
+                    LastStation = 88,
+                },
 
 
             #endregion
