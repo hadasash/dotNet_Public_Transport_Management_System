@@ -21,7 +21,7 @@ namespace DS
         {
             listStations = new List<Station>
             {
-                #region Boot stations//איתחול תחנות
+                 #region Boot stations//איתחול תחנות
                 new Station
                 {
                     Code = 73,
@@ -495,58 +495,18 @@ namespace DS
             };
             listLines = new List<Line>
             {
-                #region Boot lines//אתחול קוים
-                new Line
+                 #region Boot lines//אתחול קוים
+                  new Line
                 {
-                    NumberBus = 56,
-                    Area = Areas.Jerusalem,
-                    FirstStation = 73,
-                    LastStation = 76,
-                },
-                new Line
-                {
+                    LineId= 0,
                     NumberBus = 179,
-                    Area = Areas.Jerusalem,
-                    FirstStation = 1491,
+                    Area = Areas.General,
+                    FirstStation= 1491,
                     LastStation = 1486,
                 },
                 new Line
                 {
-                    NumberBus = 180,
-                    Area = Areas.Jerusalem,
-                    FirstStation = 86,
-                    LastStation = 89,
-                },
-                new Line
-                {
-                    NumberBus = 277,
-                    Area = Areas.Jerusalem,
-                    FirstStation = 109,
-                    LastStation = 119,
-                },
-                new Line
-                {
-                    NumberBus = 377,
-                    Area = Areas.Jerusalem,
-                    FirstStation = 1494,
-                    LastStation = 1510,
-                },
-                new Line
-                {
-                    NumberBus = 3,
-                    Area = Areas.Jerusalem,
-                    FirstStation = 123,
-                    LastStation = 121,
-                },
-                new Line
-                {
-                    NumberBus = 157,
-                    Area = Areas.Jerusalem,
-                    FirstStation = 76,
-                    LastStation = 121,
-                },
-                new Line
-                {
+                    LineId= 1,
                     NumberBus = 280,
                     Area = Areas.Jerusalem,
                     FirstStation = 89,
@@ -554,6 +514,7 @@ namespace DS
                 },
                 new Line
                 {
+                    LineId= 2,
                     NumberBus = 67,
                     Area = Areas.Jerusalem,
                     FirstStation = 105,
@@ -561,6 +522,7 @@ namespace DS
                 },
                 new Line
                 {
+                    LineId= 3,
                     NumberBus = 15,
                     Area = Areas.Jerusalem,
                     FirstStation = 1510,
@@ -569,6 +531,56 @@ namespace DS
 
                 new Line
                 {
+                    LineId= 4,
+                    NumberBus = 56,
+                    Area = Areas.Jerusalem,
+                    FirstStation = 73,
+                    LastStation = 76,
+                },
+
+                 new Line
+                {
+                    LineId= 5,
+                    NumberBus = 180,
+                    Area = Areas.Jerusalem,
+                    FirstStation = 86,
+                    LastStation = 89,
+                },
+                new Line
+                {
+                    LineId= 6,
+                    NumberBus = 277,
+                    Area = Areas.Jerusalem,
+                    FirstStation = 109,
+                    LastStation = 119,
+                },
+                new Line
+                {
+                    LineId= 7,
+                    NumberBus = 377,
+                    Area = Areas.Jerusalem,
+                    FirstStation = 1494,
+                    LastStation = 1510,
+                },
+                new Line
+                {
+                    LineId= 8,
+                    NumberBus = 3,
+                    Area = Areas.Jerusalem,
+                    FirstStation = 123,
+                    LastStation = 121,
+                },
+                new Line
+                {
+                    LineId= 9,
+                    NumberBus = 157,
+                    Area = Areas.Jerusalem,
+                    FirstStation = 76,
+                    LastStation = 121,
+                },
+                new Line
+                {
+                    LineId= 10,
                     NumberBus = 92,
                     Area = Areas.Center,
                     FirstStation = 46422,
@@ -576,29 +588,418 @@ namespace DS
                 },
                 new Line
                 {
+                    LineId= 11,
                     NumberBus = 108,
                     Area = Areas.Center,
                     FirstStation = 46422,
                     LastStation = 32298,
                 },
-               new Line
+                new Line
                 {
+                    LineId= 12,
                     NumberBus = 108,
                     Area = Areas.Jerusalem,
                     FirstStation = 106,
                     LastStation = 88,
-                },
+                }
+
 
 
             #endregion
-        };
-            listLineStation = new List<LineStation>
-            #region Boot lines//אתחול תחנות קו
+            };
+            listLineStation = new List<LineStation>    
             {
-                //line 280 ,Jerusalem
+                #region Boot lines//אתחול תחנות קו
+                //line 179, jerusalem
+                new LineStation
+                {
+                    LineId=0,
+                    Station = 1491,
+                    LineStationIndex = 0,
+                    PrevStation = -1,
+                    NextStation = 90,
+                },
+                new LineStation
+                {
+                    LineId=0,
+                    Station = 90,
+                    LineStationIndex = 1,
+                    PrevStation = 1491,
+                    NextStation = 91,
+                },
+                new LineStation
+                {
+                    LineId=0,
+                    Station = 91,
+                    LineStationIndex = 2,
+                    PrevStation = 90,
+                    NextStation = 93,
+                },
+                new LineStation
+                {
+                    LineId=0,
+                    Station = 93,
+                    LineStationIndex = 3,
+                    PrevStation = 91,
+                    NextStation = 94,
+                },
+                new LineStation
+                {
+                    LineId=0,
+                    Station = 94,
+                    LineStationIndex = 4,
+                    PrevStation = 93,
+                    NextStation = 95,
+                },
+                new LineStation
+                {
+                    LineId=0,
+                    Station = 95,
+                    LineStationIndex = 5,
+                    PrevStation = 94,
+                    NextStation = 102,
+                },
+                new LineStation
+                {
+                    LineId=0,
+                    Station = 102,
+                    LineStationIndex = 6,
+                    PrevStation = 95,
+                    NextStation = 103,
+                },
+                new LineStation
+                {
+                    LineId=0,
+                    Station = 103,
+                    LineStationIndex = 7,
+                    PrevStation = 102,
+                    NextStation = 110,
+                },
+                new LineStation
+                {
+                    LineId=0,
+                    Station = 110,
+                    LineStationIndex = 8,
+                    PrevStation = 103,
+                    NextStation = 1486,
+                },
+                new LineStation
+                {
+                    LineId=0,
+                    Station = 1486,
+                    LineStationIndex = 9,
+                    PrevStation = 110,
+                    NextStation = -1,
+                },
+
+                //line 67, jerusalem
+                new LineStation
+                {
+                    LineId=2,
+                    Station = 105,
+                    LineStationIndex = 0,
+                    PrevStation = -1,
+                    NextStation = 106,
+                },
+                new LineStation
+                {
+                    LineId=2,
+                    Station = 106,
+                    LineStationIndex = 1,
+                    PrevStation = 105,
+                    NextStation = 108,
+                },
+                new LineStation
+                {
+                    LineId=2,
+                    Station = 108,
+                    LineStationIndex = 2,
+                    PrevStation = 106,
+                    NextStation = 109,
+                },
+                new LineStation
+                {
+                    LineId=2,
+                    Station = 109,
+                    LineStationIndex = 3,
+                    PrevStation = 108,
+                    NextStation = 110,
+                },
+                new LineStation
+                {
+                    LineId=2,
+                    Station = 110,
+                    LineStationIndex = 4,
+                    PrevStation = 109,
+                    NextStation = 111,
+                },
+                new LineStation
+                {
+                    LineId=2,
+                    Station = 111,
+                    LineStationIndex = 5,
+                    PrevStation = 110,
+                    NextStation = 119,
+                },
+                new LineStation
+                {
+                    LineId=2,
+                    Station = 119,
+                    LineStationIndex = 6,
+                    PrevStation = 111,
+                    NextStation = 1487,
+                },
+                new LineStation
+                {
+                    LineId=2,
+                    Station = 1487,
+                    LineStationIndex = 7,
+                    PrevStation = 119,
+                    NextStation = 1492,
+                },
+                new LineStation
+                {
+                    LineId=2,
+                    Station = 1492,
+                    LineStationIndex = 8,
+                    PrevStation = 1487,
+                    NextStation = 1494,
+                },
+                new LineStation
+                {
+                    LineId=2,
+                    Station = 1494,
+                    LineStationIndex = 9,
+                    PrevStation = 1492,
+                    NextStation = -1,
+                },
+
+                //line 180, jerusalem
+                new LineStation
+                {
+                    LineId= 5,
+                    Station = 86,
+                    LineStationIndex = 0,
+                    PrevStation = -1,
+                    NextStation = 85,
+                },
+                new LineStation
+                {
+                    LineId= 5,
+                    Station = 85,
+                    LineStationIndex = 1,
+                    PrevStation = 86,
+                    NextStation = 84,
+                },
+                new LineStation
+                {
+                    LineId= 5,
+                    Station = 84,
+                    LineStationIndex = 2,
+                    PrevStation = 85,
+                    NextStation = 83,
+                },
+                new LineStation
+                {
+                    LineId= 5,
+                    Station = 83,
+                    LineStationIndex = 3,
+                    PrevStation = 84,
+                    NextStation = 78,
+                },
+                new LineStation
+                {
+                    LineId= 5,
+                    Station = 78,
+                    LineStationIndex = 4,
+                    PrevStation = 83,
+                    NextStation = 77,
+                },
+                new LineStation
+                {
+                    LineId= 5,
+                    Station = 77,
+                    LineStationIndex = 5,
+                    PrevStation = 78,
+                    NextStation = 115,
+                },
+                new LineStation
+                {
+                    LineId= 5,
+                    Station = 115,
+                    LineStationIndex = 6,
+                    PrevStation = 77,
+                    NextStation = 113,
+                },
+                new LineStation
+                {
+                    LineId= 5,
+                    Station = 113,
+                    LineStationIndex = 7,
+                    PrevStation = 115,
+                    NextStation = 94,
+                },
+                new LineStation
+                {
+                    LineId= 5,
+                    Station = 94,
+                    LineStationIndex = 8,
+                    PrevStation = 113,
+                    NextStation = 89,
+                },
+                new LineStation
+                {
+                    LineId= 5,
+                    Station = 89,
+                    LineStationIndex = 9,
+                    PrevStation = 94,
+                    NextStation = -1,
+                },
+
+                //line 3, jerusalem
+                new LineStation
+                {
+                    LineId= 8,
+                    Station = 123,
+                    LineStationIndex = 0,
+                    PrevStation = -1,
+                    NextStation = 122,
+                },
+                new LineStation
+                {
+                    LineId= 8,
+                    Station = 122,
+                    LineStationIndex = 1,
+                    PrevStation = 123,
+                    NextStation = 1510,
+                },
+                new LineStation
+                {
+                    LineId= 8,
+                    Station = 1510,
+                    LineStationIndex = 2,
+                    PrevStation = 122,
+                    NextStation = 1511,
+                },
+                new LineStation
+                {
+                    LineId= 8,
+                    Station = 1511,
+                    LineStationIndex = 3,
+                    PrevStation = 1510,
+                    NextStation = 1514,
+                },
+                new LineStation
+                {
+                    LineId= 8,
+                    Station = 1514,
+                    LineStationIndex = 4,
+                    PrevStation = 1511,
+                    NextStation = 1518,
+                },
+                new LineStation
+                {
+                    LineId= 8,
+                    Station = 1518,
+                    LineStationIndex = 5,
+                    PrevStation = 1514,
+                    NextStation = 1522,
+                },
+                new LineStation
+                {
+                    LineId= 8,
+                    Station = 1522,
+                    LineStationIndex = 6,
+                    PrevStation = 1518,
+                    NextStation = 1523,
+                },
+                new LineStation
+                {
+                    LineId= 8,
+                    Station = 1523,
+                    LineStationIndex = 7,
+                    PrevStation = 1522,
+                    NextStation = 1524,
+                },
+                new LineStation
+                {
+                    LineId= 8,
+                    Station = 1524,
+                    LineStationIndex = 8,
+                    PrevStation = 1523,
+                    NextStation = 121,
+                },
+                new LineStation
+                {
+                    LineId= 8,
+                    Station = 121,
+                    LineStationIndex = 9,
+                    PrevStation = 1524,
+                    NextStation = -1,
+                },
+
+                //line 108, center
+                new LineStation
+                {
+                    LineId= 11,
+                    Station = 46422,
+                    LineStationIndex = 0,
+                    PrevStation = -1,
+                    NextStation = 35272,
+                },
+                new LineStation
+                {
+                    LineId= 11,
+                    Station = 35272,
+                    LineStationIndex = 1,
+                    PrevStation = 46422,
+                    NextStation = 20116,
+                },
+                new LineStation
+                {
+                    LineId= 11,
+                    Station = 20116,
+                    LineStationIndex = 2,
+                    PrevStation = 35272,
+                    NextStation = 20115,
+                },
+                new LineStation
+                {
+                    LineId= 11,
+                    Station = 20115,
+                    LineStationIndex = 3,
+                    PrevStation = 20116,
+                    NextStation = 46425,
+                },
+                new LineStation
+                {
+                    LineId= 11,
+                    Station = 46425,
+                    LineStationIndex = 4,
+                    PrevStation = 20115,
+                    NextStation = 32287,
+                },
+                new LineStation
+                {
+                    LineId= 11,
+                    Station = 32287,
+                    LineStationIndex = 5,
+                    PrevStation = 46425,
+                    NextStation = 32298,
+                },
+                new LineStation
+                {
+                    LineId= 11,
+                    Station = 32298,
+                    LineStationIndex = 6,
+                    PrevStation = 32287,
+                    NextStation = -1,
+                },
+
+            //line 280 ,Jerusalem
             new LineStation
             {
-
+                LineId=1,
                 Station = 89,
                 LineStationIndex = 0,
                 PrevStation = -1,
@@ -606,7 +1007,7 @@ namespace DS
             },
             new LineStation
             {
-
+                LineId=1,
                 Station = 105,
                 LineStationIndex = 1,
                 PrevStation = 89,
@@ -614,7 +1015,7 @@ namespace DS
             },
             new LineStation
             {
-
+                LineId=1,
                 Station = 121,
                 LineStationIndex = 2,
                 PrevStation = 105,
@@ -622,7 +1023,7 @@ namespace DS
             },
             new LineStation
             {
-
+                LineId=1,
                 Station = 1510,
                 LineStationIndex = 3,
                 PrevStation = 121,
@@ -630,7 +1031,7 @@ namespace DS
             },
             new LineStation
             {
-
+                LineId=1,
                 Station = 111,
                 LineStationIndex = 4,
                 PrevStation = 1510,
@@ -638,7 +1039,7 @@ namespace DS
             },
             new LineStation
             {
-
+                LineId=1,
                 Station = 89,
                 LineStationIndex = 5,
                 PrevStation = 111,
@@ -646,7 +1047,7 @@ namespace DS
             },
             new LineStation
             {
-
+                LineId=1,
                 Station = 109,
                 LineStationIndex = 6,
                 PrevStation = 89,
@@ -654,7 +1055,7 @@ namespace DS
             },
             new LineStation
             {
-
+                LineId=1,
                 Station = 119,
                 LineStationIndex = 7,
                 PrevStation = 109,
@@ -662,7 +1063,7 @@ namespace DS
             },
               new LineStation
             {
-
+                LineId=1,
                 Station = 119,
                 LineStationIndex = 8,
                 PrevStation = 119,
@@ -670,16 +1071,17 @@ namespace DS
             },
                 new LineStation
             {
-
+                LineId=1,
                 Station = 90,
                 LineStationIndex = 9,
                 PrevStation = 119,
                 NextStation = -1,
             },
-                //line 56,Jerusalem
-                 new LineStation
-            {
 
+            //line 56,Jerusalem
+            new LineStation
+            {
+                LineId=4,
                 Station = 73,
                 LineStationIndex = 0,
                 PrevStation = -1,
@@ -687,7 +1089,7 @@ namespace DS
             },
             new LineStation
             {
-
+                LineId=4,
                 Station = 83,
                 LineStationIndex = 1,
                 PrevStation = 73,
@@ -695,7 +1097,7 @@ namespace DS
             },
             new LineStation
             {
-
+                LineId=4,
                 Station = 85,
                 LineStationIndex = 2,
                 PrevStation = 83,
@@ -703,7 +1105,7 @@ namespace DS
             },
             new LineStation
             {
-
+                LineId=4,
                 Station = 86,
                 LineStationIndex = 3,
                 PrevStation = 85,
@@ -711,7 +1113,7 @@ namespace DS
             },
             new LineStation
             {
-
+                LineId=4,
                 Station = 111,
                 LineStationIndex = 4,
                 PrevStation = 86,
@@ -719,7 +1121,7 @@ namespace DS
             },
             new LineStation
             {
-
+                LineId=4,
                 Station = 113,
                 LineStationIndex = 5,
                 PrevStation = 111,
@@ -727,7 +1129,7 @@ namespace DS
             },
             new LineStation
             {
-
+                LineId=4,
                 Station = 117,
                 LineStationIndex = 6,
                 PrevStation = 113,
@@ -735,7 +1137,7 @@ namespace DS
             },
             new LineStation
             {
-
+                LineId=4,
                 Station = 1518,
                 LineStationIndex = 7,
                 PrevStation = 117,
@@ -743,7 +1145,7 @@ namespace DS
             },
               new LineStation
             {
-
+                LineId=4,
                 Station = 1522,
                 LineStationIndex = 8,
                 PrevStation = 1518,
@@ -751,16 +1153,17 @@ namespace DS
             },
                 new LineStation
             {
-
+                LineId=4,
                 Station = 76,
                 LineStationIndex = 9,
                 PrevStation = 1522,
                 NextStation = -1,
             },
-                //line 277 ,Jerusalem
+
+             //line 277 ,Jerusalem
              new LineStation
             {
-
+                LineId= 6,
                 Station = 109,
                 LineStationIndex = 0,
                 PrevStation = -1,
@@ -768,7 +1171,7 @@ namespace DS
             },
             new LineStation
             {
-
+                LineId= 6,
                 Station = 91,
                 LineStationIndex = 1,
                 PrevStation = 109,
@@ -776,7 +1179,7 @@ namespace DS
             },
             new LineStation
             {
-
+                LineId= 6,
                 Station = 93,
                 LineStationIndex = 2,
                 PrevStation = 91,
@@ -784,7 +1187,7 @@ namespace DS
             },
             new LineStation
             {
-
+                LineId= 6,
                 Station = 97,
                 LineStationIndex = 3,
                 PrevStation = 93,
@@ -792,7 +1195,7 @@ namespace DS
             },
             new LineStation
             {
-
+                LineId= 6,
                 Station = 95,
                 LineStationIndex = 4,
                 PrevStation = 97,
@@ -800,7 +1203,7 @@ namespace DS
             },
             new LineStation
             {
-
+                LineId= 6,
                 Station = 105,
                 LineStationIndex = 5,
                 PrevStation = 95,
@@ -808,7 +1211,7 @@ namespace DS
             },
             new LineStation
             {
-
+                LineId= 6,
                 Station = 117,
                 LineStationIndex = 6,
                 PrevStation = 105,
@@ -816,7 +1219,7 @@ namespace DS
             },
             new LineStation
             {
-
+                LineId= 6,
                 Station = 106,
                 LineStationIndex = 7,
                 PrevStation = 117,
@@ -824,7 +1227,7 @@ namespace DS
             },
               new LineStation
             {
-
+                LineId= 6,
                 Station = 103,
                 LineStationIndex = 8,
                 PrevStation = 106,
@@ -832,16 +1235,17 @@ namespace DS
             },
                 new LineStation
             {
-
+                LineId= 6,
                 Station = 119,
                 LineStationIndex = 9,
                 PrevStation = 103,
                 NextStation = -1,
             },
-                //line 377 ,Jerusalem
-               new LineStation
-            {
 
+            //line 377 ,Jerusalem
+            new LineStation
+            {
+                LineId= 7,
                 Station = 1494,
                 LineStationIndex = 0,
                 PrevStation = -1,
@@ -849,7 +1253,7 @@ namespace DS
             },
             new LineStation
             {
-
+                LineId= 7,
                 Station = 1492,
                 LineStationIndex = 1,
                 PrevStation = 1494,
@@ -857,7 +1261,7 @@ namespace DS
             },
             new LineStation
             {
-
+                LineId= 7,
                 Station = 1491,
                 LineStationIndex = 2,
                 PrevStation = 1492,
@@ -865,7 +1269,7 @@ namespace DS
             },
             new LineStation
             {
-
+                LineId= 7,
                 Station = 1490,
                 LineStationIndex = 3,
                 PrevStation = 1491,
@@ -873,7 +1277,7 @@ namespace DS
             },
             new LineStation
             {
-
+                LineId= 7,
                 Station = 1488,
                 LineStationIndex = 4,
                 PrevStation = 1490,
@@ -881,7 +1285,7 @@ namespace DS
             },
             new LineStation
             {
-
+                LineId= 7,
                 Station = 1512,
                 LineStationIndex = 5,
                 PrevStation = 1488,
@@ -889,7 +1293,7 @@ namespace DS
             },
             new LineStation
             {
-
+                LineId= 7,
                 Station = 1518,
                 LineStationIndex = 6,
                 PrevStation = 1512,
@@ -897,7 +1301,7 @@ namespace DS
             },
             new LineStation
             {
-
+                LineId= 7,
                 Station = 1511,
                 LineStationIndex = 7,
                 PrevStation = 1518,
@@ -905,7 +1309,7 @@ namespace DS
             },
               new LineStation
             {
-
+                LineId= 7,
                 Station = 106,
                 LineStationIndex = 8,
                 PrevStation = 1511,
@@ -913,15 +1317,17 @@ namespace DS
             },
                 new LineStation
             {
-
+                LineId= 7,
                 Station = 1510,
                 LineStationIndex = 9,
                 PrevStation = 106,
                 NextStation = -1,
             },
-                // line 92,Center
-                new LineStation
+           
+            // line 92,Center
+            new LineStation
             {
+                LineId= 10,
                 Station = 46422,
                 LineStationIndex = 0,
                 PrevStation = -1,
@@ -929,7 +1335,7 @@ namespace DS
             },
             new LineStation
             {
-
+                LineId= 10,
                 Station = 32295,
                 LineStationIndex = 1,
                 PrevStation = 46422,
@@ -937,7 +1343,7 @@ namespace DS
             },
             new LineStation
             {
-
+                LineId= 10,
                 Station = 20116,
                 LineStationIndex = 2,
                 PrevStation = 32295,
@@ -945,7 +1351,7 @@ namespace DS
             },
             new LineStation
             {
-
+                LineId= 10,
                 Station = 20115,
                 LineStationIndex = 3,
                 PrevStation = 20116,
@@ -953,7 +1359,7 @@ namespace DS
             },
             new LineStation
             {
-
+                LineId= 10,
                 Station = 35272,
                 LineStationIndex = 4,
                 PrevStation = 20115,
@@ -961,7 +1367,7 @@ namespace DS
             },
             new LineStation
             {
-
+                LineId= 10,
                 Station = 46425,
                 LineStationIndex = 5,
                 PrevStation = 35272,
@@ -969,7 +1375,7 @@ namespace DS
             },
             new LineStation
             {
-
+                LineId= 10,
                 Station = 32287,
                 LineStationIndex = 6,
                 PrevStation = 46425,
@@ -977,7 +1383,7 @@ namespace DS
             },
            new LineStation
             {
-
+                LineId= 10,
                 Station = 106,
                 LineStationIndex = 0,
                 PrevStation = -1,
@@ -986,7 +1392,7 @@ namespace DS
            // line 108 ,Jerusalem
             new LineStation
             {
-
+                LineId= 12,
                 Station = 106,
                 LineStationIndex = 1,
                 PrevStation = 106,
@@ -994,7 +1400,7 @@ namespace DS
             },
             new LineStation
             {
-
+                LineId= 12,
                 Station = 85,
                 LineStationIndex = 2,
                 PrevStation = 106,
@@ -1002,7 +1408,7 @@ namespace DS
             },
             new LineStation
             {
-
+                LineId= 12,
                 Station = 86,
                 LineStationIndex = 3,
                 PrevStation = 85,
@@ -1010,7 +1416,7 @@ namespace DS
             },
             new LineStation
             {
-
+                LineId= 12,
                 Station = 73,
                 LineStationIndex = 4,
                 PrevStation = 86,
@@ -1018,7 +1424,7 @@ namespace DS
             },
             new LineStation
             {
-
+                LineId= 12,
                 Station = 77,
                 LineStationIndex = 5,
                 PrevStation = 73,
@@ -1026,7 +1432,7 @@ namespace DS
             },
             new LineStation
             {
-
+                LineId= 12,
                 Station = 76,
                 LineStationIndex = 6,
                 PrevStation = 77,
@@ -1034,7 +1440,7 @@ namespace DS
             },
             new LineStation
             {
-
+                LineId= 12,
                 Station = 97,
                 LineStationIndex = 7,
                 PrevStation = 76,
@@ -1042,7 +1448,7 @@ namespace DS
             },
               new LineStation
             {
-
+                LineId= 12,
                 Station = 84,
                 LineStationIndex = 8,
                 PrevStation = 97,
@@ -1050,354 +1456,17 @@ namespace DS
             },
                 new LineStation
             {
-
+                LineId= 12,
                 Station = 88,
                 LineStationIndex = 9,
                 PrevStation = 84,
                 NextStation = -1,
             },
- //line 179, jerusalem
+
+                //line 15, jerusalem
                 new LineStation
                 {
-                    Station= 1491,
-                    LineStationIndex =0,
-                    PrevStation=-1,
-                    NextStation= 90,
-                },
-            new LineStation
-            {
-                Station = 90,
-                LineStationIndex = 1,
-                PrevStation = 1491,
-                NextStation = 91,
-            },
-            new LineStation
-            {
-                Station = 91,
-                LineStationIndex = 2,
-                PrevStation = 90,
-                NextStation = 93,
-            },
-            new LineStation
-            {
-                Station = 93,
-                LineStationIndex = 3,
-                PrevStation = 91,
-                NextStation = 94,
-            },
-            new LineStation
-            {
-                Station = 94,
-                LineStationIndex = 4,
-                PrevStation = 93,
-                NextStation = 95,
-            },
-            new LineStation
-            {
-                Station = 95,
-                LineStationIndex = 5,
-                PrevStation = 94,
-                NextStation = 102,
-            },
-            new LineStation
-            {
-                Station = 102,
-                LineStationIndex = 6,
-                PrevStation = 95,
-                NextStation = 103,
-            },
-            new LineStation
-            {
-                Station = 103,
-                LineStationIndex = 7,
-                PrevStation = 102,
-                NextStation = 110,
-            },
-            new LineStation
-            {
-                Station = 110,
-                LineStationIndex = 8,
-                PrevStation = 103,
-                NextStation = 1486,
-            },
-            new LineStation
-            {
-                Station = 1486,
-                LineStationIndex = 9,
-                PrevStation = 110,
-                NextStation = -1,
-            },
-
-            //line 67, jerusalem
-            new LineStation
-            {
-                Station = 105,
-                LineStationIndex = 0,
-                PrevStation = -1,
-                NextStation = 106,
-            },
-            new LineStation
-            {
-                Station = 106,
-                LineStationIndex = 1,
-                PrevStation = 105,
-                NextStation = 108,
-            },
-            new LineStation
-            {
-                Station = 108,
-                LineStationIndex = 2,
-                PrevStation = 106,
-                NextStation = 109,
-            },
-            new LineStation
-            {
-                Station = 109,
-                LineStationIndex = 3,
-                PrevStation = 108,
-                NextStation = 110,
-            },
-            new LineStation
-            {
-                Station = 110,
-                LineStationIndex = 4,
-                PrevStation = 109,
-                NextStation = 111,
-            },
-            new LineStation
-            {
-                Station = 111,
-                LineStationIndex = 5,
-                PrevStation = 110,
-                NextStation = 119,
-            },
-            new LineStation
-            {
-                Station = 119,
-                LineStationIndex = 6,
-                PrevStation = 111,
-                NextStation = 1487,
-            },
-            new LineStation
-            {
-                Station = 1487,
-                LineStationIndex = 7,
-                PrevStation = 119,
-                NextStation = 1492,
-            },
-            new LineStation
-            {
-                Station = 1492,
-                LineStationIndex = 8,
-                PrevStation = 1487,
-                NextStation = 1494,
-            },
-            new LineStation
-            {
-                Station = 1494,
-                LineStationIndex = 9,
-                PrevStation = 1492,
-                NextStation = -1,
-            },
-
-            //line 180, jerusalem
-            new LineStation
-            {
-                Station = 86,
-                LineStationIndex = 0,
-                PrevStation = -1,
-                NextStation = 85,
-            },
-            new LineStation
-            {
-                Station = 85,
-                LineStationIndex = 1,
-                PrevStation = 86,
-                NextStation = 84,
-            },
-            new LineStation
-            {
-                Station = 84,
-                LineStationIndex = 2,
-                PrevStation = 85,
-                NextStation = 83,
-            },
-            new LineStation
-            {
-                Station = 83,
-                LineStationIndex = 3,
-                PrevStation = 84,
-                NextStation = 78,
-            },
-            new LineStation
-            {
-                Station = 78,
-                LineStationIndex = 4,
-                PrevStation = 83,
-                NextStation = 77,
-            },
-            new LineStation
-            {
-                Station = 77,
-                LineStationIndex = 5,
-                PrevStation = 78,
-                NextStation = 115,
-            },
-            new LineStation
-            {
-                Station = 115,
-                LineStationIndex = 6,
-                PrevStation = 77,
-                NextStation = 113,
-            },
-            new LineStation
-            {
-                Station = 113,
-                LineStationIndex = 7,
-                PrevStation = 115,
-                NextStation = 94,
-            },
-            new LineStation
-            {
-                Station = 94,
-                LineStationIndex = 8,
-                PrevStation = 113,
-                NextStation = 89,
-            },
-            new LineStation
-            {
-                Station = 89,
-                LineStationIndex = 9,
-                PrevStation = 94,
-                NextStation = -1,
-            },
-
-            //line 3, jerusalem
-            new LineStation
-            {
-                Station = 123,
-                LineStationIndex = 0,
-                PrevStation = -1,
-                NextStation = 122,
-            },
-            new LineStation
-            {
-                Station = 122,
-                LineStationIndex = 1,
-                PrevStation = 123,
-                NextStation = 1510,
-            },
-            new LineStation
-            {
-                Station = 1510,
-                LineStationIndex = 2,
-                PrevStation = 122,
-                NextStation = 1511,
-            },
-            new LineStation
-            {
-                Station = 1511,
-                LineStationIndex = 3,
-                PrevStation = 1510,
-                NextStation = 1514,
-            },
-            new LineStation
-            {
-                Station = 1514,
-                LineStationIndex = 4,
-                PrevStation = 1511,
-                NextStation = 1518,
-            },
-            new LineStation
-            {
-                Station = 1518,
-                LineStationIndex = 5,
-                PrevStation = 1514,
-                NextStation = 1522,
-            },
-            new LineStation
-            {
-                Station = 1522,
-                LineStationIndex = 6,
-                PrevStation = 1518,
-                NextStation = 1523,
-            },
-            new LineStation
-            {
-                Station = 1523,
-                LineStationIndex = 7,
-                PrevStation = 1522,
-                NextStation = 1524,
-            },
-            new LineStation
-            {
-                Station = 1524,
-                LineStationIndex = 8,
-                PrevStation = 1523,
-                NextStation = 121,
-            },
-            new LineStation
-            {
-                Station = 121,
-                LineStationIndex = 9,
-                PrevStation = 1524,
-                NextStation = -1,
-            },
-
-            //line 108, center
-            new LineStation
-            {
-                Station = 46422,
-                LineStationIndex = 0,
-                PrevStation = -1,
-                NextStation = 35272,
-            },
-            new LineStation
-            {
-                Station = 35272,
-                LineStationIndex = 1,
-                PrevStation = 46422,
-                NextStation = 20116,
-            },
-            new LineStation
-            {
-                Station = 20116,
-                LineStationIndex = 2,
-                PrevStation = 35272,
-                NextStation = 20115,
-            },
-            new LineStation
-            {
-                Station = 20115,
-                LineStationIndex = 3,
-                PrevStation = 20116,
-                NextStation = 46425,
-            },
-            new LineStation
-            {
-                Station = 46425,
-                LineStationIndex = 4,
-                PrevStation = 20115,
-                NextStation = 32287,
-            },
-            new LineStation
-            {
-                Station = 32287,
-                LineStationIndex = 5,
-                PrevStation = 46425,
-                NextStation = 32298,
-            },
-            new LineStation
-            {
-                Station = 32298,
-                LineStationIndex = 6,
-                PrevStation = 32287,
-                NextStation = -1,
-            },
-              //line 15, jerusalem
-                new LineStation
-                {
-
+                    LineId=3,
                     Station = 1510,
                     LineStationIndex = 0,
                     PrevStation = -1,
@@ -1406,6 +1475,7 @@ namespace DS
 
                 new LineStation
                 {
+                    LineId=3,
                     Station = 83,
                     LineStationIndex = 1,
                     PrevStation = 1510,
@@ -1414,6 +1484,7 @@ namespace DS
                 },
                 new LineStation
                 {
+                    LineId=3,
                     Station = 84,
                     LineStationIndex = 2,
                     PrevStation = 83,
@@ -1422,6 +1493,7 @@ namespace DS
                 },
                 new LineStation
                 {
+                    LineId=3,
                     Station = 88,
                     LineStationIndex = 3,
                     PrevStation = 84,
@@ -1430,6 +1502,7 @@ namespace DS
                 },
                 new LineStation
                 {
+                    LineId=3,
                     Station = 89,
                     LineStationIndex = 4,
                     PrevStation = 88,
@@ -1438,6 +1511,7 @@ namespace DS
                 },
                 new LineStation
                 {
+                    LineId=3,
                     Station = 97,
                     LineStationIndex = 5,
                     PrevStation = 89,
@@ -1446,6 +1520,7 @@ namespace DS
                 },
                 new LineStation
                 {
+                    LineId=3,
                     Station = 103,
                     LineStationIndex = 6,
                     PrevStation = 97,
@@ -1454,6 +1529,7 @@ namespace DS
                 },
                 new LineStation
                 {
+                    LineId=3,
                     Station = 102,
                     LineStationIndex = 7,
                     PrevStation = 103,
@@ -1462,6 +1538,7 @@ namespace DS
                 },
                 new LineStation
                 {
+                    LineId=3,
                     Station = 116,
                     LineStationIndex = 8,
                     PrevStation = 102,
@@ -1470,6 +1547,7 @@ namespace DS
                 },
                 new LineStation
                 {
+                    LineId=3,
                     Station = 111,
                     LineStationIndex = 9,
                     PrevStation = 116,
@@ -1480,7 +1558,7 @@ namespace DS
                 //line 157, jerusalem
                 new LineStation
                 {
-
+                    LineId= 9,
                     Station = 76,
                     LineStationIndex = 0,
                     PrevStation = -1,
@@ -1489,6 +1567,7 @@ namespace DS
 
                 new LineStation
                 {
+                    LineId= 9,
                     Station = 77,
                     LineStationIndex = 1,
                     PrevStation = 76,
@@ -1497,6 +1576,7 @@ namespace DS
                 },
                 new LineStation
                 {
+                    LineId= 9,
                     Station = 78,
                     LineStationIndex = 2,
                     PrevStation = 77,
@@ -1505,6 +1585,7 @@ namespace DS
                 },
                 new LineStation
                 {
+                    LineId= 9,
                     Station = 83,
                     LineStationIndex = 3,
                     PrevStation = 78,
@@ -1513,6 +1594,7 @@ namespace DS
                 },
                 new LineStation
                 {
+                    LineId= 9,
                     Station = 94,
                     LineStationIndex = 4,
                     PrevStation = 83,
@@ -1521,6 +1603,7 @@ namespace DS
                 },
                 new LineStation
                 {
+                    LineId= 9,
                     Station = 95,
                     LineStationIndex = 5,
                     PrevStation = 94,
@@ -1529,6 +1612,7 @@ namespace DS
                 },
                 new LineStation
                 {
+                    LineId= 9,
                     Station = 103,
                     LineStationIndex = 6,
                     PrevStation = 95,
@@ -1537,6 +1621,7 @@ namespace DS
                 },
                 new LineStation
                 {
+                    LineId= 9,
                     Station = 106,
                     LineStationIndex = 7,
                     PrevStation = 103,
@@ -1545,6 +1630,7 @@ namespace DS
                 },
                 new LineStation
                 {
+                    LineId= 9,
                     Station = 109,
                     LineStationIndex = 8,
                     PrevStation = 106,
@@ -1553,6 +1639,7 @@ namespace DS
                 },
                 new LineStation
                 {
+                    LineId= 9,
                     Station = 111,
                     LineStationIndex = 9,
                     PrevStation = 109,
@@ -1560,11 +1647,23 @@ namespace DS
 
                 },
 
-        };
+ #endregion
+            };
+            listAdjacentStation = new List<AdjacentStations>
+            {
+                #region Boot //אתחול תחנות עוקבות
+                new AdjacentStations
+                {
 
-
-            #endregion
+                }
+                #endregion end
+            }; 
            
+
+
+
+
+
         }
     }
 }
