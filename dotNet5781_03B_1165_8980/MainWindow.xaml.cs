@@ -213,6 +213,7 @@ namespace dotNet5781_03B_1165_8980
 
         private void bcAdd_Click(object sender, RoutedEventArgs e)
         {
+            this.Cursor
             Bus MyNewBus = new Bus();
             MyNewBus.BeginingOfWork = new DateTime(2000, 1, 1);
             MyNewBus.LastTratment = new DateTime(2000, 1, 1);
