@@ -44,6 +44,7 @@
     <Compile Include="DLConfig.cs" />
     <Compile Include="DLFactory.cs" />
     <Compile Include="DO\AdjacentStations.cs" />
+    <Compile Include="DO\Config.cs" />
     <Compile Include="DO\Enums.cs" />
     <Compile Include="DO\Line.cs" />
     <Compile Include="DO\LineStation.cs" />
