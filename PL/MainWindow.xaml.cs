@@ -52,6 +52,9 @@ namespace PL
             }
         }
 
-       
+        private void tbcolor_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
