@@ -21,7 +21,26 @@ namespace DL
         public static DLObject Instance { get => instance; }// The public Instance property to use
         #endregion
 
-        //Implement IDL methods, CRUD
-      
+        public DO.Station GetStation(int code)
+        {
+            DO.Station station = DataSource.listStations.Find(p => p.Code == code);
+            //try { Thread.Sleep(2000); } catch (ThreadInterruptedException ex) { }
+            if (station != null)
+            {
+                return station.Clone();
+            }
+            else
+            {
+                return null;
+            }
+            //else
+            //    throw new DO.BadPersonIdException(id, $"bad student id: {id}");
+        }
+
+        public IEnumerable<DO.Station> GetAllStations()
+        {
+            return from station in DataSource.listStations
+                   select station.Clone();
+        }
     }
 }

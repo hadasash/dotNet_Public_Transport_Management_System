@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BO
 {
-    class LineInStation
+    public class LineInStation
     {
         public int LineId { get; set; }
         public int NumOfBus { get; set; }

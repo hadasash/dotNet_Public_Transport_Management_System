@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BLAPI;
 
 namespace PL
 {
@@ -19,9 +20,44 @@ namespace PL
     /// </summary>
     public partial class StationsWindow : Window
     {
-        public StationsWindow()
+        IBL bl;
+        BO.Station curStation;
+        public StationsWindow(IBL _bl)
         {
+           
             InitializeComponent();
+            bl = _bl;
+            cbStationId.DisplayMemberPath = "Name";//show only specific Property of object
+            cbStationId.SelectedValuePath = "Code";//selection return only specific Property of object
+            cbStationId.SelectedIndex = 0; //index of the object to be selected
+            RefreshAllStationComboBox();
+
+        }
+
+        void RefreshAllStationComboBox()
+        {
+            cbStationId.DataContext = bl.GetAllStations().ToList(); //ObserListOfStudents;
+        }
+        private void cbStationId_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            curStation = (cbStationId.SelectedItem as BO.Station);
+            gridOneStation.DataContext = curStation;
+
+            if (curStation != null)
+            {
+                //list of courses of selected student
+               // RefreshAllRegisteredCoursesGrid();
+                //list of all courses (that selected student is not registered to it)
+               // RefreshAllNotRegisteredCoursesGrid();
+            }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            System.Windows.Data.CollectionViewSource stationViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("stationViewSource")));
+            // Load data by setting the CollectionViewSource.Source property:
+            // stationViewSource.Source = [generic data source]
         }
     }
 }

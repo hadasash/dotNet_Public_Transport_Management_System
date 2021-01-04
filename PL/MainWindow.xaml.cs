@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using BLAPI;
 namespace PL
 {
     /// <summary>
@@ -21,7 +21,7 @@ namespace PL
     public partial class MainWindow : Window
     { 
         
-       // IBL bl = BLFactory.GetBL("1");
+        IBL bl = BLFactory.GetBL("1");
         public MainWindow()
         {
            
@@ -33,7 +33,7 @@ namespace PL
         {
             if (rbStations.IsChecked == true)
             {
-                StationsWindow win = new StationsWindow();
+                StationsWindow win = new StationsWindow(bl);
                 win.Show();
                 
 
