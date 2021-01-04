@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-//using BL;
+using BL;
 
 namespace BLAPI
 {
@@ -14,12 +14,12 @@ namespace BLAPI
         //{
         //    switch (type)
         //    {
-        //        //case "1":
-        //        //    return new BLImp();
-        //        //case "2":
-        //        //    return new BLImp2();
-        //        //default:
-        //        //    return new BLImp();
+        //        case "1":
+        //            return new BLImp();
+        //        case "2":
+        //            return new BLImp();
+        //        default:
+        //            return new BLImp();
         //    }
         //}
     }

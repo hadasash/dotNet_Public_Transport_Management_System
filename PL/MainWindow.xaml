@@ -24,6 +24,6 @@
         </Button>
         <MediaElement x:Name="media" HorizontalAlignment="Left" Height="182" Margin="0,22,0,0" VerticalAlignment="Top" Width="544" Source="Video Egged.mp4" Stretch="Fill" Volume="0" UnloadedBehavior="Play" StretchDirection="DownOnly" Cursor="None"/>
         <TextBox x:Name="tbcolor" HorizontalAlignment="Left" Height="22" TextWrapping="Wrap"  VerticalAlignment="Top" Width="544" Background="#FF0A8846"/>
-        <Image HorizontalAlignment="Left" Height="22" Margin="243,0,0,0" VerticalAlignment="Top" Width="87" Source="אגד.png"/>
+        <Image HorizontalAlignment="Left" Height="22" Margin="243,0,0,0" VerticalAlignment="Top" Width="87" Source="egged.png"/>
     </Grid>
 </Window>

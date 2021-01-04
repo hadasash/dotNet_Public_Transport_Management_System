@@ -9,9 +9,10 @@ using BO;
 
 namespace BL
 {
-    class BLImp : IBL //internal
-    {
-        IDL dl = DLFactory.GetDL();
+    //class BLImp : IBL //internal
+    //{
+    //    IDL dl = DLFactory.GetDL();
 
-    }
+    //}
+
 }
