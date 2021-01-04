@@ -116,7 +116,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="egged.png" />
+    <Resource Include="green.png" />
+    <Resource Include="3dfc241d9c.svg.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

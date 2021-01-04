@@ -5,25 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL"
         mc:Ignorable="d"
-        Title="egged " Height="450" Width="550" Icon="אגד.png">
+        Title="Bondi" Height="400" Width="490" Icon="green.png" Background="White" >
 
     <Grid>
-        <GroupBox Header="Choose Option:"  HorizontalAlignment="Left" Height="115" Margin="10,209,0,0" VerticalAlignment="Top" Width="333" FontSize="16" FontFamily="Arial" FontWeight="Bold">
-            <StackPanel Margin="50,10,-2.2,33.8">
-                <RadioButton x:Name ="rbStations" Content="Bus Stations" Height="24" Width="300" IsChecked="True"/>
-                <RadioButton x:Name ="rbLines" Content="Bus Lines" Height="23" Margin="0,0,-10.8,0" HorizontalAlignment="Right" Width="282"/>
-            </StackPanel>
-        </GroupBox>
-        <Button x:Name="btnGO" Content="GO" HorizontalAlignment="Left" Height="42" Margin="50,324,0,0" VerticalAlignment="Top" Width="228" FontSize="16" FontFamily="Arial" Click="btnGO_Click" RenderTransformOrigin="0.613,0.454" FontWeight="Bold">
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0" FrameworkElement.FlowDirection="RightToLeft">
-                    <GradientStop Color="ForestGreen" Offset="1"/>
-                    <GradientStop Color="#FF13BFA3"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
-        <MediaElement x:Name="media" HorizontalAlignment="Left" Height="182" Margin="0,22,0,0" VerticalAlignment="Top" Width="544" Source="Video Egged.mp4" Stretch="Fill" Volume="0" UnloadedBehavior="Play" StretchDirection="DownOnly" Cursor="None"/>
-        <TextBox x:Name="tbcolor" HorizontalAlignment="Left" Height="22" TextWrapping="Wrap"  VerticalAlignment="Top" Width="544" Background="#FF0A8846"/>
-        <Image HorizontalAlignment="Left" Height="22" Margin="243,0,0,0" VerticalAlignment="Top" Width="87" Source="egged.png"/>
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*" />
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="30" />
+            <RowDefinition Height="1.5*" />
+            <RowDefinition Height="0.25*" />
+            <RowDefinition Height="0.25*" />
+            <RowDefinition Height="0.25*" />
+            <RowDefinition Height="0.25*" />
+            <RowDefinition Height="10" />
+        </Grid.RowDefinitions>
+
+
+        <RadioButton x:Name ="rbStations" Grid.Row="2"  Grid.Column="1" Grid.ColumnSpan="3" Content="  Bus Stations" Height="20" HorizontalAlignment="Left" IsChecked="True"  FontWeight="Bold" RenderTransformOrigin="0.472,2.533" Margin="0.2,1.2,0,1.6" Width="121" FontSize="14" />
+        <RadioButton x:Name ="rbLines"   Grid.Row="3"  Grid.Column="1" Grid.ColumnSpan="2" Height="20" Content="  Bus Lines" HorizontalAlignment="Left"  FontWeight="Bold" Width="119" Margin="0.2,0.4,0,2.4" FontSize="14"/>
+
+
+
+        <Button x:Name="btnGO" Content="GO" HorizontalAlignment="Stretch" Height="20" VerticalAlignment="Bottom"   FontSize="16" FontFamily="Arial" Click="btnGO_Click" RenderTransformOrigin="0.613,0.454" FontWeight="Bold" Background="#FF2FA535" Grid.Row="5" Grid.Column="7"   Foreground="White"/>
+        <MediaElement x:Name="media" Grid.Column="0"
+            Grid.ColumnSpan="8" HorizontalAlignment="Left"  Margin="0,30,-0.383,0" VerticalAlignment="Top" Source="Video Egged.mp4" Stretch="Fill" Volume="0" UnloadedBehavior="Play" StretchDirection="DownOnly" Cursor="None" OpacityMask="Black" Grid.RowSpan="2"/>
+
+        <TextBox x:Name="tbcolor" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="8" HorizontalAlignment="Stretch" TextWrapping="Wrap"  Text="  Bondi" VerticalAlignment="Top"  Background="#FF2FA535" FontWeight="Bold" Foreground="#FFFCFBFA"  FontSize="17" BorderBrush="{x:Null}"  />
+        <Image Height="22" Grid.Row="0" Grid.Column="0"   VerticalAlignment="Bottom" Source="green.png" HorizontalAlignment="Center" Margin="113,0,69.2,5.4"/>
     </Grid>
 </Window>

@@ -21,7 +21,7 @@ namespace DS
         {
             listStations = new List<Station>
             {
-                 #region Boot stations//איתחול תחנות
+                #region Boot stations//איתחול תחנות
                 new Station
                 {
                     Code = 73,
@@ -509,8 +509,8 @@ namespace DS
                     LineId= 1,
                     NumberBus = 280,
                     Area = Areas.Jerusalem,
-                    FirstStation = 89,
-                    LastStation = 90,
+                    FirstStation = 73,
+                    LastStation = 76,
                 },
                 new Line
                 {
@@ -594,14 +594,13 @@ namespace DS
                     FirstStation = 46422,
                     LastStation = 32298,
                 },
-                new Line
+               new Line
                 {
-                    LineId= 12,
                     NumberBus = 108,
                     Area = Areas.Jerusalem,
                     FirstStation = 106,
                     LastStation = 88,
-                }
+                },
 
 
 
