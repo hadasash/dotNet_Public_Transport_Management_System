@@ -11,6 +11,6 @@ namespace BO
     {
         public int LineId { get; set; }
         public int NumOfBus { get; set; }
-        IEnumerable<LineStation> LineStations { set; get; }
+        public IEnumerable<LineStation> LineStations { set; get; }
     }
 }

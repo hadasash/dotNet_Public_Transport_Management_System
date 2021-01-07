@@ -42,6 +42,7 @@ namespace PL
         {
             curStation = (cbStationId.SelectedItem as BO.Station);
             gridOneStation.DataContext = curStation;
+           // lineDataGrid.DataContext =    bl.GetLines(curStation.Code);
 
             if (curStation != null)
             {
@@ -52,12 +53,5 @@ namespace PL
             }
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-
-            System.Windows.Data.CollectionViewSource stationViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("stationViewSource")));
-            // Load data by setting the CollectionViewSource.Source property:
-            // stationViewSource.Source = [generic data source]
-        }
     }
 }

@@ -6,17 +6,15 @@
         xmlns:local="clr-namespace:PL"
         xmlns:BO="clr-namespace:BO;assembly=BL" x:Class="PL.StationsWindow"
         mc:Ignorable="d"
-        Title="StationsWindow" Height="450" Width="800" Loaded="Window_Loaded">
-    <Window.Resources>
-        <CollectionViewSource x:Key="stationViewSource" d:DesignSource="{d:DesignInstance {x:Type BO:Station}, CreateList=True}"/>
-    </Window.Resources>
+        Title="StationsWindow" Height="450" Width="800" >
+
     <Grid >
         <Label Content="Select Station:" Grid.Row="0" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Height="25" Width="104"/>
         <ComboBox x:Name="cbStationId" HorizontalAlignment="Left" Text="" VerticalAlignment="Top"
                   Grid.Row="0" Height="25" Margin="132,35,0,0" Width="123"
                   ItemsSource="{Binding}" 
                   HorizontalContentAlignment="Left" VerticalContentAlignment="Top" SelectionChanged="cbStationId_SelectionChanged"  />
-        <Grid x:Name="gridOneStation" DataContext="{StaticResource stationViewSource}" HorizontalAlignment="Left" Margin="66,87,0,0" VerticalAlignment="Top" Height="164">
+        <Grid x:Name="gridOneStation" HorizontalAlignment="Left" Margin="66,87,0,0" VerticalAlignment="Top" Height="164">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="19.2"/>
@@ -41,6 +39,12 @@
             <Label Content="Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,4,0,4.6" Grid.Row="4" VerticalAlignment="Center" Height="25" Width="45"/>
             <TextBox x:Name="nameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3.6,5,0,5.6" Grid.Row="4" Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" Grid.ColumnSpan="3"/>
         </Grid>
+        <DataGrid x:Name="lineDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="339,42,54.6,178" RowDetailsVisibilityMode="VisibleWhenSelected">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="lineIdColumn" Binding="{Binding LineId}" Header="Line Id" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="numOfBusColumn" Binding="{Binding NumOfBus}" Header="Num Of Bus" Width="SizeToHeader"/>
+            </DataGrid.Columns>
+        </DataGrid>
 
 
     </Grid>
