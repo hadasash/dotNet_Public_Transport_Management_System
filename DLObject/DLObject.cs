@@ -89,17 +89,44 @@ namespace DL
         {
             return DataSource.listLines.Find(c => c.LineId == lineId).Clone();
         }
-
         public IEnumerable<DO.Line> GetAllLines()
         {
             return from course in DataSource.listLines
                    select course.Clone();
         }
-        public IEnumerable<DO.LineStation> GetStationsLineInList(Predicate<DO.LineStation> predicate)
+        public void AddLine(DO.Line line)
         {
-            return from sil in DataSource.listLineStation
-                   where predicate(sil)
-                   select sil.Clone();
+            if (DataSource.listLines.FirstOrDefault(l => l.LineId == line.LineId) != null)
+                throw new DO.BadPersonIdException(line.LineId, "Duplicate line ID");//TO DO
+            if (DataSource.listLines.FirstOrDefault(l => l.ID == line.LineId) == null)
+                throw new DO.BadPersonIdException(line.LineId, "Missing line ID");//TO DO
+            DataSource.listLines.Add(line.Clone());
+        }
+        public void UpdateLine(DO.Line line)
+        {
+            DO.Line myline = DataSource.listLines.Find(l => l.LineId == line.LineId);
+            if (myline != null)
+            {
+                DataSource.listLines.Remove(myline);
+                DataSource.listLines.Add(line.Clone());
+            }
+            else
+                throw new DO.BadPersonIdException(line.LineId, $"bad line id: {line.LineId}");//TO DO
+        }
+        public void UpdateLine(int lineId, Action<DO.Line> update)
+        {
+            throw new NotImplementedException();//TO DO
+        }
+        public void DeleteLine(int lineId)
+        {
+            DO.Line myline = DataSource.listLines.Find(l => l.LineId == lineId);
+
+            if (myline != null)
+            {
+                DataSource.listLines.Remove(myline);
+            }
+            else
+                throw new DO.BadPersonIdException(lineId, $"bad line id: {lineId}");//TO DO
         }
 
         public void UpdateStation(Station person)
