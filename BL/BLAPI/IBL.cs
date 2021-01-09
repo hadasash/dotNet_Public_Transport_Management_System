@@ -14,6 +14,6 @@ namespace BLAPI
         BO.Station GetStation(int code);
         IEnumerable<BO.Station> GetAllStations();
         #endregion
-       
+        
     }
 }

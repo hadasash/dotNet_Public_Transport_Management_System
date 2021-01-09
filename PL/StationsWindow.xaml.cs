@@ -24,14 +24,13 @@ namespace PL
         BO.Station curStation;
         public StationsWindow(IBL _bl)
         {
-           
+
             InitializeComponent();
             bl = _bl;
             cbStationId.DisplayMemberPath = "Name";//show only specific Property of object
             cbStationId.SelectedValuePath = "Code";//selection return only specific Property of object
             cbStationId.SelectedIndex = 0; //index of the object to be selected
             RefreshAllStationComboBox();
-
         }
 
         void RefreshAllStationComboBox()
