@@ -112,6 +112,9 @@ namespace DL
         #endregion
 
         #region LineStation
+        // TO DO: implement functions 
+        // Line= Student/Person 
+        // Station= Course
         public IEnumerable<LineStation> GetLinesInStation(Predicate<LineStation> predicate)
         {
             throw new NotImplementedException();
