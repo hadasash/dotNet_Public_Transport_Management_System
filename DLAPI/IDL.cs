@@ -12,7 +12,9 @@ namespace DLAPI
     // Delete - delete an instance
     public interface IDL
     {
+        #region station
         DO.Station GetStation(int code);
         IEnumerable<DO.Station> GetAllStations();
+        #endregion
     }
 }
