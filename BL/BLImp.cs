@@ -29,24 +29,24 @@ namespace BL
         BO.Station stationDoBoAdapter(DO.Station stationDO)
         {
             BO.Station stationBO = new BO.Station();
-           
+            DO.Station newstationDO;
             int code = stationDO.Code;
+            //try
+            //{
+            //    newstationDO = dl.GetStation(code);
+            //}
+            //catch (DO.BadPersonIdException ex)
+            //{
+            //    throw new BO.BadStudentIdException("Student ID is illegal", ex);
+            //}
+           
 
             stationDO.CopyPropertiesTo(stationBO);
-            
-            //studentBO.ListOfCourses = from sic in dl.GetStudentsInCourseList(sic => sic.PersonId == id)
-            //                          let course = dl.GetCourse(sic.CourseId)
-            //                          select course.CopyToStudentCourse(sic);
-            ////new BO.StudentCourse()
-            //{
-            //    ID = course.ID,
-            //    Number = course.Number,
-            //    Name = course.Name,
-            //    Year = course.Year,
-            //    Semester = (BO.Semester)(int)course.Semester,
-            //    Grade = sic.Grade
-            //};
 
+            stationBO.ListOfLines = from sil in dl.GetStationsLineInList(sil => sil.Station == code)
+                                    let line = dl.GetLine(sil.LineId)
+                                       select line.CopyToListOfLines(sil);
+      
             return stationBO;
         }
         public IEnumerable<BO.Station> GetAllStations()

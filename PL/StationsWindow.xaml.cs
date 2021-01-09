@@ -38,20 +38,24 @@ namespace PL
         {
             cbStationId.DataContext = bl.GetAllStations().ToList(); //ObserListOfStudents;
         }
+        void RefreshAllRegisteredLinesGrid()
+        {
+            lineDataGrid.DataContext = curStation.ListOfLines.ToList();
+        }
         private void cbStationId_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             curStation = (cbStationId.SelectedItem as BO.Station);
             gridOneStation.DataContext = curStation;
-           // lineDataGrid.DataContext =    bl.GetLines(curStation.Code);
-
+          
             if (curStation != null)
             {
                 //list of courses of selected student
-               // RefreshAllRegisteredCoursesGrid();
+               RefreshAllRegisteredLinesGrid();
                 //list of all courses (that selected student is not registered to it)
                // RefreshAllNotRegisteredCoursesGrid();
             }
         }
+
 
     }
 }

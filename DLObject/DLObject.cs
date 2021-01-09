@@ -21,6 +21,7 @@ namespace DL
         public static DLObject Instance { get => instance; }// The public Instance property to use
         #endregion
 
+        #region Station
         public DO.Station GetStation(int code)
         {
             DO.Station station = DataSource.listStations.Find(p => p.Code == code);
@@ -42,5 +43,38 @@ namespace DL
             return from station in DataSource.listStations
                    select station.Clone();
         }
+        #endregion
+
+        #region Line
+        
+        public DO.Line GetLine(int lineId)
+        {
+            return DataSource.listLines.Find(c => c.LineId == lineId).Clone();
+        }
+
+        public IEnumerable<DO.Line> GetAllLines()
+        {
+            return from course in DataSource.listLines
+                   select course.Clone();
+        }
+        public IEnumerable<DO.LineStation> GetStationsLineInList(Predicate<DO.LineStation> predicate)
+        {
+            //option A - not good!!! 
+            //produces final list instead of deferred query and does not allow proper cloning:
+            // return DataSource.listStudInCourses.FindAll(predicate);
+
+            // option B - ok!!
+            //Returns deferred query + clone:
+            //return DataSource.listStudInCourses.Where(sic => predicate(sic)).Select(sic => sic.Clone());
+
+            // option c - ok!!
+            //Returns deferred query + clone:
+            return from sil in DataSource.listLineStation
+                   where predicate(sil)
+                   select sil.Clone();
+        }
+
+        #endregion 
+
     }
 }

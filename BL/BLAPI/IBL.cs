@@ -10,7 +10,10 @@ namespace BLAPI
 {
     public interface IBL
     {
+        #region Station
         BO.Station GetStation(int code);
         IEnumerable<BO.Station> GetAllStations();
+        #endregion
+       
     }
 }
