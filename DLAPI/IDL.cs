@@ -20,6 +20,10 @@ namespace DLAPI
         #region Line
         DO.Line GetLine(int LineId);
         IEnumerable<DO.Line> GetAllLines();
+        void Add(DO.Line line);
+        void UpdateLine(DO.Line line);
+        void UpdateLine(int idLine, Action<DO.Line> update); 
+        void DeleteLine(int idLine); 
         #endregion
 
         #region Station In Line
