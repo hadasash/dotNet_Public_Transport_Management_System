@@ -46,7 +46,6 @@
     <Compile Include="BO\Exceptions.cs" />
     <Compile Include="BLAPI\IBL.cs" />
     <Compile Include="BO\Line.cs" />
-    <Compile Include="BO\LineInStation.cs" />
     <Compile Include="BO\LineStation.cs" />
     <Compile Include="BO\Station.cs" />
     <Compile Include="DeepCopyUtilities.cs" />

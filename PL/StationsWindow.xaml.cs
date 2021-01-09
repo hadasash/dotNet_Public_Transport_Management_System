@@ -37,27 +37,24 @@ namespace PL
         {
             cbStationId.DataContext = bl.GetAllStations().ToList(); //ObserListOfStudents;
         }
-       
-
-        //void RefreshAllNotRegisteredCoursesGrid()
-        //{
-        //    List<BO.Course> listOfUnRegisteredCourses = bl.GetAllCourses().Where(c1 => bl.GetAllCoursesPerStudent(curStu.ID).All(c2 => c2.ID != c1.ID)).ToList();
-        //    courseDataGrid.DataContext = listOfUnRegisteredCourses;
-        //}
+        void RefreshAllRegisteredLinesGrid()
+        {
+            lineDataGrid.DataContext = curStation.ListOfLines.ToList();
+        }
         private void cbStationId_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             curStation = (cbStationId.SelectedItem as BO.Station);
             gridOneStation.DataContext = curStation;
           
-                if (curStation != null)
-                {
-                ////list of courses of selected student
-                //RefreshAllRegisteredStationssGrid();
-                ////list of all courses (that selected student is not registered to it)
-                ///*RefreshAllNotRegisteredStationsGrid()*/;
-                }
-            
+            if (curStation != null)
+            {
+                //list of courses of selected student
+               RefreshAllRegisteredLinesGrid();
+                //list of all courses (that selected student is not registered to it)
+               // RefreshAllNotRegisteredCoursesGrid();
+            }
         }
+
 
     }
 }
