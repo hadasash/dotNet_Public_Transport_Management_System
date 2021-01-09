@@ -15,8 +15,8 @@ namespace DLAPI
         #region Station
         DO.Station GetStation(int code);
         IEnumerable<DO.Station> GetAllStations();
-        void AddStation(DO.Station person);
-        void UpdateStation(DO.Station person);
+        void AddStation(DO.Station station);
+        void UpdateStation(DO.Station station);
         void UpdateStation(int code, Action<DO.Station> update); //method that knows to updt specific fields in Station
         void DeleteStation(int code);
         #endregion
@@ -32,8 +32,8 @@ namespace DLAPI
 
         #region Station In Line
         IEnumerable<DO.LineStation> GetLinesInStation(Predicate<DO.LineStation> predicate);
-        void AddLineInStation(int lineID, int statCode, float grade = 0);
-        void UpdateLineInStation(int lineID, int statCode, float lineStationIndex);
+        void AddLineInStation(int lineID, int statCode, int lineStationIndex);
+        void UpdateLineInStation(int lineID, int statCode, int lineStationIndex);
         void DeleteLineInStation(int lineID, int statCode);
         void DeleteLineInStation(int lineID);
         #endregion

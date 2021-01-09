@@ -6,36 +6,43 @@ using System.Threading.Tasks;
 
 namespace DO
 {
-    class Exceptions
+    [Serializable]
+    public class BadStationCodeException : Exception
     {
+        public int Code;
+        public BadStationCodeException(int code) : base() => Code = code;
+        public BadStationCodeException(int code, string message) :
+            base(message) => Code = code;
+        public BadStationCodeException(int code, string message, Exception innerException) :
+            base(message, innerException) => Code = code;
 
-        [Serializable]
-        public class BadPersonIdException : Exception
-        {
-            public int ID;
-            public BadPersonIdException(int id) : base() => ID = id;
-            public BadPersonIdException(int id, string message) :
-                base(message) => ID = id;
-            public BadPersonIdException(int id, string message, Exception innerException) :
-                base(message, innerException) => ID = id;
-
-            public override string ToString() => base.ToString() + $", bad person id: {ID}";
-        }
-
-        public class BadPersonIdCourseIDException : Exception
-        {
-            public int personID;
-            public int courseID;
-            public BadPersonIdCourseIDException(int perID, int crsID) : base() { personID = perID; courseID = crsID; }
-            public BadPersonIdCourseIDException(int perID, int crsID, string message) :
-                base(message)
-            { personID = perID; courseID = crsID; }
-            public BadPersonIdCourseIDException(int perID, int crsID, string message, Exception innerException) :
-                base(message, innerException)
-            { personID = perID; courseID = crsID; }
-
-            public override string ToString() => base.ToString() + $", bad person id: {personID} and course id: {courseID}";
-        }
+        public override string ToString() => base.ToString() + $", bad Station Code: {Code}";
     }
+
+    public class BadLineIDException : Exception
+    {
+        public int ID;
+        public BadLineIDException(int id) : base() => ID = id;
+        public BadLineIDException(int id, string message) :
+            base(message) => ID = id;
+        public BadLineIDException(int id, string message, Exception innerException) :
+            base(message, innerException) => ID = id;
+        public override string ToString() => base.ToString() + $", bad LineID: {ID}";
+    }
+    public class BadStationCodeLineID : Exception
+    {
+        public int stationCode;
+        public int lineID;
+        public BadStationCodeLineID(int statCode, int lnId) : base() { stationCode = statCode; lineID = lnId; }
+        public BadStationCodeLineID(int statCode, int lnId, string message) :
+            base(message)
+        { stationCode = statCode; lineID = lnId; }
+        public BadStationCodeLineID(int statCode, int lnId, string message, Exception innerException) :
+            base(message, innerException)
+        { stationCode = statCode; lineID = lnId; }
+
+        public override string ToString() => base.ToString() + $", bad Station Code: {stationCode} and line id: {lineID}";
+    }
+    
 
 }

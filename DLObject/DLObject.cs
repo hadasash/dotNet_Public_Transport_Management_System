@@ -4,10 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-
 using DLAPI;
 using DO;
-//using DO;
 using DS;
 
 namespace DL
@@ -48,7 +46,7 @@ namespace DL
         public void AddStation(DO.Station station)
         {
             if (DataSource.listStations.FirstOrDefault(s => s.Code == station.Code) != null)
-                throw new DO.BadPersonIdException(person.ID, "Duplicate person ID"); //TO DO 
+                throw new DO.BadStationCodeException(station.Code, "Duplicate station Code"); 
             DataSource.listStations.Add(station.Clone());
         }
 
@@ -61,26 +59,9 @@ namespace DL
                 DataSource.listStations.Remove(stat);
             }
             else
-                throw new DO.BadPersonIdException(id, $"bad person id: {id}"); //TO DO
+                throw new DO.BadStationCodeException(code, $"bad station code: {code}"); 
         }
 
-        public void UpdatePerson(DO.Station station)
-        {
-            DO.Station stat = DataSource.listStations.Find(p => p.Code == station.Code);
-
-            if (stat != null)
-            {
-                DataSource.listStations.Remove(stat);
-                DataSource.listStations.Add(station.Clone());
-            }
-            else
-                throw new DO.BadPersonIdException(station.ID, $"bad person id: {station.ID}"); //TO DO 
-        }
-
-        public void UpdatePerson(int id, Action<DO.Person> update)
-        {
-            throw new NotImplementedException();
-        }
         #endregion
 
         #region Line
@@ -97,9 +78,9 @@ namespace DL
         public void AddLine(DO.Line line)
         {
             if (DataSource.listLines.FirstOrDefault(l => l.LineId == line.LineId) != null)
-                throw new DO.BadPersonIdException(line.LineId, "Duplicate line ID");//TO DO
-            if (DataSource.listLines.FirstOrDefault(l => l.ID == line.LineId) == null)
-                throw new DO.BadPersonIdException(line.LineId, "Missing line ID");//TO DO
+                throw new DO.BadLineIDException(line.LineId, "Duplicate line ID");
+            if (DataSource.listLines.FirstOrDefault(l => l.LineId == line.LineId) == null)
+                throw new DO.BadLineIDException(line.LineId, "Missing line ID");
             DataSource.listLines.Add(line.Clone());
         }
         public void UpdateLine(DO.Line line)
@@ -111,7 +92,7 @@ namespace DL
                 DataSource.listLines.Add(line.Clone());
             }
             else
-                throw new DO.BadPersonIdException(line.LineId, $"bad line id: {line.LineId}");//TO DO
+                throw new DO.BadLineIDException(line.LineId, $"bad line id: {line.LineId}");
         }
         public void UpdateLine(int lineId, Action<DO.Line> update)
         {
@@ -126,7 +107,29 @@ namespace DL
                 DataSource.listLines.Remove(myline);
             }
             else
-                throw new DO.BadPersonIdException(lineId, $"bad line id: {lineId}");//TO DO
+                throw new DO.BadLineIDException(lineId, $"bad line id: {lineId}");//TO DO
+        }
+        #endregion
+
+        #region LineStation
+        public IEnumerable<LineStation> GetLinesInStation(Predicate<LineStation> predicate)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddLineInStation(int lineID, int statCode, int lineStationIndex)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateLineInStation(int lineID, int statCode, int lineStationIndex)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteLineInStation(int lineID, int statCode)
+        {
+            throw new NotImplementedException();
         }
 
         public void UpdateStation(Station person)
@@ -139,22 +142,7 @@ namespace DL
             throw new NotImplementedException();
         }
 
-        public IEnumerable<LineStation> GetLinesInStation(Predicate<LineStation> predicate)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void AddLineInStation(int lineID, int statCode, float grade = 0)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateLineInStation(int lineID, int statCode, float lineStationIndex)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteLineInStation(int lineID, int statCode)
+        public void Add(Line line)
         {
             throw new NotImplementedException();
         }
@@ -163,7 +151,6 @@ namespace DL
         {
             throw new NotImplementedException();
         }
-
         #endregion
 
     }
