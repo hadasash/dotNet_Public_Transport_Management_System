@@ -61,6 +61,15 @@ namespace DL
             else
                 throw new DO.BadStationCodeException(code, $"bad station code: {code}"); 
         }
+        public void UpdateStation(Station station)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateStation(int code, Action<Station> update)
+        {
+            throw new NotImplementedException();
+        }
 
         #endregion
 
@@ -112,48 +121,29 @@ namespace DL
         #endregion
 
         #region LineStation
-        // TO DO: implement functions 
-        // Line= Student/Person 
-        // Station= Course
-        public IEnumerable<LineStation> GetLinesInStation(Predicate<LineStation> predicate)
+        
+        public IEnumerable<LineStation> GetStationsInLine(Predicate<LineStation> predicate)
         {
             throw new NotImplementedException();
         }
 
-        public void AddLineInStation(int lineID, int statCode, int lineStationIndex)
+        public void AddStationInLine(int lineID, int statCode, int lineStationIndex)
+        {
+
+        }
+
+        public void UpdateStationInLine(int lineID, int statCode, int lineStationIndex)
         {
             throw new NotImplementedException();
         }
 
-        public void UpdateLineInStation(int lineID, int statCode, int lineStationIndex)
+        public void DeleteStationInLine(int lineID, int statCode)
         {
             throw new NotImplementedException();
         }
 
-        public void DeleteLineInStation(int lineID, int statCode)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateStation(Station person)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateStation(int code, Action<Station> update)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Add(Line line)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteLineInStation(int lineID)
-        {
-            throw new NotImplementedException();
-        }
+    
+       
         #endregion
 
     }

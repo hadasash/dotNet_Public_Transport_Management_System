@@ -19,24 +19,28 @@ namespace DLAPI
         void UpdateStation(DO.Station station);
         void UpdateStation(int code, Action<DO.Station> update); //method that knows to updt specific fields in Station
         void DeleteStation(int code);
+
         #endregion
 
         #region Line
         DO.Line GetLine(int LineId);
         IEnumerable<DO.Line> GetAllLines();
-        void Add(DO.Line line);
+        void AddLine(DO.Line line);
         void UpdateLine(DO.Line line);
         void UpdateLine(int idLine, Action<DO.Line> update); 
         void DeleteLine(int idLine); 
         #endregion
 
-        #region Station In Line
-        IEnumerable<DO.LineStation> GetLinesInStation(Predicate<DO.LineStation> predicate);
-        void AddLineInStation(int lineID, int statCode, int lineStationIndex);
-        void UpdateLineInStation(int lineID, int statCode, int lineStationIndex);
-        void DeleteLineInStation(int lineID, int statCode);
-        void DeleteLineInStation(int lineID);
+        #region Stations In Line
+        IEnumerable<DO.LineStation> GetStationsInLine(Predicate<DO.LineStation> predicate);
+        void AddStationInLine(int lineID, int statCode, int lineStationIndex);
+        void UpdateStationInLine(int lineID, int statCode, int lineStationIndex);
+        void DeleteStationInLine(int lineID, int statCode);
+        void DeleteStationInLine(int lineID);
+        void AddLine(int lineID);
         #endregion
+
+
     }
 
 }

@@ -26,19 +26,10 @@ namespace BL
             BO.Station stationBO = new BO.Station();
             DO.Station newstationDO;
             int code = stationDO.Code;
-            //try
-            //{
-            //    newstationDO = dl.GetStation(code);
-            //}
-            //catch (DO.BadPersonIdException ex)
-            //{
-            //    throw new BO.BadStudentIdException("Student ID is illegal", ex);
-            //}
-           
-
+     
             stationDO.CopyPropertiesTo(stationBO);
 
-            stationBO.ListOfLines = from sil in dl.GetLinesInStation(sil => sil.Station == code)
+            stationBO.ListOfLines = from sil in dl.GetStationsInLine(sil => sil.Station == code)//צריך לעבור על כל הקוים ולחפש במסלול של כל קו אם עובר בתחנה הנ"ל
                                     let line = dl.GetLine(sil.LineId)
                                        select line.CopyToListOfLines(sil);
       
@@ -53,29 +44,74 @@ namespace BL
         #endregion
         #region Line
         //Adi- Add, Update, Delete
-        BO.Course courseDoBoAdapter(DO.Course courseDO)
+        public BO.Line lineDoBoAdapter(DO.Line lineDO)
         {
-            BO.Course courseBO = new BO.Course();
-            int id = courseDO.ID;
-            courseDO.CopyPropertiesTo(courseBO);
+            BO.Line lineBO = new BO.Line();
+            int lneId = lineDO.LineId;
+            lineDO.CopyPropertiesTo(lineBO);
 
-            courseBO.Lecturers = from lic in dl.GetLecturersInCourseList(lic => lic.CourseId == id)
-                                 let course = dl.GetCourse(lic.CourseId)
-                                 select (BO.CourseLecturer)course.CopyPropertiesToNew(typeof(BO.CourseLecturer));
-            return courseBO;
+            lineBO.LineStations = from lsil in dl.GetStationsInLine(lsil => lsil.LineId == lneId)
+                                 let line = dl.GetLine(lsil.LineId)
+                                 select (BO.LineStation)line.CopyPropertiesToNew(typeof(BO.LineStation));
+            return lineBO;
         }
-        public IEnumerable<BO.Course> GetAllCourses()
+        public BO.Line GetLine(int lineID)
         {
-            return from crsDO in dl.GetAllCourses()
-                   select courseDoBoAdapter(crsDO);
+            DO.Line lineDO;
+            try
+            {
+                lineDO = dl.GetLine(lineID);
+            }
+            catch (DO.BadPersonIdException ex)
+            {
+                throw new BO.BadStudentIdException("Person id does not exist or he is not a student", ex);
+            }
+            return lineDoBoAdapter(lineDO);
+        }
+        
+        public IEnumerable<BO.Line> GetAllLines()
+        {
+            return from lineDO in dl.GetAllLines()
+                   select lineDoBoAdapter(lineDO);
+        }
+        void UpdateLinePersonalDetails(DO.Line line)
+        {
+            try
+            {
+                dl.UpdateLine(line);
+            }
+            catch (DO.BadPersonIdCourseIDException ex)
+            {
+                throw new BO.BadStudentIdCourseIDException("Line ID  is Not exist", ex);
+            }
+        }
+        void AddLine(int lineID)
+        {
+            try
+            {
+                dl.AddLine(lineID);
+            }
+            catch (DO.BadStationIdLineIDException ex)//TO DO
+            {
+                throw new BO.BadStudentIdCourseIDException("Line ID is Not exist", ex);
+            }
+        }
+        void DeleteLine(int lineID)
+        {
+            try
+            {
+               
+                dl.DeleteLine(lineID);
+               
+            }
+            catch (DO.BadLineIdException ex)
+            {
+                throw new BO.BadStudentIdException("Line id does not exist or he is not a line", ex);
+            }
         }
 
-        public IEnumerable<BO.StudentCourse> GetAllCoursesPerStudent(int id)
-        {
-            return from sic in dl.GetStudentsInCourseList(sic => sic.PersonId == id)
-                   let course = dl.GetCourse(sic.CourseId)
-                   select course.CopyToStudentCourse(sic);
-        }
+      
+
         #endregion
     }
 
