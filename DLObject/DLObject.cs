@@ -61,12 +61,19 @@ namespace DL
             else
                 throw new DO.BadStationCodeException(code, $"bad station code: {code}"); 
         }
-        public void UpdateStation(Station station)
+        public void UpdateStation(DO.Station station)
         {
-            throw new NotImplementedException();
+            DO.Station mystation = DataSource.listStations.Find(s => s.Code == station.Code);
+            if (mystation != null)
+            {
+                DataSource.listStations.Remove(mystation);
+                DataSource.listStations.Add(station.Clone());
+            }
+            else
+                throw new DO.BadStationCodeException(station.Code, $"bad station code: {station.Code}");
         }
 
-        public void UpdateStation(int code, Action<Station> update)
+        public void UpdateStation(int code, Action<DO.Station> update)
         {
             throw new NotImplementedException();
         }
@@ -81,8 +88,8 @@ namespace DL
         }
         public IEnumerable<DO.Line> GetAllLines()
         {
-            return from course in DataSource.listLines
-                   select course.Clone();
+            return from line in DataSource.listLines
+                   select line.Clone();
         }
         public void AddLine(DO.Line line)
         {
@@ -105,7 +112,7 @@ namespace DL
         }
         public void UpdateLine(int lineId, Action<DO.Line> update)
         {
-            throw new NotImplementedException();//TO DO
+            throw new NotImplementedException();
         }
         public void DeleteLine(int lineId)
         {
@@ -116,34 +123,71 @@ namespace DL
                 DataSource.listLines.Remove(myline);
             }
             else
-                throw new DO.BadLineIDException(lineId, $"bad line id: {lineId}");//TO DO
+                throw new DO.BadLineIDException(lineId, $"bad line id: {lineId}");
         }
         #endregion
 
         #region LineStation
         
-        public IEnumerable<LineStation> GetStationsInLine(Predicate<LineStation> predicate)
+        public IEnumerable<DO.LineStation> GetStationsInLineList(Predicate<DO.LineStation> predicate)
         {
-            throw new NotImplementedException();
+            return from sil in DataSource.listLineStation
+                   where predicate(sil)
+                   select sil.Clone();
         }
-
+        public DO.LineStation GetLineStation(int lineId)
+        {
+            return DataSource.listLineStation.Find(l => l.LineId == lineId).Clone();
+        }
         public void AddStationInLine(int lineID, int statCode, int lineStationIndex)
         {
-
+            if (DataSource.listLineStation.FirstOrDefault(lis => (lis.LineId == lineID && lis.Station == statCode)) != null)
+                throw new DO.BadStationCodeLineID(lineID, statCode, "Station Code is already registered to line ID");
+            DO.LineStation sil = new DO.LineStation() { Station = statCode, LineId = lineID, LineStationIndex = lineStationIndex };
+            DataSource.listLineStation.Add(sil);
         }
 
         public void UpdateStationInLine(int lineID, int statCode, int lineStationIndex)
         {
-            throw new NotImplementedException();
+            DO.LineStation sil = DataSource.listLineStation.Find(lis => (lis.LineId == lineID && lis.Station == statCode));
+
+            if (sil != null)
+            {
+                sil.LineStationIndex = lineStationIndex;
+            }
+            else
+                throw new DO.BadStationCodeLineID(lineID, statCode, "station code is NOT registered to line ID");
         }
 
         public void DeleteStationInLine(int lineID, int statCode)
         {
-            throw new NotImplementedException();
+
+            DO.LineStation sil = DataSource.listLineStation.Find(lis => (lis.LineId == lineID && lis.Station == statCode));
+
+            if (sil != null)
+            {
+                DataSource.listLineStation.Remove(sil);
+            }
+            else
+                throw new DO.BadStationCodeLineID(lineID, statCode, "station code is NOT registered to line ID");
+
         }
 
-    
-       
+        public void DeleteStationsFromAllLines(int statCode)
+        {
+            DataSource.listLineStation.RemoveAll(s => s.Station == statCode);
+        }
+        public void DeleteAllLineStationsPerLine(int lineID)
+        {
+            DO.LineStation sil = DataSource.listLineStation.Find(lis => (lis.LineId == lineID));
+
+            if (sil != null)
+            {
+                DataSource.listLineStation.Remove(sil);
+            }
+            else
+                throw new DO.BadLineIDException(lineID, "line id is NOT registered to line ID");
+        }
         #endregion
 
     }

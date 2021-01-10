@@ -12,119 +12,211 @@ namespace BL
     class BLImp : IBL //internal
     {
         IDL dl = DLFactory.GetDL();
+
         #region station
-        //Hadasa: finish station student =person=station. course =line
-        BO.Station stationDoBoAdapter(DO.Station stationDO)
+
+        public BO.Station stationDoBoAdapter(DO.Station stationDO)
         {
             BO.Station stationBO = new BO.Station();
-            DO.Station personDO;
-            int id = stationDO.Code;
+            DO.Station newStationDO;
+            int code = stationDO.Code;
             try
             {
-                personDO = dl.GetStation(id);
+                newStationDO = dl.GetStation(code);
             }
             catch (DO.BadStationCodeException ex)
             {
                 throw new BO.BadStationCodeException("Station code is illegal", ex);
             }
-            personDO.CopyPropertiesTo(stationBO);
-            
+            newStationDO.CopyPropertiesTo(stationBO);
+
             stationDO.CopyPropertiesTo(stationBO);
 
-            stationBO.ListOfLines = from sil in dl.GetStationsInLine(sil => sil.Station == code)//צריך לעבור על כל הקוים ולחפש במסלול של כל קו אם עובר בתחנה הנ"ל
+            stationBO.ListOfLines = from sil in dl.GetStationsInLineList(sil => sil.Station == code)
                                     let line = dl.GetLine(sil.LineId)
-                                       select line.CopyToListOfLines(sil);
-      
+                                    select line.CopyToListOfLines(sil);
+
             return stationBO;
         }
         public IEnumerable<BO.Station> GetAllStations()
         {
-            
+
             return from item in dl.GetAllStations()
                    select stationDoBoAdapter(item);
         }
+        public BO.Station GetStation(int code)
+        {
+            DO.Station stationDO;
+            try
+            {
+                stationDO = dl.GetStation(code);
+            }
+            catch (DO.BadStationCodeException ex)
+            {
+                throw new BO.BadStationCodeException("Station code does not exist or he is not a station", ex);
+            }
+            return stationDoBoAdapter(stationDO);
+        }
+        public void UpdateStationPersonalDetails(BO.Station station)
+        {
+            //Update DO.Station            
+            DO.Station stationDO = new DO.Station();
+            station.CopyPropertiesTo(stationDO);
+            try
+            {
+                dl.UpdateStation(stationDO);
+            }
+            catch (DO.BadStationCodeException ex)
+            {
+                throw new BO.BadStationCodeException("Station code is illegal", ex);
+            }
+
+            
+
+        }
+        public void DeleteStation(int code)
+        {
+            try
+            {
+                dl.DeleteStation(code);
+                
+                dl.DeleteStationsFromAllLines(code);
+            }
+            catch (DO.BadStationCodeLineID ex)
+            {
+                throw new BO.BadStationCodeLineIDException("Station code and Line ID is Not exist", ex);
+            }
+            catch (DO.BadStationCodeException ex)
+            {
+                throw new BO.BadStationCodeException("Station id does not exist or he is not a station", ex);
+            }
+        }
+        public void AddStation(DO.Station station)
+        {
+            try
+            {
+                dl.AddStation(station);
+            }
+            catch (DO.BadStationCodeLineID ex)
+            {
+                throw new BO.BadStationCodeLineIDException("Station is exist", ex);
+            }
+        }
+
+
         #endregion
+
         #region Line
         //Adi- Add, Update, Delete
         public BO.Line lineDoBoAdapter(DO.Line lineDO)
         {
             BO.Line lineBO = new BO.Line();
-            int lneId = lineDO.LineId;
+            int id = lineDO.LineId;
             lineDO.CopyPropertiesTo(lineBO);
 
-        public BO.Station GetStation(int id)
+            lineBO.LineStations = from lis in dl.GetStationsInLineList(lis => lis.LineId == id)
+                                 let linestation = dl.GetLineStation(lis.LineId)
+                                 select (BO.LineStation)linestation.CopyPropertiesToNew(typeof(BO.LineStation));
+            return lineBO;
+        }
+        public IEnumerable<BO.Line> GetAllLines()
         {
-            DO.Station stationDO;
+            return from lneDO in dl.GetAllLines()
+                   select lineDoBoAdapter(lneDO);
+        }
+        public BO.Line GetLine(int lineID)
+        {
+
+            DO.Line lineDO;
             try
             {
-                stationDO = dl.GetStation(id);
+                lineDO = dl.GetLine(lineID);
             }
-            catch (DO.BadStationCodeException ex)
+            catch (DO.BadLineIDException ex)
             {
-                throw new BO.BadStationCodeException("station code does not exist ", ex);
+                throw new BO.BadLineIdException("Line id does not exist or he is not a line", ex);
             }
-            return stationDoBoAdapter(stationDO);
+            return lineDoBoAdapter(lineDO);
         }
-
-        public IEnumerable<BO.Station> GetAllStatons()
+        public void UpdateLinePersonalDetails(BO.Line line)
         {
-         
-            return from stationDO in dl.GetAllStations()
-                   orderby stationDO.Code
-                   select stationDoBoAdapter(stationDO);
-        }
-        public IEnumerable<BO.Station> GetStationsBy(Predicate<BO.Station> predicate)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<BO.ListedPerson> GetStationIDNameList()
-        {
-            return from item in dl.GetStationListWithSelectedFields((StationDO) =>
-            {
-                try { Thread.Sleep(1500); } catch (ThreadInterruptedException e) { }
-                return new BO.ListedPerson() { ID = stationDO.ID, Name = dl.GetPerson(stationDO.ID).Name };
-            })
-                   let stationBO = item as BO.ListedPerson
-                   select stationBO;
-        }
-
-        public void UpdateStudentPersonalDetails(BO.Station station)
-        {          
-            DO.Station personDO = new DO.Station();
-            station.CopyPropertiesTo(personDO);
+            DO.Line lineDO = new DO.Line();
+            line.CopyPropertiesTo(lineDO);
             try
             {
-                dl.UpdateStation(personDO);
+                dl.UpdateLine(lineDO);
             }
-            catch (DO.BadStationCodeException ex)
+            catch (DO.BadLineIDException ex)
             {
-                throw new BO.BadStationCodeException("Student ID is illegal", ex);
+                throw new BO.BadLineIdException("Line id is illegal", ex);
             }
 
-            courseBO.Lecturers = from lic in dl.GetLecturersInCourseList(lic => lic.CourseId == id)
-                                 let course = dl.GetCourse(lic.CourseId)
-                                 select (BO.CourseLecturer)course.CopyPropertiesToNew(typeof(BO.CourseLecturer));
-            return courseBO;
         }
-        public IEnumerable<BO.Course> GetAllCourses()
+        public void AddLine(DO.Line line)
         {
-            return from crsDO in dl.GetAllCourses()
-                   select courseDoBoAdapter(crsDO);
+            try
+            {
+                dl.AddLine(line);
+            }
+            catch (DO.BadLineIDException ex)
+            {
+                throw new BO.BadLineIdException("Line exists", ex);
+            }
         }
+        public void DeleteLine(int lineID)
+        {
+            try
+            {
+                dl.DeleteLine(lineID);
 
-        public IEnumerable<BO.StudentCourse> GetAllCoursesPerStudent(int id)
+                dl.DeleteAllLineStationsPerLine(lineID);
+            }
+            catch (DO.BadLineIDException ex)
+            {
+                throw new BO.BadLineIdException(" Line ID is Not exist", ex);
+            }
+           
+        }
+        #endregion
+
+        #region Line Station
+
+        public void AddStationInLine(int statCode, int lineID, int index = 0)
         {
-            return from sic in dl.GetStudentsInCourseList(sic => sic.PersonId == id)
-                   let course = dl.GetCourse(sic.CourseId)
-                   select course.CopyToStudentCourse(sic);
+            try
+            {
+                dl.AddStationInLine(statCode, lineID, index);
+            }
+            catch (DO.BadStationCodeLineID ex)
+            {
+                throw new BO.BadStationCodeLineIDException("Station code and Line ID is Not exist", ex);
+            }
+        }
+       public void UpdateStationIndexInLine(int statCode, int lineID, int index)
+        {
+            try
+            {
+                dl.UpdateStationInLine(statCode, lineID, index);
+            }
+            catch (DO.BadStationCodeLineID ex)
+            {
+                throw new BO.BadStationCodeLineIDException("Station code and Line ID is Not exist", ex);
+            }
+        }
+        public void DeleteStationInLine(int statCode, int lineID)
+        {
+            try
+            {
+                dl.DeleteStationInLine(statCode, lineID);
+            }
+            catch (DO.BadStationCodeLineID ex)
+            {
+                throw new BO.BadStationCodeLineIDException("Station code and Line ID is Not exist", ex);
+            }
         }
 
         #endregion
-        #region Line
-        //Adi- Add, Update, Delete
-      
-        #endregion
+
     }
 
 }

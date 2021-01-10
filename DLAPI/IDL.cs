@@ -31,13 +31,15 @@ namespace DLAPI
         void DeleteLine(int idLine); 
         #endregion
 
-        #region Stations In Line
-        IEnumerable<DO.LineStation> GetStationsInLine(Predicate<DO.LineStation> predicate);
+        #region Stations In Line//line station
+        IEnumerable<DO.LineStation> GetStationsInLineList(Predicate<DO.LineStation> predicate);
+        //  IEnumerable<DO.LineStation> GetAlllineStations();
+        DO.LineStation GetLineStation(int ID);
         void AddStationInLine(int lineID, int statCode, int lineStationIndex);
         void UpdateStationInLine(int lineID, int statCode, int lineStationIndex);
         void DeleteStationInLine(int lineID, int statCode);
-        void DeleteStationInLine(int lineID);
-        void AddLine(int lineID);
+        void DeleteStationsFromAllLines(int statCode);
+        void DeleteAllLineStationsPerLine(int lineID);
         #endregion
 
 

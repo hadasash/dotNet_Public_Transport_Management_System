@@ -9,35 +9,35 @@ using DO;
 namespace BO
 {
     [Serializable]
-    public class BadStudentIdException : Exception
+    public class BadStationCodeException : Exception
     {
         public int ID;
-        public BadStudentIdException(string message, Exception innerException) :
-            base(message, innerException) => ID = ((DO.BadPersonIdException)innerException).code;
+        public BadStationCodeException(string message, Exception innerException) :
+            base(message, innerException) => ID = ((DO.BadStationCodeException)innerException).Code;
+        public override string ToString() => base.ToString() + $", bad station code: {ID}";
+    }
+
+    [Serializable]
+    public class BadLineIdException : Exception
+    {
+        public int ID;
+        public BadLineIdException(string message, Exception innerException) :
+            base(message, innerException) => ID = ((DO.BadStationCodeException)innerException).Code;
         public override string ToString() => base.ToString() + $", bad student id: {ID}";
     }
 
     [Serializable]
-    public class BadLecturerIdException : Exception
+    public class BadStationCodeLineIDException : Exception
     {
-        public int ID;
-        public BadLecturerIdException(string message, Exception innerException) :
-            base(message, innerException) => ID = ((DO.BadPersonIdException)innerException).ID;
-        public override string ToString() => base.ToString() + $", bad student id: {ID}";
-    }
-
-    [Serializable]
-    public class BadStudentIdCourseIDException : Exception
-    {
-        public int personID;
-        public int courseID;
-        public BadStudentIdCourseIDException(string message, Exception innerException) :
+        public int stationCode;
+        public int lineID;
+        public BadStationCodeLineIDException(string message, Exception innerException) :
             base(message, innerException)
         {
-            personID = ((DO.BadPersonIdCourseIDException)innerException).personID;
-            courseID = ((DO.BadPersonIdCourseIDException)innerException).courseID;
+            stationCode = ((DO.BadStationCodeLineID)innerException).stationCode;
+            lineID = ((DO.BadStationCodeLineID)innerException).lineID;
         }
-        public override string ToString() => base.ToString() + $", bad student id: {personID} and course ID: {courseID}";
+        public override string ToString() => base.ToString() + $", bad station code: {stationCode} and line ID: {lineID}";
     }
 
 }
