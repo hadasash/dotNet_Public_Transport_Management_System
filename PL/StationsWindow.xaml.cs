@@ -35,7 +35,7 @@ namespace PL
 
         void RefreshAllStationComboBox()
         {
-            cbStationId.DataContext = bl.GetAllStations().ToList(); //ObserListOfStudents;
+            cbStationId.DataContext = bl.GetAllStations(); //.ToList(); //ObserListOfStudents;
         }
         void RefreshAllRegisteredLinesGrid()
         {

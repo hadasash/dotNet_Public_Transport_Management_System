@@ -84,7 +84,15 @@ namespace DL
 
         public DO.Line GetLine(int lineId)
         {
-            return DataSource.listLines.Find(c => c.LineId == lineId).Clone();
+            DO.Line myLine = DataSource.listLines.Find(c => c.LineId == lineId);
+            if (myLine != null)
+            {
+                return myLine.Clone();
+            }
+            else
+            {
+                throw new DO.BadLineIDException(lineId, $"Bad Line id");
+            }
         }
         public IEnumerable<DO.Line> GetAllLines()
         {

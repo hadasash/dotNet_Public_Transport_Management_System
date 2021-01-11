@@ -596,6 +596,7 @@ namespace DS
                 },
                new Line
                 {
+                   LineId= 12,
                     NumberBus = 108,
                     Area = Areas.Jerusalem,
                     FirstStation = 106,

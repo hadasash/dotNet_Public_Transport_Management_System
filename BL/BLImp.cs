@@ -32,9 +32,11 @@ namespace BL
 
             stationDO.CopyPropertiesTo(stationBO);
 
-            stationBO.ListOfLines = from sil in dl.GetStationsInLineList(sil => sil.Station == code)
-                                    let line = dl.GetLine(sil.LineId)
-                                    select line.CopyToListOfLines(sil);
+            var t = (from sil in dl.GetStationsInLineList(sil => sil.Station == code) select sil).ToList();
+
+            stationBO.ListOfLines = (from sil in dl.GetStationsInLineList(sil => sil.Station == code)
+                                     let line = dl.GetLine(sil.LineId)
+                                     select line.CopyToListOfLines(sil)).ToList();
 
             return stationBO;
         }
