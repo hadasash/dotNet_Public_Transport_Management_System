@@ -55,9 +55,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddNewStation.xaml.cs">
+      <DependentUpon>AddNewStation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="StationsWindow.xaml.cs">
       <DependentUpon>StationsWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="AddNewStation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -107,6 +114,10 @@
     <ProjectReference Include="..\BL\BL.csproj">
       <Project>{2256497b-4c6a-485f-8b1b-bfc792e8a372}</Project>
       <Name>BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DLAPI\DLAPI.csproj">
+      <Project>{E8505A1C-4323-4085-8A7D-96C2E5C5D8CD}</Project>
+      <Name>DLAPI</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

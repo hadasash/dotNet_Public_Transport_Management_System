@@ -110,6 +110,7 @@ namespace BL
 
         #region Line
         //Adi- Add, Update, Delete
+      
         public BO.Line lineDoBoAdapter(DO.Line lineDO)
         {
             BO.Line lineBO = new BO.Line();
@@ -182,7 +183,7 @@ namespace BL
         #endregion
 
         #region Line Station
-
+       
         public void AddStationInLine(int statCode, int lineID, int index = 0)
         {
             try

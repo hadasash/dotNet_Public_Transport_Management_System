@@ -13,6 +13,6 @@ namespace BO
         public string Address { get; set; }
         public double Longitude { get; set; }
         public double Lattitude { get; set; }
-       public IEnumerable<LineStation> ListOfLines { get; set; }
+       public IEnumerable<Line> ListOfLines { get; set; }
     }
 }

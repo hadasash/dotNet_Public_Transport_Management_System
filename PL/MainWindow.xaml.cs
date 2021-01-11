@@ -40,16 +40,12 @@ namespace PL
             }
             else if (rbLines.IsChecked == true)
             {
-                //LecturerWindow win = new LecturerWindow(bl);
-                //win.Show();
+                
                 MessageBox.Show("This method is under construction!", "TBD", MessageBoxButton.OK, MessageBoxImage.Asterisk);
             }
             
         }
 
-        private void tbcolor_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
+       
     }
 }
