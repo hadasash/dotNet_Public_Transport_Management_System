@@ -62,9 +62,9 @@
             <Label Content="Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,4,0,4.6" Grid.Row="4" VerticalAlignment="Top" Height="25" Width="45"/>
             <TextBox x:Name="nameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3.6,5,0,5.6" Grid.Row="4" Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="3"/>
         </Grid>
-        <Button x:Name="btDeleteStation" Content="Delete Current Station" HorizontalAlignment="Stretch"  VerticalAlignment="Center"  Background="#FFC56853" Click="btDeleteStation_Click" Grid.Column="3" Grid.Row="5" />
-        <Button x:Name="btAddStation" Content="Add New Station" HorizontalAlignment="Stretch"  VerticalAlignment="Center"  Grid.Column="4" Grid.Row="5" Background="#FF6DB469" Click="btAddStation_Click" RenderTransformOrigin="0.37,3.389"/>
-        <Button x:Name="btUpdateStation" Content="update station info" HorizontalAlignment="Stretch"  VerticalAlignment="Center"  Background="#FFD1DA16" Click="btUpdateStation_Click" Grid.Column="2" Grid.Row="5"  />
+        <Button x:Name="btDeleteStation" Content="Delete Current Station" HorizontalAlignment="Stretch"  VerticalAlignment="Center"  Background="lightGreen" Click="btDeleteStation_Click" Grid.Column="3" Grid.Row="5" />
+        <Button x:Name="btAddStation" Content="Add New Station" HorizontalAlignment="Stretch"  VerticalAlignment="Center"  Grid.Column="4" Grid.Row="5" Background="LightCoral" Click="btAddStation_Click" RenderTransformOrigin="0.37,3.389"/>
+        <Button x:Name="btUpdateStation" Content="update station info" HorizontalAlignment="Stretch"  VerticalAlignment="Center"  Background="LightCoral" Click="btUpdateStation_Click" Grid.Column="2" Grid.Row="5"  />
         <DataGrid x:Name="lineDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="4" RowDetailsVisibilityMode="VisibleWhenSelected">
 
             <DataGrid.Columns>
