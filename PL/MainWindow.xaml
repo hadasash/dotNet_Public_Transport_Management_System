@@ -28,20 +28,21 @@
             <RowDefinition Height="0.25*" />
             <RowDefinition Height="0.25*" />
             <RowDefinition Height="0.25*" />
-            <RowDefinition Height="10" />
+            <RowDefinition Height="30" />
         </Grid.RowDefinitions>
 
 
-        <RadioButton x:Name ="rbStations" Grid.Row="2"  Grid.Column="1" Grid.ColumnSpan="3" Content="  Bus Stations" Height="20" HorizontalAlignment="Left" IsChecked="True"  FontWeight="Bold" RenderTransformOrigin="0.472,2.533" Margin="0.2,1.2,0,1.6" Width="121" FontSize="14" />
-        <RadioButton x:Name ="rbLines"   Grid.Row="3"  Grid.Column="1" Grid.ColumnSpan="2" Height="20" Content="  Bus Lines" HorizontalAlignment="Left"  FontWeight="Bold" Width="119" Margin="0.2,0.4,0,2.4" FontSize="14"/>
+        <RadioButton x:Name ="rbStations" Grid.Row="2"  Grid.Column="1" Grid.ColumnSpan="3" Content="  Bus Stations" HorizontalAlignment="Left" IsChecked="True"  FontWeight="Bold" FontSize="14" />
+        <RadioButton x:Name ="rbLines"   Grid.Row="3"  Grid.Column="1" Grid.ColumnSpan="3"  Content="  Bus Lines" HorizontalAlignment="Left"  FontWeight="Bold" FontSize="14"/>
 
 
 
-        <Button x:Name="btnGO" Content="GO" HorizontalAlignment="Stretch" Height="20" VerticalAlignment="Bottom"   FontSize="16" FontFamily="Arial" Click="btnGO_Click" RenderTransformOrigin="0.613,0.454" FontWeight="Bold" Background="#FF2FA535" Grid.Row="5" Grid.Column="7"   Foreground="White"/>
+        <Button x:Name="btnGO" Content="GO" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"   FontSize="16" FontFamily="Arial" Click="btnGO_Click"  FontWeight="Bold" Background="#FF2FA535" Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="2"  Foreground="White"/>
         <MediaElement x:Name="media" Grid.Column="0"
-            Grid.ColumnSpan="8" HorizontalAlignment="Left"  Margin="0,30,-0.383,0" VerticalAlignment="Top" Source="Video Egged.mp4" Stretch="Fill" Volume="0" UnloadedBehavior="Play" StretchDirection="DownOnly" Cursor="None" OpacityMask="Black" Grid.RowSpan="2"/>
+            Grid.ColumnSpan="8" HorizontalAlignment="Left"  VerticalAlignment="Top" Source="Video Egged.mp4" Stretch="Fill" Volume="0" UnloadedBehavior="Play" StretchDirection="DownOnly" Cursor="None" OpacityMask="Black" Grid.RowSpan="2"/>
 
-        <TextBox x:Name="tbcolor" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="8" HorizontalAlignment="Stretch" TextWrapping="Wrap"  Text="  Bondi" VerticalAlignment="Top"  Background="#FF2FA535" FontWeight="Bold" Foreground="#FFFCFBFA"  FontSize="17" BorderBrush="{x:Null}"  />
-        <Image Height="22" Grid.Row="0" Grid.Column="0"   VerticalAlignment="Bottom" Source="green.png" HorizontalAlignment="Center" Margin="113,0,69.2,5.4"/>
+        <TextBox x:Name="tbcolorup" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="8" HorizontalAlignment="Stretch" TextWrapping="Wrap"  Text="  Bondi" VerticalAlignment="Top"  Background="#FF2FA535" FontWeight="Bold" Foreground="#FFFCFBFA"  FontSize="17" BorderBrush="{x:Null}"  />
+        <TextBox x:Name="tbcolor" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="8" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"  Background="#FF2FA535" BorderBrush="{x:Null}"  />
+   
     </Grid>
 </Window>

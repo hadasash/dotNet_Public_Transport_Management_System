@@ -6,48 +6,67 @@
         xmlns:local="clr-namespace:PL"
         xmlns:BO="clr-namespace:BO;assembly=BL" x:Class="PL.StationsWindow"
         mc:Ignorable="d"
-        Title="StationsWindow" Height="450" Width="800"  >
+        Title="StationsWindow" Height="550" Width="800" Icon="green.png" >
     <Window.Resources>
         <CollectionViewSource x:Key="lineViewSource" d:DesignSource="{d:DesignInstance {x:Type BO:Line}, CreateList=True}"/>
     </Window.Resources>
 
-    <Grid DataContext="{StaticResource lineViewSource}" >
-        <Label Content="Select Station:" Grid.Row="0" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Height="25" Width="104"/>
-        <ComboBox x:Name="cbStationId" HorizontalAlignment="Left" Text="" VerticalAlignment="Top"
-                  Grid.Row="0" Height="25" Margin="132,35,0,0" Width="123"
+    <Grid DataContext="{StaticResource lineViewSource}"   >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.05*"/>
+            <ColumnDefinition Width="1.5*"/>
+            <ColumnDefinition Width="0.9*"/>
+            <ColumnDefinition Width="0.9*"/>
+            <ColumnDefinition Width="0.9*"/>
+            <ColumnDefinition Width="0.05*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="0.6*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <TextBox x:Name="tbcolorup" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6" HorizontalAlignment="Stretch" TextWrapping="Wrap"  Text="  Bondi" VerticalAlignment="Top"  Background="#FF2FA535" FontWeight="Bold" Foreground="#FFFCFBFA"  FontSize="17" BorderBrush="{x:Null}"  />
+        <TextBox x:Name="tbcolor" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="6" HorizontalAlignment="Stretch"   VerticalAlignment="Bottom"  Background="#FF2FA535" BorderBrush="{x:Null}"  />
+        <Label Content="Select Station:" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Center" Height="24" Width="auto"/>
+        <ComboBox x:Name="cbStationId" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right"  VerticalAlignment="Top"
+                   Height="23"  
                   ItemsSource="{Binding}" 
-                  HorizontalContentAlignment="Left" VerticalContentAlignment="Top" SelectionChanged="cbStationId_SelectionChanged"  />
-        <Grid x:Name="gridOneStation" HorizontalAlignment="Left" Margin="66,87,0,0" VerticalAlignment="Top" Height="164">
+                  HorizontalContentAlignment="Left" VerticalContentAlignment="Top" SelectionChanged="cbStationId_SelectionChanged" Margin="0,24.6,45.028,0" Width="128"  />
+        <Grid x:Name="gridOneStation" HorizontalAlignment="Left" Grid.Column="1"  Grid.Row="2" Grid.RowSpan="3" VerticalAlignment="Stretch" >
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="19.2"/>
-                <ColumnDefinition Width="74.092"/>
-                <ColumnDefinition Width="33.108"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Label Content="Address:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,4,0,3.6" Grid.Row="0" VerticalAlignment="Center" Height="26" Width="54"/>
-            <TextBox x:Name="addressTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3.6,5,0,5.6" Grid.Row="0" Text="{Binding Address, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" Grid.ColumnSpan="3"/>
-            <Label Content="Code:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3.4,0,3.4" Grid.Row="1" VerticalAlignment="Center" Height="26" Width="40"/>
-            <TextBox x:Name="codeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3.6,5.4,0,4.4" Grid.Row="1" Text="{Binding Code, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" Grid.ColumnSpan="3"/>
-            <Label Content="Lattitude:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3.6,0,3.2" Grid.Row="2" VerticalAlignment="Center" Height="26" Width="59"/>
-            <TextBox x:Name="lattitudeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="3.6,4.6,0,4.2" Grid.Row="2" Text="{Binding Lattitude, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" Grid.ColumnSpan="3"/>
-            <Label Content="Longitude:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3.8,0,3" Grid.Row="3" VerticalAlignment="Center" Grid.ColumnSpan="2" Height="26" Width="66"/>
-            <TextBox x:Name="longitudeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3.6,4.8,0,5" Grid.Row="3" Text="{Binding Longitude, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" Grid.ColumnSpan="3"/>
-            <Label Content="Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,4,0,4.6" Grid.Row="4" VerticalAlignment="Center" Height="25" Width="45"/>
-            <TextBox x:Name="nameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3.6,5,0,5.6" Grid.Row="4" Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" Grid.ColumnSpan="3"/>
+            <Label Content="Address:" Grid.Column="0" HorizontalAlignment="Left"  Grid.Row="0" VerticalAlignment="Top" Height="26" Width="54"/>
+            <TextBox x:Name="addressTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3.6,5,0,5.6" Grid.Row="0" Text="{Binding Address, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="3"/>
+            <Label Content="Code:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3.4,0,3.4" Grid.Row="1" VerticalAlignment="Top" Height="26" Width="40"/>
+            <TextBox x:Name="codeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3.6,5.4,0,4.4" Grid.Row="1" Text="{Binding Code, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="3"/>
+            <Label Content="Lattitude:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3.6,0,3.2" Grid.Row="2" VerticalAlignment="Top" Height="26" Width="59"/>
+            <TextBox x:Name="lattitudeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="3.6,4.6,0,4.2" Grid.Row="2" Text="{Binding Lattitude, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="3"/>
+            <Label Content="Longitude:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3.8,0,3" Grid.Row="3" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="26" Width="66"/>
+            <TextBox x:Name="longitudeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3.6,4.8,0,5" Grid.Row="3" Text="{Binding Longitude, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="3"/>
+            <Label Content="Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,4,0,4.6" Grid.Row="4" VerticalAlignment="Top" Height="25" Width="45"/>
+            <TextBox x:Name="nameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3.6,5,0,5.6" Grid.Row="4" Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="3"/>
         </Grid>
-        <Button x:Name="btDeleteStation" Content="Delete Current Student" HorizontalAlignment="Left" Margin="513,348,0,0" VerticalAlignment="Top" Width="219" Height="28" Background="#FFC56853" Click="btDeleteStation_Click" />
-        <Button x:Name="btAddStation" Content="Add New Student" HorizontalAlignment="Left" Margin="304,346,0,0" VerticalAlignment="Top" Width="141" Height="34" Background="#FF6DB469" Click="btAddStation_Click"/>
-        <Button x:Name="btUpdateStation" Content="Aplly Changes on Student Details" HorizontalAlignment="Left" Margin="26,346,0,0" VerticalAlignment="Top" Width="234" Height="28" Background="#FFD1DA16" Click="btUpdateStation_Click"/>
+        <Button x:Name="btDeleteStation" Content="Delete Current Station" HorizontalAlignment="Stretch"  VerticalAlignment="Center"  Background="#FFC56853" Click="btDeleteStation_Click" Grid.Column="3" Grid.Row="5" />
+        <Button x:Name="btAddStation" Content="Add New Station" HorizontalAlignment="Stretch"  VerticalAlignment="Center"  Grid.Column="4" Grid.Row="5" Background="#FF6DB469" Click="btAddStation_Click" RenderTransformOrigin="0.37,3.389"/>
+        <Button x:Name="btUpdateStation" Content="update station info" HorizontalAlignment="Stretch"  VerticalAlignment="Center"  Background="#FFD1DA16" Click="btUpdateStation_Click" Grid.Column="2" Grid.Row="5"  />
+        <DataGrid x:Name="lineDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="4" RowDetailsVisibilityMode="VisibleWhenSelected">
 
-        <DataGrid x:Name="lineDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="321,42,72.6,178" RowDetailsVisibilityMode="VisibleWhenSelected">
-            
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="firstStationColumn" Binding="{Binding FirstStation}" Header="First Station" Width="SizeToHeader"/>
                 <DataGridTextColumn x:Name="lastStationColumn" Binding="{Binding LastStation}" Header="Last Station" Width="SizeToHeader"/>

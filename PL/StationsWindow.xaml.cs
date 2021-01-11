@@ -34,7 +34,7 @@ namespace PL
             lineDataGrid.IsReadOnly = true;
         }
 
-        void RefreshAllStationComboBox()
+        public void RefreshAllStationComboBox()
         {
             cbStationId.DataContext = bl.GetAllStations(); //ObserListOfStudents;
         }
@@ -71,11 +71,16 @@ namespace PL
             }
         }
 
+        private void refresh(object sender, EventArgs e)
+        {
+            RefreshAllStationComboBox();
+        }
+
         private void btAddStation_Click(object sender, RoutedEventArgs e)
         {
             AddNewStation newStatWin = new AddNewStation();
+            newStatWin.Closed += refresh;
             newStatWin.Show();
-            //MessageBox.Show("This method is under construction!", "TBD", MessageBoxButton.OK, MessageBoxImage.Asterisk);
         }
 
         private void btDeleteStation_Click(object sender, RoutedEventArgs e)

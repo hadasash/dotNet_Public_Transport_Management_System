@@ -22,12 +22,10 @@ namespace PL
     public partial class AddNewStation : Window
     {
         
-IBL bl = BLFactory.GetBL("1");
-            DO.Station s = new DO.Station();
+        IBL bl = BLFactory.GetBL("1");
+        DO.Station s = new DO.Station();
         public AddNewStation()
         {
-            
-
             InitializeComponent();
         }
 
@@ -35,12 +33,13 @@ IBL bl = BLFactory.GetBL("1");
         private void AddStation_Click(object sender, RoutedEventArgs e)
         {
             DO.Station s = new DO.Station();
+            s.Address = this.addressTextBox.Text;
             s.Name = this.nameTextBox.Text;
             s.Code = int.Parse(this.codeTextBox.Text);
             s.Longitude = float.Parse(this.longitudeTextBox.Text);
             s.Lattitude = float.Parse(this.lattitudeTextBox.Text);
             bl.AddStation(s);
-
+            this.Close();
         }
     }
 }

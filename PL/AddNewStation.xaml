@@ -6,22 +6,27 @@
         xmlns:local="clr-namespace:PL"
         xmlns:BO="clr-namespace:BO;assembly=BL" x:Class="PL.AddNewStation"
         mc:Ignorable="d"
-        Title="AddNewStation" Height="450" Width="388.6">
+        Title="AddNewStation" Height="450" Width="359.494" Icon="green.png">
     <Window.Resources>
+
         <CollectionViewSource x:Key="stationViewSource" d:DesignSource="{d:DesignInstance {x:Type BO:Station}, CreateList=True}"/>
     </Window.Resources>
-    <Grid DataContext="{StaticResource stationViewSource}" HorizontalAlignment="Left" Width="382">
-        <Grid x:Name="gridAddStation" HorizontalAlignment="Left" Margin="89,84,0,0" VerticalAlignment="Top" Height="193" Width="214">
+    <Grid DataContext="{StaticResource stationViewSource}" HorizontalAlignment="Center"  >
+        
+            
+            <Grid x:Name="gridAddStation" HorizontalAlignment="Center"   >
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
             <Label Content="Address:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
             <TextBox x:Name="addressTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding Address, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
@@ -34,7 +39,7 @@
             <Label Content="Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
             <TextBox x:Name="nameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
         </Grid>
-        <Button x:Name="AddStation" Content="Add Station" HorizontalAlignment="Left" Margin="89,282,0,0" VerticalAlignment="Top" Width="203" Height="37" Click="AddStation_Click"/>
+        <Button x:Name="AddStation" Content="Add Station" Click="AddStation_Click" Grid.Column="0" Margin="0,340,0.4,40"/>
 
     </Grid>
 </Window>
