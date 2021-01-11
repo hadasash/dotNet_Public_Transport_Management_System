@@ -45,7 +45,8 @@ namespace DL
 
         public void AddStation(DO.Station station)
         {
-            if (DataSource.listStations.FirstOrDefault(s => s.Code == station.Code) != null)
+            var x = DataSource.listStations.ToList();
+            if (DataSource.listStations.Where(s => s.Code == station.Code).ToList().Count()>0 )
                 throw new DO.BadStationCodeException(station.Code, "Duplicate station Code"); 
             DataSource.listStations.Add(station.Clone());
         }

@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BLAPI;
-
+using BO;
 
 namespace PL
 {
@@ -22,16 +22,25 @@ namespace PL
     public partial class AddNewStation : Window
     {
         
+IBL bl = BLFactory.GetBL("1");
+            DO.Station s = new DO.Station();
         public AddNewStation()
         {
             
+
             InitializeComponent();
         }
 
        
         private void AddStation_Click(object sender, RoutedEventArgs e)
         {
-           
+            DO.Station s = new DO.Station();
+            s.Name = this.nameTextBox.Text;
+            s.Code = int.Parse(this.codeTextBox.Text);
+            s.Longitude = float.Parse(this.longitudeTextBox.Text);
+            s.Lattitude = float.Parse(this.lattitudeTextBox.Text);
+            bl.AddStation(s);
+
         }
     }
 }
