@@ -6,21 +6,19 @@
         xmlns:local="clr-namespace:PL"
         xmlns:BO="clr-namespace:BO;assembly=BL" x:Class="PL.AddNewStation"
         mc:Ignorable="d"
-        Title="AddNewStation" Height="450" Width="500" Icon="green.png">
+        Title="AddNewStation" Height="550" Width="800" Icon="green.png" WindowStartupLocation="CenterScreen">
     <Window.Resources>
 
         <CollectionViewSource x:Key="stationViewSource" d:DesignSource="{d:DesignInstance {x:Type BO:Station}, CreateList=True}"/>
     </Window.Resources>
-    <Grid DataContext="{StaticResource stationViewSource}" HorizontalAlignment="Center"  >
+    <Grid DataContext="{StaticResource stationViewSource}" HorizontalAlignment="Center" Margin="0,0,3.6,-0.2" Width="790"  >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-
             <ColumnDefinition Width="*"/>
-
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.7*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="0.5*"/>
@@ -28,10 +26,10 @@
             <RowDefinition Height="0.5*"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
-        <TextBox x:Name="tbcolorup" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" TextWrapping="Wrap"  Text="  Bondi" VerticalAlignment="Top"  Background="#FF2FA535" FontWeight="Bold" Foreground="#FFFCFBFA"  FontSize="17" BorderBrush="{x:Null}"  />
-        <TextBox x:Name="tbcolor" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Stretch"  Text="  Bondi" VerticalAlignment="Bottom"  Background="#FF2FA535"  BorderBrush="{x:Null}"  />
+        <TextBox x:Name="tbcolorup" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" TextWrapping="Wrap"  Text="  Bondi" VerticalAlignment="Top"  Background="#FF2FA535" FontWeight="Bold" Foreground="#FFFCFBFA"  FontSize="17" BorderBrush="{x:Null}"  />
+        <TextBox x:Name="tbcolor" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"  Background="#FF2FA535"  BorderBrush="{x:Null}"   TextWrapping="Wrap"  Text=" © 2021 Bondi.com " Foreground="White" FontSize="12"  />
 
-        <Grid x:Name="gridAddStation" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="1" Grid.RowSpan="3">
+        <Grid x:Name="gridAddStation" HorizontalAlignment="Center" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Grid.RowSpan="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -45,18 +43,19 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Label Content="Address:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <Label Content="Address:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,0,0,13.2" Grid.Row="0" VerticalAlignment="Bottom" Foreground="#FF2B8B30" FontWeight="Bold" />
             <TextBox x:Name="addressTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding Address, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="90"/>
-            <Label Content="Code:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
+            <Label Content="Code:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center" Foreground="#FF2B8B30" FontWeight="Bold"/>
             <TextBox x:Name="codeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding Code, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="90"/>
-            <Label Content="Lattitude:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
+            <Label Content="Lattitude:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,0,0,12.6" Grid.Row="2" VerticalAlignment="Bottom" Foreground="#FF2B8B30" FontWeight="Bold"/>
             <TextBox x:Name="lattitudeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="{Binding Lattitude, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="90"/>
-            <Label Content="Longitude:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
+            <Label Content="Longitude:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center" Foreground="#FF2B8B30" FontWeight="Bold"/>
             <TextBox x:Name="longitudeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" Text="{Binding Longitude, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="90"/>
-            <Label Content="Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
+            <Label Content="Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center" Foreground="#FF2B8B30" FontWeight="Bold" />
             <TextBox x:Name="nameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="90"/>
         </Grid>
-        <Button x:Name="AddStation" Content="Add Station" Click="AddStation_Click" Grid.Column="1" Grid.Row="5" />
+        <Button x:Name="AddStation" Content="Add Station" Click="AddStation_Click" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="5" HorizontalAlignment="Center" Width="150" Height="25" Background="HotPink" Foreground="White" FontWeight="Bold"/>
+        <Image HorizontalAlignment="Left"  Grid.RowSpan="4" VerticalAlignment="Bottom"   Grid.Row="3" Source="station.png" Height="200"  Width="200"/>
 
     </Grid>
 </Window>

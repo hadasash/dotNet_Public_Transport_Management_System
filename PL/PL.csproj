@@ -144,13 +144,13 @@
     <Resource Include="3dfc241d9c.svg.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="white1.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="greenwhite.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="conf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="station.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

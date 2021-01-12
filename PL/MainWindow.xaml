@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL"
         mc:Ignorable="d"
-        Title="Bondi" Height="550" Width="800" Icon="green.png" Background="White"  >
+        Title="Bondi" Height="550" Width="800" Icon="green.png" Background="White" WindowStartupLocation="CenterScreen"  >
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -34,11 +34,11 @@
 
         <RadioButton x:Name ="rbStations" Grid.Row="2"  Grid.Column="1" Grid.ColumnSpan="3" Content="  Bus Stations" HorizontalAlignment="Left" VerticalAlignment="Center"  IsChecked="True"  FontWeight="Bold" FontSize="15"  />
         <RadioButton x:Name ="rbLines"   Grid.Row="3"  Grid.Column="1" Grid.ColumnSpan="3"  Content="  Bus Lines" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="15"/>
-        <RadioButton x:Name ="rbticket"   Grid.Row="4"  Grid.Column="1" Grid.ColumnSpan="3"  Content="  tickets info" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="15"/>
+        <RadioButton x:Name ="rbticket"   Grid.Row="4"  Grid.Column="1" Grid.ColumnSpan="3"  Content="  Tickets info" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="15"/>
 
 
 
-        <Button x:Name="btnGO" Content="GO" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"   FontSize="16" FontFamily="Arial" Click="btnGO_Click"  FontWeight="Bold" Background="#FF2FA535" Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="2"  Foreground="White"/>
+        <Button x:Name="btnGO" Content="Continue" HorizontalAlignment="Stretch" VerticalAlignment="Top"   FontSize="16" FontFamily="Arial" Click="btnGO_Click"  FontWeight="Bold" Background="#FF2FA535" Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="2"  Foreground="White"/>
         <MediaElement x:Name="media" Grid.Column="0"
             Grid.ColumnSpan="8" HorizontalAlignment="Left"  VerticalAlignment="Top" Source="Video Egged.mp4" Stretch="Fill" Volume="0" UnloadedBehavior="Play" StretchDirection="DownOnly" Cursor="None" OpacityMask="Black" Grid.RowSpan="2"/>
 
