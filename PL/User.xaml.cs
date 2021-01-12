@@ -34,7 +34,7 @@ namespace PL
             curUser = bl.GetUser(tbUser.Text);
             MainWindow myMainWindow = new MainWindow(bl);
 
-            if ((curUser!=null)&&(PPass.Password== curUser.Password))
+            if ((curUser!=null)&&(pbPass.Password== curUser.Password))
             {
                 myMainWindow.Show();
             }

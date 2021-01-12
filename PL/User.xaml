@@ -5,14 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL"
         mc:Ignorable="d"
-        Title="User" Height="450" Width="395.711">
-    <Grid Margin="0,0,16,0">
-        <PasswordBox x:Name="PPass" HorizontalAlignment="Left" Margin="175,251,0,0" VerticalAlignment="Top" Width="165" Height="46"/>
+        Title="User" Height="370" Width="550">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="*"/>
 
-        <TextBlock HorizontalAlignment="Left" Margin="10,187,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="33" Width="95"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,251,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="24" Width="109"/>
-        <TextBox x:Name="tbUser" HorizontalAlignment="Left" Height="22" Margin="175,187,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="159" />
-        <Button x:Name="bLogIn" Content="Button" HorizontalAlignment="Left" Margin="94,347,0,0" VerticalAlignment="Top" Width="156" Height="32" Click="bLogIn_Click"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="28"/>
+            <RowDefinition Height="1.3*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.7*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock HorizontalAlignment="center" TextWrapping="Wrap" Text="    welcome"  Foreground="#FF2B8B30" VerticalAlignment="Center" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" FontWeight="Bold" FontSize="15" />
+        <TextBox x:Name="tbcolorup" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" HorizontalAlignment="Stretch" TextWrapping="Wrap"  Text="  Bondi" VerticalAlignment="Stretch"  Background="#FF2FA535" FontWeight="Bold" Foreground="#FFFCFBFA"  FontSize="18" BorderBrush="{x:Null}"  />
+        <TextBox x:Name="tbcolor" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="5" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"  Background="#FF2FA535" BorderBrush="{x:Null}"  TextWrapping="Wrap"  Text=" © 2021 Bondi.com " Foreground="White" FontSize="11" />
+        <PasswordBox x:Name="pbPass"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" Grid.Column="2" Grid.Row="3" Height="20"/>
+        <TextBlock HorizontalAlignment="Left"  TextWrapping="Wrap"  Foreground="#FF2B8B30" Text="User name: " VerticalAlignment="Center" Grid.Column="1" Grid.Row="2"  FontSize="15" />
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap"  Foreground="#FF2B8B30" Text="Password: " VerticalAlignment="Center" Grid.Column="1" Grid.Row="3"  FontSize="15" />
+        <TextBox x:Name="tbUser" HorizontalAlignment="Stretch"  TextWrapping="Wrap" VerticalAlignment="Center" Grid.Column="2" Grid.Row="2" Height="20" />
+        <Button x:Name="bLogIn" Content="Log in" HorizontalAlignment="Stretch"  VerticalAlignment="Bottom"  Height="25" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="4" Click="bLogIn_Click" FontSize="15" Background="#FF2FA535" Foreground="White"/>
+        <Image Grid.Column="1" HorizontalAlignment="center"  Grid.Row="1"  VerticalAlignment="Center"  Source="login.png" Height="20" Margin="0.4,0,0,0" Width="20"/>
 
     </Grid>
 </Window>
