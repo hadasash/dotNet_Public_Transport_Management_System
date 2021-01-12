@@ -38,5 +38,12 @@ namespace BLAPI
 
         #endregion
 
+        #region User
+        BO.User userDoBoAdapter(DO.User userDO);
+        BO.User GetUser(string name);
+        void AddUser(DO.User user);
+        IEnumerable<BO.User> GetAllUsers();
+        #endregion
+
     }
 }

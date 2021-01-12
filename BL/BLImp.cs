@@ -219,6 +219,56 @@ namespace BL
         }
 
         #endregion
+        #region User
+        public BO.User userDoBoAdapter(DO.User userDO)
+        {
+            BO.User userBO = new BO.User();
+            DO.User newUserDO;
+            string name = userDO.Name;
+            try
+            {
+                newUserDO = dl.GetUser(name);
+            }
+            catch (DO.BadStationCodeException ex)
+            {
+                throw new BO.BadStationCodeException("Station code is illegal", ex);
+            }
+            newUserDO.CopyPropertiesTo(userBO);
+
+            userDO.CopyPropertiesTo(userBO);
+
+            return userBO;
+        }
+        public BO.User GetUser(string name)
+        {
+            DO.User userDO;
+            try
+            {
+                userDO = dl.GetUser(name);
+            }
+            catch (DO.BadStationCodeException ex)
+            {
+                throw new BO.BadStationCodeException("User code does not exist or he is not a user", ex);
+            }
+            return userDoBoAdapter(userDO);
+        }
+        public void AddUser(DO.User user)
+        {
+            try
+            {
+                dl.AddUser(user);
+            }
+            catch (DO.BadStationCodeLineID ex)
+            {
+                throw new BO.BadStationCodeLineIDException("User is exist", ex);
+            }
+        }
+       public IEnumerable<BO.User> GetAllUsers()
+        {
+            return from item in dl.GetAllUsers()
+                   select userDoBoAdapter(item);
+        }
+        #endregion
 
     }
 

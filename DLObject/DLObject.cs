@@ -201,5 +201,34 @@ namespace DL
         }
         #endregion
 
+        #region User
+       public DO.User GetUser(string myname)
+        {
+            DO.User user = DataSource.users.Find(u => u.Name == myname);
+            //try { Thread.Sleep(2000); } catch (ThreadInterruptedException ex) { }
+            if (user != null)
+            {
+                return user.Clone();
+            }
+            else
+            {
+                return null;
+            }
+            
+        }
+       public IEnumerable<DO.User> GetAllUsers()
+            {
+                return from user in DataSource.users
+                       select user.Clone();
+            }
+        public void AddUser(DO.User user)
+        {
+            if (DataSource.users.Where(s => s.Name == user.Name).ToList().Count() > 0)
+            {
+               // throw new DO.BadStationCodeException(user.Name, "Duplicate user Code");
+            }
+            DataSource.users.Add(user);
+        }
+        #endregion
     }
 }

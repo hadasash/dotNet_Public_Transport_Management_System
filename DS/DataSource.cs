@@ -12,7 +12,7 @@ namespace DS
         public static List<Line> listLines;
         public static List<LineStation> listLineStation;
         public static List<AdjacentStations> listAdjacentStation;
-
+        public static List<User> users;
         static DataSource()
         {
             InitAllLists();
@@ -607,7 +607,7 @@ namespace DS
 
             #endregion
             };
-            listLineStation = new List<LineStation>    
+            listLineStation = new List<LineStation>
             {
                 #region Boot lines//אתחול תחנות קו
                 //line 179, jerusalem
@@ -1657,14 +1657,24 @@ namespace DS
 
                 }
                 #endregion end
-            }; 
+            };
            
-
-
-
-
-
+            users = new List<User>
+            {
+                #region User //אתחול משתמשים
+                new User
+                {
+                    Name = "Chaim",
+                    Password = "Chaim123",
+                },
+                #endregion
+            };
+            
         }
+
     }
-}
+    }
+
+
+
 

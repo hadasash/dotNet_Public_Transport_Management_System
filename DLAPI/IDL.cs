@@ -41,7 +41,11 @@ namespace DLAPI
         void DeleteStationsFromAllLines(int statCode);
         void DeleteAllLineStationsPerLine(int lineID);
         #endregion
-
+        #region User
+        DO.User GetUser(string name);
+        IEnumerable<DO.User> GetAllUsers();
+        void AddUser(DO.User user);
+        #endregion
 
     }
 
