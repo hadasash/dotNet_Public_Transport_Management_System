@@ -17,10 +17,52 @@ namespace PL
     public partial class LinesWindow : Window
     {
         IBL bl;
+       
+        BO.Line curLine;
         public LinesWindow(IBL _bl)
         {
             bl = _bl;
             InitializeComponent();
+            cbLineId.DisplayMemberPath = "Name";//show only specific Property of object
+            cbLineId.SelectedIndex = 0; //index of the object to be selected
+            RefreshAllLinesComboBox();
         }
+
+        private void bBack_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow myWin = new MainWindow(bl);
+            myWin.Show();
+            this.Close();
+        }
+
+        private void bLogOut_Click(object sender, RoutedEventArgs e)
+        {
+            User myWin = new User();
+            myWin.Show();
+            this.Close();
+        }
+        public void RefreshAllLinesComboBox()
+        {
+            cbLineId.DataContext = bl.GetAllLines(); //ObserListOfStudents;
+        }
+        void RefreshAllRegisteredLineStationGrid()
+        {
+            //stationDataGrid.DataContext = curLine.LineStations;
+        }
+        private void cbLineId_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            curLine = (cbLineId.SelectedItem as BO.Line);
+            gridOneLine.DataContext = curLine;
+
+            if (curLine != null)
+            {
+                //list of courses of selected student
+                RefreshAllLinesComboBox();
+                //list of all courses (that selected student is not registered to it)
+                // RefreshAllNotRegisteredCoursesGrid();
+            }
+        }
+
+       
     }
 }

@@ -25,5 +25,12 @@ namespace PL
             bl = _bl;
             InitializeComponent();
         }
+
+        private void bBack_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow myWin = new MainWindow(bl);
+            myWin.Show();
+            this.Close();
+        }
     }
 }

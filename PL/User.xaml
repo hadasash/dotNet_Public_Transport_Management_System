@@ -33,6 +33,8 @@
         <TextBox x:Name="tbUser" HorizontalAlignment="Stretch"  TextWrapping="Wrap" VerticalAlignment="Center" Grid.Column="2" Grid.Row="2" Height="20" />
         <Button x:Name="bLogIn" Content="Log in" HorizontalAlignment="Stretch"  VerticalAlignment="Bottom"  Height="25" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="4" Click="bLogIn_Click" FontSize="15" Background="#FF2FA535" Foreground="White"/>
         <Image Grid.Column="1" HorizontalAlignment="center"  Grid.Row="1"  VerticalAlignment="Center"  Source="login.png" Height="20" Margin="0.4,0,0,0" Width="20"/>
+        <Button x:Name="bSignUp" Content="Signup now" Grid.Column="3" HorizontalAlignment="Left" Margin="68.6,54,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="bSignUp_Click"/>
+        <TextBlock Grid.Column="3" HorizontalAlignment="Left" Margin="68.6,27,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Not a member? " VerticalAlignment="Top" Width="93" Height="22"/>
 
     </Grid>
 </Window>

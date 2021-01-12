@@ -36,6 +36,7 @@ namespace PL
             {
                 StationsWindow win = new StationsWindow(bl);
                 win.Show();
+                this.Close();
                 
 
             }
@@ -43,11 +44,13 @@ namespace PL
             {
                 LinesWindow win = new LinesWindow(bl);
                 win.Show();
+                this.Close();
             }
             if (rbticket.IsChecked == true)
             {
                 tickets win = new tickets(bl);
                 win.Show();
+                this.Close();
 
 
             }

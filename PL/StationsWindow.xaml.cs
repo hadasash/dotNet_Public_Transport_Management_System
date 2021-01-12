@@ -22,6 +22,7 @@ namespace PL
     {
         IBL bl;
         BO.Station curStation;
+       
         public StationsWindow(IBL _bl)
         {
 
@@ -125,6 +126,18 @@ namespace PL
             }
         }
 
-       
+        private void bBack_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow myWin = new MainWindow(bl);
+            myWin.Show();
+            this.Close();
+        }
+
+        private void bLogOut_Click(object sender, RoutedEventArgs e)
+        {
+            User myWin = new User();
+            myWin.Show();
+            this.Close();
+        }
     }
 }

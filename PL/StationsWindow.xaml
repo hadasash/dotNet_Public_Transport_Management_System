@@ -81,6 +81,8 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <Button x:Name="bBack" Content="back" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="42" Grid.ColumnSpan="2" Margin="0,2,0,0" Click="bBack_Click"/>
+        <Button x:Name="bLogOut" Content="Logout" Grid.Column="1" HorizontalAlignment="Left" Margin="9.6,10.4,0,0" Grid.Row="6" VerticalAlignment="Top" Width="75" Click="bLogOut_Click"/>
 
     </Grid>
 </Window>

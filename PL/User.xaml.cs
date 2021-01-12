@@ -37,11 +37,24 @@ namespace PL
             if ((curUser!=null)&&(pbPass.Password== curUser.Password))
             {
                 myMainWindow.Show();
+                this.Close();
             }
             else
             {
                 MessageBox.Show(" Try again!!");
             }
         }
+       
+        private void bSignUp_Click(object sender, RoutedEventArgs e)
+        {
+            Newuser newUserWin = new Newuser();
+            newUserWin.Show();
+
+
+        }
     }
 }
+
+
+
+
