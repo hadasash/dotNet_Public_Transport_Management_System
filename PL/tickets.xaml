@@ -1,0 +1,29 @@
+﻿<Window x:Class="PL.tickets"
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PL"
+        mc:Ignorable="d"
+        Title="tickets" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="28"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+
+
+            <TextBox x:Name="tbcolorup" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Stretch" TextWrapping="Wrap"  Text="  Bondi" VerticalAlignment="Stretch"  Background="#FF2FA535" FontWeight="Bold" Foreground="#FFFCFBFA"  FontSize="17" BorderBrush="{x:Null}"  />
+        <TextBox x:Name="tbcolor" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"  Background="#FF2FA535" BorderBrush="{x:Null}"  TextWrapping="Wrap"  Text=" © 2021 Bondi.com " Foreground="White" FontSize="12" />
+
+    </Grid>
+</Window>

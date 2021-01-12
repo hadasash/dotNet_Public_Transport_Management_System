@@ -58,10 +58,20 @@
     <Compile Include="AddNewStation.xaml.cs">
       <DependentUpon>AddNewStation.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LinesWindow.xaml.cs">
+      <DependentUpon>LinesWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="StationsWindow.xaml.cs">
       <DependentUpon>StationsWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="tickets.xaml.cs">
+      <DependentUpon>tickets.xaml</DependentUpon>
+    </Compile>
     <Page Include="AddNewStation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LinesWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -78,6 +88,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="StationsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="tickets.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -129,6 +143,14 @@
     <Resource Include="green.png" />
     <Resource Include="3dfc241d9c.svg.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="white1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="greenwhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="conf.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

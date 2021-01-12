@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL"
         mc:Ignorable="d"
-        Title="Bondi" Height="400" Width="490" Icon="green.png" Background="White" >
+        Title="Bondi" Height="550" Width="800" Icon="green.png" Background="White"  >
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -22,7 +22,7 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
 
-            <RowDefinition Height="30" />
+            <RowDefinition Height="28" />
             <RowDefinition Height="1.5*" />
             <RowDefinition Height="0.25*" />
             <RowDefinition Height="0.25*" />
@@ -32,8 +32,9 @@
         </Grid.RowDefinitions>
 
 
-        <RadioButton x:Name ="rbStations" Grid.Row="2"  Grid.Column="1" Grid.ColumnSpan="3" Content="  Bus Stations" HorizontalAlignment="Left" IsChecked="True"  FontWeight="Bold" FontSize="14" />
-        <RadioButton x:Name ="rbLines"   Grid.Row="3"  Grid.Column="1" Grid.ColumnSpan="3"  Content="  Bus Lines" HorizontalAlignment="Left"  FontWeight="Bold" FontSize="14"/>
+        <RadioButton x:Name ="rbStations" Grid.Row="2"  Grid.Column="1" Grid.ColumnSpan="3" Content="  Bus Stations" HorizontalAlignment="Left" VerticalAlignment="Center"  IsChecked="True"  FontWeight="Bold" FontSize="15"  />
+        <RadioButton x:Name ="rbLines"   Grid.Row="3"  Grid.Column="1" Grid.ColumnSpan="3"  Content="  Bus Lines" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="15"/>
+        <RadioButton x:Name ="rbticket"   Grid.Row="4"  Grid.Column="1" Grid.ColumnSpan="3"  Content="  tickets info" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="15"/>
 
 
 
@@ -41,9 +42,10 @@
         <MediaElement x:Name="media" Grid.Column="0"
             Grid.ColumnSpan="8" HorizontalAlignment="Left"  VerticalAlignment="Top" Source="Video Egged.mp4" Stretch="Fill" Volume="0" UnloadedBehavior="Play" StretchDirection="DownOnly" Cursor="None" OpacityMask="Black" Grid.RowSpan="2"/>
 
-        <TextBox x:Name="tbcolorup" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="8" HorizontalAlignment="Stretch" TextWrapping="Wrap"  Text="  Bondi" VerticalAlignment="Top"  Background="#FF2FA535" FontWeight="Bold" Foreground="#FFFCFBFA"  FontSize="17" BorderBrush="{x:Null}"  />
+        <TextBox x:Name="tbcolorup" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="8" HorizontalAlignment="Stretch" TextWrapping="Wrap"  Text="  Bondi" VerticalAlignment="Stretch"  Background="#FF2FA535" FontWeight="Bold" Foreground="#FFFCFBFA"  FontSize="17" BorderBrush="{x:Null}"  />
+        <Button Name="btn" Grid.Column="8" Background="#FF2FA535" VerticalAlignment="Center" HorizontalAlignment="Center" >
+            <Image Source="conf.png"  />
+        </Button>
         <TextBox x:Name="tbcolor" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="8" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"  Background="#FF2FA535" BorderBrush="{x:Null}"  TextWrapping="Wrap"  Text=" © 2021 Bondi.com " Foreground="White" FontSize="12" />
-        <Label Content="Select Station:" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Center" Height="24" Width="auto"/>
-   
     </Grid>
 </Window>

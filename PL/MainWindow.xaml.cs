@@ -40,10 +40,17 @@ namespace PL
             }
             else if (rbLines.IsChecked == true)
             {
-                
-                MessageBox.Show("This method is under construction!", "TBD", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+                LinesWindow win = new LinesWindow(bl);
+                win.Show();
             }
-            
+            if (rbticket.IsChecked == true)
+            {
+                tickets win = new tickets(bl);
+                win.Show();
+
+
+            }
+
         }
 
        
