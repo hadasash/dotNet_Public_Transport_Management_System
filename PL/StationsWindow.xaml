@@ -31,8 +31,8 @@
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <TextBox x:Name="tbcolorup" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6" HorizontalAlignment="Stretch" TextWrapping="Wrap"  Text="  Bondi" VerticalAlignment="Stretch"  Background="#FF2FA535" FontWeight="Bold" Foreground="White"  FontSize="17" BorderBrush="{x:Null}"  />
-        <TextBox x:Name="tbcolor" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="6" HorizontalAlignment="Stretch"   VerticalAlignment="Bottom"  Background="#FF2FA535" BorderBrush="{x:Null}" TextWrapping="Wrap"  Text=" © 2021 Bondi.com " Foreground="White" FontSize="12"  />
-        <Label Content="Select Station:              " Grid.Row="1" Grid.Column="1"  HorizontalAlignment="Right"  VerticalAlignment="Center" Height="30" FontSize="15" Foreground="#FF2B8B30"  FontWeight="Bold" />
+        <TextBox x:Name="tbcolor" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="6" HorizontalAlignment="Stretch"   VerticalAlignment="Bottom"  Background="#FF2FA535" BorderBrush="{x:Null}" TextWrapping="Wrap"  Text=" © 2021   Bondi.com " Foreground="White" FontSize="12"  />
+        <Label Content="Select Station:         " Grid.Row="1" Grid.Column="1"  HorizontalAlignment="Right"  VerticalAlignment="Center" Height="30" FontSize="15" Foreground="#FF2B8B30"  FontWeight="Bold" />
         <ComboBox x:Name="cbStationId" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" HorizontalAlignment="Stretch"  VerticalAlignment="Center"
                    
                   ItemsSource="{Binding}" 
@@ -63,8 +63,8 @@
             <TextBox x:Name="nameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3.6,5,0,5.6" Grid.Row="0" Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="180" Grid.ColumnSpan="3"/>
         </Grid>
         <Button x:Name="btDeleteStation" Content="Delete Current Station" HorizontalAlignment="Stretch"  VerticalAlignment="Center"  Background="#FF54C759" Foreground="White" Click="btDeleteStation_Click" Grid.Column="3" Grid.Row="5" />
-        <Button x:Name="btAddStation" Content="Add New Station" HorizontalAlignment="Stretch"  VerticalAlignment="Center"  Grid.Column="4" Grid.Row="5" Background="HotPink" Foreground="White" Click="btAddStation_Click" />
-        <Button x:Name="btUpdateStation" Content="update station info" HorizontalAlignment="Stretch"  VerticalAlignment="Center"  Background="#FF81A3D1" Foreground="White" Click="btUpdateStation_Click" Grid.Column="2" Grid.Row="5"  />
+        <Button x:Name="btAddStation" Content="Add New Station" HorizontalAlignment="Stretch"  VerticalAlignment="Center"  Grid.Column="4" Grid.Row="5" Background="#FFF386BC" Foreground="White" Click="btAddStation_Click" />
+        <Button x:Name="btUpdateStation" Content="update station info" HorizontalAlignment="Stretch"  VerticalAlignment="Bottom"  Background="#FF91A4BF" Foreground="White" Click="btUpdateStation_Click" Grid.Column="2" Grid.Row="5" Margin="0,0,0.4,5.6"  />
         <DataGrid x:Name="lineDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="2" Grid.RowSpan="3" RowDetailsVisibilityMode="VisibleWhenSelected"  >
 
             <DataGrid.Columns>

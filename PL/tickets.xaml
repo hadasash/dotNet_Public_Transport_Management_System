@@ -12,18 +12,49 @@ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="28"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="30"/>
-            </Grid.RowDefinitions>
+        </Grid.RowDefinitions>
 
 
-            <TextBox x:Name="tbcolorup" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Stretch" TextWrapping="Wrap"  Text="  Bondi" VerticalAlignment="Stretch"  Background="#FF2FA535" FontWeight="Bold" Foreground="#FFFCFBFA"  FontSize="17" BorderBrush="{x:Null}"  />
-        <TextBox x:Name="tbcolor" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"  Background="#FF2FA535" BorderBrush="{x:Null}"  TextWrapping="Wrap"  Text=" © 2021 Bondi.com " Foreground="White" FontSize="12" />
+        <TextBox x:Name="tbcolorup" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" HorizontalAlignment="Stretch" TextWrapping="Wrap"  Text="  Bondi" VerticalAlignment="Stretch"  Background="#FF2FA535" FontWeight="Bold" Foreground="#FFFCFBFA"  FontSize="17" BorderBrush="{x:Null}"  />
+        <TextBox x:Name="tbcolor" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="5" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"  Background="#FF2FA535" BorderBrush="{x:Null}"  TextWrapping="Wrap"  Text=" © 2021 Bondi.com " Foreground="White" FontSize="11" />
+        <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="4" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch">
+            <TextBlock Height="30" />
+            <TextBlock HorizontalAlignment="Center" Text="Tickets and prices for a Bondi bus ride" FontSize="16" FontWeight="Bold" />
+            <TextBlock  Height="15"/>
+            <TextBlock Text="one arae in gush dan- 1.7 USD = 5.90 ILS " FontSize="13"/>
+            <TextBlock Height="5" />
+            <TextBlock Text="two araes in gush dan- 3 USD = 9.30 ILS " FontSize="13"/>
+            <TextBlock Height="5" />
+            <TextBlock Text="Tel Aviv - Ben Gurion airport 37,8 USD = 120 ILS" FontSize="13" />
+            <TextBlock Height="5" />
+            <TextBlock Text="Tel-Aviv - Haifa  9,4 USD = 30 ILS" FontSize="13" />
+            <TextBlock Height="5" />
+            <TextBlock Text="Haifa - Nazareth 9,4 USD = 30 ILS" FontSize="13" />
+            <TextBlock  Height="5"/>
+            <TextBlock Text="Haifa Yardenit , 6 USD = 19 ILS" FontSize="13" />
+            <TextBlock Height="5" />
+            <TextBlock Text="Tiberias - Jerusalem , 12,6 USD = 40. ILS " FontSize="13" />
+            <TextBlock Height="5" />
+            <TextBlock Text="Jerusalem - Ein Gedi nature  11,3 USD = 36 ILS " FontSize="13"/>
+            <TextBlock Height="5" />
+            <TextBlock Text="Ein Gedi (dead sea) - Eilat 14,2 USD = 45 ILS " FontSize="13" />
+            <TextBlock Height="5" />
+            <TextBlock Text="Ein Gedi - Masada 6,3 USD = 20 ILS" FontSize="13"/>
+
+
+        </StackPanel>
+        <Image Grid.ColumnSpan="2" Grid.Column="3" HorizontalAlignment="Left" Height="154" Margin="71,10.4,0,0" Grid.Row="4" Grid.RowSpan="2" VerticalAlignment="Top" Width="205" Source="dibujo.jpg"/>
 
     </Grid>
 </Window>
