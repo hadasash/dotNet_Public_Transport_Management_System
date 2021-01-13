@@ -35,6 +35,7 @@ namespace BLAPI
         void AddStationInLine(int statCode, int lineID, int index = 0);
         void UpdateStationIndexInLine(int statCode, int lineID, int index);
         void DeleteStationInLine(int statCode, int lineID);
+        IEnumerable<BO.LineStation> GetAllStationInLine(int id);
 
         #endregion
 

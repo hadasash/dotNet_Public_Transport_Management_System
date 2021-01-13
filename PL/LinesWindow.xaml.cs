@@ -22,7 +22,7 @@ namespace PL
         {
             InitializeComponent();
             bl = _bl;
-            
+
             cbLineId.DisplayMemberPath = "NumberBus";//show only specific Property of object
             cbLineId.SelectedValuePath = "LineId";//selection return only specific Property of object
             cbLineId.SelectedIndex = 0; //index of the object to be selected
@@ -48,7 +48,7 @@ namespace PL
         }
         void RefreshAllRegisteredLineStationGrid()
         {
-            //stationDataGrid.DataContext = curLine.LineStations;
+            stationLineDataGrid.DataContext = bl.GetAllStationInLine(curLine.LineId);
         }
         private void cbLineId_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -58,9 +58,10 @@ namespace PL
             if (curLine != null)
             {
                 //list of courses of selected student
-               // RefreshAllLinesComboBox();
+                // RefreshAllLinesComboBox();
                 //list of all courses (that selected student is not registered to it)
                 // RefreshAllNotRegisteredCoursesGrid();
+                RefreshAllRegisteredLineStationGrid();
             }
         }
 
@@ -70,5 +71,68 @@ namespace PL
             myWin.Show();
             this.Close();
         }
+
+        
+        private void btUpdateLine_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (curLine != null)
+                    bl.UpdateLinePersonalDetails(curLine);
+            }
+            catch (BO.BadStationCodeException ex)
+            {
+                MessageBox.Show(ex.Message, "Operation Failure", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void btDeleteLine_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult res = MessageBox.Show("Delete selected station?", "Verification", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (res == MessageBoxResult.No)
+                return;
+            try
+            {
+                if (curLine != null)
+                {
+                    bl.DeleteLine(curLine.LineId);
+
+                    RefreshAllRegisteredLineStationGrid();
+                    
+                    RefreshAllLinesComboBox();
+                }
+            }
+            catch (BO.BadLineIdException ex)
+            {
+                MessageBox.Show(ex.Message, "Operation Failure", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        private void refresh(object sender, EventArgs e)
+        {
+            RefreshAllLinesComboBox();
+        }
+        private void btAddSLine_Click(object sender, RoutedEventArgs e)
+        {
+            AddNewLine newStatWin = new AddNewLine();
+            newStatWin.Closed += refresh;
+            newStatWin.Show();
+        }
+
+        private void btDeleteStat_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                BO.LineStation slBO = ((sender as Button).DataContext as BO.LineStation);
+                bl.DeleteStationInLine(curLine.LineId ,slBO.Code );
+                RefreshAllRegisteredLineStationGrid();
+              
+            }
+            catch (BO.BadStationCodeLineIDException ex)
+            {
+                MessageBox.Show(ex.Message, "Operation Failure", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+        }
     }
 }
+

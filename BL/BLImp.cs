@@ -32,9 +32,9 @@ namespace BL
 
             stationDO.CopyPropertiesTo(stationBO);
 
-            var t = (from sil in dl.GetStationsInLineList(sil => sil.Station == code) select sil).ToList();
+            var t = (from sil in dl.GetStationsInLineList(sil => sil.Code == code) select sil).ToList();
 
-            stationBO.ListOfLines = (from sil in dl.GetStationsInLineList(sil => sil.Station == code)
+            stationBO.ListOfLines = (from sil in dl.GetStationsInLineList(sil => sil.Code == code)
                                      let line = dl.GetLine(sil.LineId)
                                      select line.CopyToListOfLines(sil)).ToList();
 
@@ -217,11 +217,11 @@ namespace BL
                 throw new BO.BadStationCodeLineIDException("Station code and Line ID is Not exist", ex);
             }
         }
-        public void DeleteStationInLine(int statCode, int lineID)
+        public void DeleteStationInLine(int lineID,  int statCode)
         {
             try
             {
-                dl.DeleteStationInLine(statCode, lineID);
+                dl.DeleteStationInLine(lineID, statCode);
             }
             catch (DO.BadStationCodeLineID ex)
             {
@@ -231,9 +231,9 @@ namespace BL
         BO.LineStation lineStationDoBoAdapter(DO.LineStation lineStationDO)
         {
             BO.LineStation lineStationBO = new BO.LineStation();
-            DO.LineStation newlineStationDO;//before copying lineStationDO to lineStationBO, we need to ensure that lineStationDO is legal- legal code.
-            //sometimes we get here after the user filled lineStationDO fields. thats why we copy the given lineStationDO to a new lineStationDO and check if it is legal.
-            int code = lineStationDO.Station;
+
+            DO.LineStation newlineStationDO;
+            int code = lineStationDO.Code;
             try
             {
                 newlineStationDO = dl.GetLineStation(code);//if code is legal, returns a new lineStationDO. if not- ecxeption.
@@ -265,10 +265,16 @@ namespace BL
             return lineStationBO;
 
         }
-            #endregion
+        public IEnumerable<BO.LineStation> GetAllStationInLine(int id)
+        {
+            return from sic in dl.GetStationsInLineList(sic => sic.LineId == id)
+                   let line = dl.GetLine(sic.LineId)
+                   select line.CopyToStationLine(sic);
+        }
+        #endregion
 
-            #region User
-            public BO.User userDoBoAdapter(DO.User userDO)
+        #region User
+        public BO.User userDoBoAdapter(DO.User userDO)
         {
             BO.User userBO = new BO.User();
             DO.User newUserDO;

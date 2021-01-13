@@ -106,8 +106,8 @@ namespace DL
         {
             if (DataSource.listLines.FirstOrDefault(l => l.LineId == line.LineId) != null)
                 throw new DO.BadLineIDException(line.LineId, "Duplicate line ID");
-            if (DataSource.listLines.FirstOrDefault(l => l.LineId == line.LineId) == null)
-                throw new DO.BadLineIDException(line.LineId, "Missing line ID");
+            //if (DataSource.listLines.FirstOrDefault(l => l.LineId == line.LineId) == null)
+            //    throw new DO.BadLineIDException(line.LineId, "Missing line ID");
             DataSource.listLines.Add(line.Clone());
         }
         public void UpdateLine(DO.Line line)

@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddNewLine.xaml.cs">
+      <DependentUpon>AddNewLine.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddNewStation.xaml.cs">
       <DependentUpon>AddNewStation.xaml</DependentUpon>
     </Compile>
@@ -76,6 +79,10 @@
     <Compile Include="User.xaml.cs">
       <DependentUpon>User.xaml</DependentUpon>
     </Compile>
+    <Page Include="AddNewLine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AddNewStation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -136,6 +143,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Properties\DataSources\BO.Line.datasource" />
+    <None Include="Properties\DataSources\BO.LineStation.datasource" />
     <None Include="Properties\DataSources\BO.Station.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

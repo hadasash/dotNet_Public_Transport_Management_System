@@ -35,5 +35,12 @@ namespace BL
             result.LineId = sic.LineId;
             return result;
         }
+        public static BO.LineStation CopyToStationLine(this DO.Line line, DO.LineStation sic)
+        {
+            BO.LineStation result = (BO.LineStation)line.CopyPropertiesToNew(typeof(BO.LineStation));
+            // propertys' names changed? copy them here...
+            result.LineStationIndex = sic.LineStationIndex;
+            return result;
+        }
     }
 }

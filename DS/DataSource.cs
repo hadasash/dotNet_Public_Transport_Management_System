@@ -8,6 +8,7 @@ namespace DS
 {
     public static class DataSource
     {
+        private static Random r = new Random();
         public static List<Station> listStations;
         public static List<Line> listLines;
         public static List<LineStation> listLineStation;
@@ -1649,14 +1650,44 @@ namespace DS
 
  #endregion
             };
-            listAdjacentStation = new List<AdjacentStations>
+            listAdjacentStation = new List<AdjacentStations>();
             {
                 #region Boot //אתחול תחנות עוקבות
-                new AdjacentStations
-                {
+              
 
+                foreach (LineStation ls in listLineStation)
+                {
+                    if (!listLines.Exists(l => l.LastStation == ls.Station && l.LineId == ls.LineId))//if the lineStation is not the last in the bus
+                    {
+                        AdjacentStations newAdj = new AdjacentStations();
+                        //we make each line station a pair of the station after it
+                        newAdj.Station1 = ls.Station;
+                        newAdj.Station2 = ls.NextStation;
+
+                        //double long1 = listStations.Find(st => st.Code == ls.Station).Longitude;
+                        //double long2 = listStations.Find(st => st.Code == newAdj.Station2).Longitude;
+                        //double lat1 = listStations.Find(st => st.Code == ls.Station).Lattitude;
+                        //double lat2 = listStations.Find(st => st.Code == newAdj.Station2).Lattitude;
+                        //newAdj.Distance = Math.Sqrt(Math.Pow(long1 - long2, 2) + Math.Pow(lat1 - lat2, 2));
+
+                        int timeInMin = (int)(newAdj.Distance * 1.0 / r.Next(20, 50)) * 60;
+                        TimeSpan time = new TimeSpan(0, timeInMin, 0);
+                        newAdj.Time = time;
+
+                        listAdjacentStation.Add(newAdj);
+                    }
+                    else
+                    {
+                        //no need to create a pair. its the last station in a line.
+                    }
                 }
-                #endregion end
+
+                //(sender as TryToRide).dis;
+                // Time =(TimeSpan) v;
+
+
+                #endregion
+              
             };
             users = new List<User>
             {

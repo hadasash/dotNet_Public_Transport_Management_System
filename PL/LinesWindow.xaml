@@ -6,10 +6,14 @@
         xmlns:local="clr-namespace:PL"
         xmlns:BO="clr-namespace:BO;assembly=BL" x:Class="PL.LinesWindow"
         mc:Ignorable="d"
-        Title="LinesWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" Icon="green.png">
-  
-    
-    <Grid >
+        Title="LinesWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" Icon="green.png" >
+    <Window.Resources>
+        <CollectionViewSource x:Key="lineViewSource" d:DesignSource="{d:DesignInstance {x:Type BO:Line}, CreateList=True}"/>
+        <CollectionViewSource x:Key="lineStationViewSource" d:DesignSource="{d:DesignInstance {x:Type BO:LineStation}, CreateList=True}"/>
+    </Window.Resources>
+
+
+    <Grid DataContext="{StaticResource lineStationViewSource}" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.05*"/>
             <ColumnDefinition Width="1.5*"/>
@@ -39,29 +43,49 @@
 
         <Button x:Name="bLogOut"  Content="  Logout" HorizontalAlignment="Right"  Grid.Row="0" Grid.Column="4" VerticalAlignment="Center"  Click="bLogOut_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"/>
         <Button x:Name="bLContact"  Content="Contact us  | "  HorizontalAlignment="Center"  Grid.Row="0" Grid.Column="4" VerticalAlignment="Center"  Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="bLContact_Click"/>
-        <Grid x:Name="gridOneLine"   Grid.Column="1"  Grid.Row="2" Grid.RowSpan="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="300" >
-     
+
+        <Button x:Name="btDeleteLine" Content="Delete Current line" HorizontalAlignment="Stretch"  VerticalAlignment="Center"  Background="#FF54C759" Foreground="White"  Grid.Column="3" Grid.Row="5" Click="btDeleteLine_Click" />
+        <Button x:Name="btAddSLine" Content="Add New line" HorizontalAlignment="Stretch"  VerticalAlignment="Center"  Grid.Column="4" Grid.Row="5" Background="#FFF386BC" Foreground="White" Click="btAddSLine_Click" />
+        <Button x:Name="btUpdateLine" Content="Update line info" HorizontalAlignment="Stretch"  VerticalAlignment="Center"  Background="#FF91A4BF" Foreground="White"  Grid.Column="2" Grid.Row="5" Click="btUpdateLine_Click"   />
+        <Grid x:Name="gridOneLine" Grid.Column="1"  HorizontalAlignment="Left" Margin="9.6,21.4,0,0" Grid.Row="2" VerticalAlignment="Top" Height="226" Grid.RowSpan="4">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Label Content="First Station:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
-            <TextBox x:Name="firstStationTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding FirstStation, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="Last Station:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
-            <TextBox x:Name="lastStationTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding LastStation, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="Line Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
-            <TextBox x:Name="lineIdTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="{Binding LineId, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="Num Of Bus:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
-            <TextBox x:Name="numOfBusTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" Text="{Binding NumberBus, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <Label Content="Area:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <TextBox x:Name="areaTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding Area, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <Label Content="First Station:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
+            <TextBox x:Name="firstStationTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding FirstStation, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <Label Content="Last Station:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
+            <TextBox x:Name="lastStationTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="{Binding LastStation, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <Label Content="Line Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
+            <TextBox x:Name="lineIdTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" Text="{Binding LineId, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <Label Content="Number Bus:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
+            <TextBox x:Name="numberBusTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding NumberBus, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
         </Grid>
-        <Button x:Name="btDeleteLine" Content="Delete Current line" HorizontalAlignment="Stretch"  VerticalAlignment="Center"  Background="#FF54C759" Foreground="White"  Grid.Column="3" Grid.Row="5" />
-        <Button x:Name="btAddSLine" Content="Add New line" HorizontalAlignment="Stretch"  VerticalAlignment="Center"  Grid.Column="4" Grid.Row="5" Background="#FFF386BC" Foreground="White" />
-        <Button x:Name="btUpdateLine" Content="Update line info" HorizontalAlignment="Stretch"  VerticalAlignment="Center"  Background="#FF91A4BF" Foreground="White"  Grid.Column="2" Grid.Row="5"   />
+        <DataGrid x:Name="stationLineDataGrid" AutoGenerateColumns="False" Grid.ColumnSpan="4" Grid.Column="1" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="304.6,21.4,68.2,25.8" Grid.Row="2" Grid.RowSpan="3" RowDetailsVisibilityMode="VisibleWhenSelected">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="codeColumn" Binding="{Binding Code}" Header="Code" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="distanceColumn" Binding="{Binding Distance}" Header="Distance" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="lineStationIndexColumn" Binding="{Binding LineStationIndex}" Header="Line Station Index" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="nameColumn" Binding="{Binding Name}" Header="Name" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="timeColumn" Binding="{Binding Time}" Header="Time" Width="SizeToHeader"/>
+            
+            <DataGridTemplateColumn>
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                        <Button x:Name="btDeleteStat" Content="Delete" ToolTip="UnRegister selected student from selected course" Width="70" Click="btDeleteStat_Click" />
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>
