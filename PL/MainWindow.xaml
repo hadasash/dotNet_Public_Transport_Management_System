@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL"
         mc:Ignorable="d"
-        Title="Bondi" Height="550" Width="800" Icon="green.png" Background="White" WindowStartupLocation="CenterScreen"  >
+        Title="Home page" Height="550" Width="800" Icon="green.png" Background="White" WindowStartupLocation="CenterScreen"  >
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -42,10 +42,10 @@
         <MediaElement x:Name="media" Grid.Column="0"
             Grid.ColumnSpan="8" HorizontalAlignment="Left"  VerticalAlignment="Top" Source="Video Egged.mp4" Stretch="Fill" Volume="0" UnloadedBehavior="Play" StretchDirection="DownOnly" Cursor="None" OpacityMask="Black" Grid.RowSpan="2"/>
 
-        <TextBox x:Name="tbcolorup" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="8" HorizontalAlignment="Stretch" TextWrapping="Wrap"  Text="  Bondi" VerticalAlignment="Stretch"  Background="#FF2FA535" FontWeight="Bold" Foreground="#FFFCFBFA"  FontSize="18" BorderBrush="{x:Null}"  />
-        <Button Name="btn" Grid.Column="8" Background="#FF2FA535" VerticalAlignment="Center" HorizontalAlignment="Right" >
-            <Image Source="conf.png"  />
-        </Button>
-        <TextBox x:Name="tbcolor" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="8" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"  Background="#FF2FA535" BorderBrush="{x:Null}"  TextWrapping="Wrap"  Text=" © 2021   Bondi.com " Foreground="White" FontSize="11" />
+        <TextBox x:Name="tbcolorup" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="8" HorizontalAlignment="Stretch" TextWrapping="Wrap"  Text="  Bondi" VerticalAlignment="Stretch"  Background="#FF2B8B30" FontWeight="Bold" Foreground="#FFFCFBFA"  FontSize="18" BorderBrush="{x:Null}"   />
+        <TextBox x:Name="tbcolor" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="8" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"  Background="#FF2B8B30" BorderBrush="{x:Null}"  TextWrapping="Wrap"  Text=" © 2021   Bondi.com " Foreground="White" FontSize="11" />
+        <Button x:Name="bLogOutmain" Content="Logout     " Grid.Column="7" HorizontalAlignment="Right"  Grid.Row="0" VerticalAlignment="Center"  Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="bLogOutmain_Click"/>
+        <Button x:Name="bLContactmain"  Content="Contact us  |"  HorizontalAlignment="Center"  Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="2" VerticalAlignment="Center"  Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"/>
+
     </Grid>
 </Window>

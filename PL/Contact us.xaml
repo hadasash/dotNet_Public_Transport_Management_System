@@ -1,12 +1,15 @@
-﻿<Window x:Class="PL.tickets"
-xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<Window x:Class="PL.Contact_us"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL"
         mc:Ignorable="d"
-        Title="tickets" Height="550" Width="800" WindowStartupLocation="CenterScreen">
+         Title="Contact us" Height="550" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
+        <Grid.Background>
+            <ImageBrush/>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
@@ -25,42 +28,45 @@ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
 
-
         <TextBox x:Name="tbcolorup" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" HorizontalAlignment="Stretch" TextWrapping="Wrap"  Text="  Bondi" VerticalAlignment="Stretch"  Background="#FF2B8B30" FontWeight="Bold" Foreground="#FFFCFBFA"  FontSize="18" BorderBrush="{x:Null}"  />
         <TextBox x:Name="tbcolor" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="5" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"  Background="#FF2B8B30" BorderBrush="{x:Null}"  TextWrapping="Wrap"  Text=" © 2021 Bondi.com " Foreground="White" FontSize="11" />
         <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="4" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch">
             <TextBlock Height="30" />
-            <TextBlock HorizontalAlignment="Center" Text="Tickets and prices for a Bondi bus ride" FontSize="16" FontWeight="Bold" />
+            <TextBlock HorizontalAlignment="Center" Text="Contact us" FontSize="16" FontWeight="Bold" />
             <TextBlock  Height="15"/>
-            <TextBlock Text="one arae in gush dan- 1.7 USD = 5.90 ILS " FontSize="13"/>
+            <TextBlock Text=" Phone us" FontSize="13" FontWeight="Bold"/>
             <TextBlock Height="5" />
-            <TextBlock Text="two araes in gush dan- 3 USD = 9.30 ILS " FontSize="13"/>
+            <TextBlock Text="Need to speak to someone? call our Customer Services team on: 077-5371428" FontSize="13"/>
             <TextBlock Height="5" />
-            <TextBlock Text="Tel Aviv - Ben Gurion airport 37,8 USD = 120 ILS" FontSize="13" />
+            <TextBlock Text="077-5371428" FontWeight="Bold"/>
             <TextBlock Height="5" />
-            <TextBlock Text="Tel-Aviv - Haifa  9,4 USD = 30 ILS" FontSize="13" />
+            <TextBlock Text="Please note that calls maybe recorded for training and development purposes so that we can continue to improve our service to you." FontSize="13" />
             <TextBlock Height="5" />
-            <TextBlock Text="Haifa - Nazareth 9,4 USD = 30 ILS" FontSize="13" />
-            <TextBlock  Height="5"/>
-            <TextBlock Text="Haifa Yardenit , 6 USD = 19 ILS" FontSize="13" />
+            <TextBlock Text="that we can continue to improve our service to you." FontSize="13" />
             <TextBlock Height="5" />
-            <TextBlock Text="Tiberias - Jerusalem , 12,6 USD = 40. ILS " FontSize="13" />
+            <TextBlock Text="our opening hours are: 8am to 5pm Sunday to Friday" FontSize="13" />
             <TextBlock Height="5" />
-            <TextBlock Text="Jerusalem - Ein Gedi nature  11,3 USD = 36 ILS " FontSize="13"/>
+            <TextBlock Text="Write to us" FontSize="13" FontWeight="Bold" />
             <TextBlock Height="5" />
-            <TextBlock Text="Ein Gedi (dead sea) - Eilat 14,2 USD = 45 ILS " FontSize="13" />
+            <TextBlock Text="bondi@gmail.com" FontSize="13"  />
             <TextBlock Height="5" />
-            <TextBlock Text="Ein Gedi - Masada 6,3 USD = 20 ILS" FontSize="13"/>
-
-
+            <TextBlock Text="Our address" FontSize="13"  />
+            <TextBlock Height="5" />
+            <TextBlock Text="Achad aam 7 Raanana, Israel" FontSize="13" />
+            <TextBlock Height="5" />
+            <TextBlock Text="Find us on social media" FontSize="13" FontWeight="Bold" />
+            <TextBlock Height="5" />
+            <TextBlock Text="facebook- bondi.com" FontSize="13" />
+            <TextBlock Height="5" />
+            <TextBlock Text="instagram- bondi_buses" FontSize="13" />
+            <TextBlock Height="5" />
         </StackPanel>
-        <Image Grid.ColumnSpan="2" Grid.Column="3" HorizontalAlignment="Center" Height="160"  Grid.Row="4" Grid.RowSpan="2" VerticalAlignment="Center" Width="205" Source="dibujo.jpg"/>
-        <Button Content="Back" x:Name="bBack" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Center"  Click="bBack_Click" Width="45" Height="35" BorderBrush="{x:Null}" Foreground="{x:Null}"   >
+        <Button Content="Back" x:Name="bBack" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Center"  Width="45" Height="35" BorderBrush="{x:Null}" Foreground="{x:Null}"   >
             <Button.Background>
                 <ImageBrush ImageSource="back-arrow (1).png"/>
             </Button.Background>
-            
         </Button>
+        <Image Grid.ColumnSpan="2" Grid.Column="3" HorizontalAlignment="Center" Height="130"  Grid.Row="4" Grid.RowSpan="2" VerticalAlignment="Center" Width="130" Source="contact.png"/>
 
     </Grid>
 </Window>

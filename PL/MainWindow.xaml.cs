@@ -52,11 +52,14 @@ namespace PL
                 win.Show();
                 this.Close();
 
-
             }
 
         }
-
-       
+        private void bLogOutmain_Click(object sender, RoutedEventArgs e)
+        {
+            User myWin = new User();
+            myWin.Show();
+            this.Close();
+        }
     }
 }

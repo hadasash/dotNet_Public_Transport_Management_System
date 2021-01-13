@@ -58,6 +58,9 @@
     <Compile Include="AddNewStation.xaml.cs">
       <DependentUpon>AddNewStation.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Contact us.xaml.cs">
+      <DependentUpon>Contact us.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LinesWindow.xaml.cs">
       <DependentUpon>LinesWindow.xaml</DependentUpon>
     </Compile>
@@ -74,6 +77,10 @@
       <DependentUpon>User.xaml</DependentUpon>
     </Compile>
     <Page Include="AddNewStation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Contact us.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -171,6 +178,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="back-arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="back-arrow %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="contact.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="unlock.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

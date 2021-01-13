@@ -6,55 +6,53 @@
         xmlns:local="clr-namespace:PL"
         xmlns:BO="clr-namespace:BO;assembly=BL" x:Class="PL.LinesWindow"
         mc:Ignorable="d"
-        Title="LinesWindow" Height="450" Width="800">
+        Title="LinesWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" Icon="green.png">
     <Window.Resources>
         <CollectionViewSource x:Key="lineViewSource" d:DesignSource="{d:DesignInstance {x:Type BO:Line}, CreateList=True}"/>
     </Window.Resources>
     
     <Grid DataContext="{StaticResource lineViewSource}">
         <Grid.ColumnDefinitions>
-
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*" />
-
+            <ColumnDefinition Width="0.05*"/>
+            <ColumnDefinition Width="1.5*"/>
+            <ColumnDefinition Width="0.7*"/>
+            <ColumnDefinition Width="0.7*"/>
+            <ColumnDefinition Width="0.7*"/>
+            <ColumnDefinition Width="0.05*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-
-            <RowDefinition Height="28" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="30" />
+            <RowDefinition Height="28"/>
+            <RowDefinition Height="0.6*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <ComboBox x:Name="cbLineId" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" HorizontalAlignment="Stretch"  VerticalAlignment="Center" SelectionChanged="cbLineId_SelectionChanged"/>
-        <TextBox x:Name="tbcolorup" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="12" HorizontalAlignment="Stretch" TextWrapping="Wrap"  Text="  Bondi" VerticalAlignment="Stretch"  Background="#FF2FA535" FontWeight="Bold" Foreground="#FFFCFBFA"  FontSize="17" BorderBrush="{x:Null}"  />
-        <TextBox x:Name="tbcolor" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="12" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"  Background="#FF2FA535" BorderBrush="{x:Null}"  TextWrapping="Wrap"  Text=" © 2021   Bondi.com " Foreground="White" FontSize="11" />
-        <Button x:Name="bBack" Grid.ColumnSpan="2" Content="Back" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="bBack_Click"/>
-        <Button x:Name="bLogOut" Grid.ColumnSpan="2" Content="Logout" HorizontalAlignment="Left" Margin="10,40.4,0,0" Grid.Row="6" VerticalAlignment="Top" Width="75" Grid.RowSpan="2" Click="bLogOut_Click"/>
+        <TextBox x:Name="tbcolorup" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="12" HorizontalAlignment="Stretch" TextWrapping="Wrap"  Text="  Bondi" VerticalAlignment="Stretch"  Background="#FF2B8B30" FontWeight="Bold" Foreground="#FFFCFBFA"  FontSize="17" BorderBrush="{x:Null}"  />
+        <TextBox x:Name="tbcolor" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="12" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"  Background="#FF2B8B30" BorderBrush="{x:Null}"  TextWrapping="Wrap"  Text=" © 2021   Bondi.com " Foreground="White" FontSize="11" />
+        <Button x:Name="bBack"  Content="Back" HorizontalAlignment="Left" Grid.Column="1"  Grid.Row="1" VerticalAlignment="Center"  Click="bBack_Click" Width="45" Height="35" BorderBrush="{x:Null}" Foreground="{x:Null}"  >
+            <Button.Background>
+                <ImageBrush ImageSource="back-arrow (1).png"/>
+            </Button.Background>
+        </Button>
 
-        <Grid x:Name="gridOneLine"  HorizontalAlignment="Left" Margin="23,26.2,0,0" Grid.Row="2" VerticalAlignment="Top" Grid.ColumnSpan="4" Height="205" Grid.RowSpan="4">
+        <Button x:Name="bLogOut"  Content="  Logout" HorizontalAlignment="Right"  Grid.Row="0" Grid.Column="4" VerticalAlignment="Center"  Click="bLogOut_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"/>
+        <Button x:Name="bLContact"  Content="Contact us  | "  HorizontalAlignment="Center"  Grid.Row="0" Grid.Column="4" VerticalAlignment="Center"  Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"/>
+
+        <Grid x:Name="gridOneLine"   Grid.Column="1"  Grid.Row="2" Grid.RowSpan="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="300" >
+     
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Label Content="First Station:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
             <TextBox x:Name="firstStationTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding FirstStation, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
@@ -65,6 +63,8 @@
             <Label Content="Num Of Bus:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
             <TextBox x:Name="numOfBusTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" Text="{Binding NumOfBus, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
         </Grid>
-
+        <Button x:Name="btDeleteLine" Content="Delete Current line" HorizontalAlignment="Stretch"  VerticalAlignment="Center"  Background="#FF54C759" Foreground="White"  Grid.Column="3" Grid.Row="5" />
+        <Button x:Name="btAddSLine" Content="Add New line" HorizontalAlignment="Stretch"  VerticalAlignment="Center"  Grid.Column="4" Grid.Row="5" Background="#FFF386BC" Foreground="White" />
+        <Button x:Name="btUpdateLine" Content="Update line info" HorizontalAlignment="Stretch"  VerticalAlignment="Center"  Background="#FF91A4BF" Foreground="White"  Grid.Column="2" Grid.Row="5"   />
     </Grid>
 </Window>

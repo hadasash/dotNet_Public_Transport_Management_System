@@ -41,7 +41,7 @@ namespace PL
             }
             else
             {
-                MessageBox.Show(" Try again!!");
+                MessageBox.Show(" Something went wrong. Try again!");
             }
         }
        
