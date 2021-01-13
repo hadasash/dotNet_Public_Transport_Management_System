@@ -29,9 +29,9 @@ namespace PL
         }
 
         private void bNewUser_Click(object sender, RoutedEventArgs e)
-        {
+        {//(bl.GetUser(tbNewUser.Text) == null)
            
-            if ((tbNewUser.Text != null)&&(pbPass.Password == pbPassNewUser.Password)&& (bl.GetUser(tbNewUser.Text) == null))
+            if ((tbNewUser.Text != null)&&(pbPass.Password == pbPassNewUser.Password) )
             {
                 myUser.Name = tbNewUser.Text;
                 myUser.Password = pbPass.Password;

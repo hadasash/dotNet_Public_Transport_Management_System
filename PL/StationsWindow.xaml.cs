@@ -79,9 +79,11 @@ namespace PL
 
         private void btAddStation_Click(object sender, RoutedEventArgs e)
         {
+           
             AddNewStation newStatWin = new AddNewStation();
             newStatWin.Closed += refresh;
             newStatWin.Show();
+
         }
 
         private void btDeleteStation_Click(object sender, RoutedEventArgs e)

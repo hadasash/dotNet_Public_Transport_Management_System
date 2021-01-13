@@ -17,13 +17,13 @@ namespace PL
     public partial class LinesWindow : Window
     {
         IBL bl;
-       
         BO.Line curLine;
         public LinesWindow(IBL _bl)
         {
             bl = _bl;
             InitializeComponent();
-            cbLineId.DisplayMemberPath = "Name";//show only specific Property of object
+            cbLineId.DisplayMemberPath = "NumberBus";//show only specific Property of object
+            cbLineId.SelectedValuePath = "LineId";//selection return only specific Property of object
             cbLineId.SelectedIndex = 0; //index of the object to be selected
             RefreshAllLinesComboBox();
         }

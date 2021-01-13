@@ -219,6 +219,7 @@ namespace BL
         }
 
         #endregion
+
         #region User
         public BO.User userDoBoAdapter(DO.User userDO)
         {
