@@ -20,8 +20,9 @@ namespace PL
         BO.Line curLine;
         public LinesWindow(IBL _bl)
         {
-            bl = _bl;
             InitializeComponent();
+            bl = _bl;
+            
             cbLineId.DisplayMemberPath = "NumberBus";//show only specific Property of object
             cbLineId.SelectedValuePath = "LineId";//selection return only specific Property of object
             cbLineId.SelectedIndex = 0; //index of the object to be selected
@@ -57,7 +58,7 @@ namespace PL
             if (curLine != null)
             {
                 //list of courses of selected student
-                RefreshAllLinesComboBox();
+               // RefreshAllLinesComboBox();
                 //list of all courses (that selected student is not registered to it)
                 // RefreshAllNotRegisteredCoursesGrid();
             }

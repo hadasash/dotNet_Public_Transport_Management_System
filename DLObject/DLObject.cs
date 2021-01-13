@@ -146,10 +146,19 @@ namespace DL
                    where predicate(sil)
                    select sil.Clone();
         }
-        public DO.LineStation GetLineStation(int lineId)
+        public DO.LineStation GetLineStation(int code)
         {
-            return DataSource.listLineStation.Find(l => l.LineId == lineId).Clone();
+
+            DO.LineStation stat = DataSource.listLineStation.Find(s => s.Station == code);
+
+            if (stat != null)//found the station
+                return stat.Clone();
+            else//didnt find the station
+                throw new DO.BadStationCodeException(code, $"error in line station that its code is: {code}");
         }
+        
+          
+        
         public void AddStationInLine(int lineID, int statCode, int lineStationIndex)
         {
             if (DataSource.listLineStation.FirstOrDefault(lis => (lis.LineId == lineID && lis.Station == statCode)) != null)

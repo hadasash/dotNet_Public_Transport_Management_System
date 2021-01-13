@@ -61,7 +61,7 @@
             <TextBlock Text="instagram- bondi_buses" FontSize="13" />
             <TextBlock Height="5" />
         </StackPanel>
-        <Button Content="Back" x:Name="bBack" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Center"  Width="45" Height="35" BorderBrush="{x:Null}" Foreground="{x:Null}"   >
+        <Button Content="Back" x:Name="bBack" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Center"  Width="45" Height="35" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="bBack_Click"   >
             <Button.Background>
                 <ImageBrush ImageSource="back-arrow (1).png"/>
             </Button.Background>

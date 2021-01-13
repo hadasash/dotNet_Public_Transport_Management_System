@@ -8,6 +8,7 @@ namespace BO
 {
     public class LineStation
     {
+        public int LineStationIndex { get; set; }
         public int Code { get; set; }
         public string Name { get; set; }
         public double Distance { get; set; }

@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using BLAPI;
 namespace PL
 {
     /// <summary>
@@ -19,9 +19,18 @@ namespace PL
     /// </summary>
     public partial class Contact_us : Window
     {
+        IBL bl;
         public Contact_us()
         {
             InitializeComponent();
+        }
+
+        private void bBack_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow myWin = new MainWindow(bl);
+            myWin.Show();
+            this.Close();
+
         }
     }
 }
