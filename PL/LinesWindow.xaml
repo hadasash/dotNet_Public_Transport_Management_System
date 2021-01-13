@@ -40,7 +40,7 @@
         </Button>
 
         <Button x:Name="bLogOut"  Content="  Logout" HorizontalAlignment="Right"  Grid.Row="0" Grid.Column="4" VerticalAlignment="Center"  Click="bLogOut_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"/>
-        <Button x:Name="bLContact"  Content="Contact us  | "  HorizontalAlignment="Center"  Grid.Row="0" Grid.Column="4" VerticalAlignment="Center"  Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"/>
+        <Button x:Name="bLContact"  Content="Contact us  | "  HorizontalAlignment="Center"  Grid.Row="0" Grid.Column="4" VerticalAlignment="Center"  Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="bLContact_Click"/>
         <Grid x:Name="gridOneLine"   Grid.Column="1"  Grid.Row="2" Grid.RowSpan="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="300" >
      
             <Grid.ColumnDefinitions>

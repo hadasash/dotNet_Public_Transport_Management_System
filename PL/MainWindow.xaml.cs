@@ -61,5 +61,12 @@ namespace PL
             myWin.Show();
             this.Close();
         }
+
+        private void bLContactmain_Click(object sender, RoutedEventArgs e)
+        {
+            Contact_us myWin = new Contact_us();
+            myWin.Show();
+            this.Close();
+        }
     }
 }

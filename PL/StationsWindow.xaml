@@ -87,7 +87,7 @@
             </Button.Background>
         </Button>
         <Button x:Name="bLogOut" Content="  Logout" Grid.Column="4" HorizontalAlignment="Right"  Grid.Row="0" VerticalAlignment="Center"  Click="bLogOut_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"/>
-        <Button x:Name="bLContactUs"  Content="Contact us  | "  HorizontalAlignment="Center"  Grid.Row="0" Grid.Column="4" VerticalAlignment="Center"  Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"/>
+        <Button x:Name="bLContactUs"  Content="Contact us  | "  HorizontalAlignment="Center"  Grid.Row="0" Grid.Column="4" VerticalAlignment="Center"  Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="bLContactUs_Click"/>
 
     </Grid>
 </Window>
