@@ -48,7 +48,7 @@ namespace PL
         }
         void RefreshAllRegisteredLineStationGrid()
         {
-            stationLineDataGrid.DataContext = curLine.LineStations;
+            stationLineDataGrid.DataContext = bl.GetAllStationInLine(curLine.LineId);
         }
         private void cbLineId_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
