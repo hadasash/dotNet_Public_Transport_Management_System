@@ -268,8 +268,8 @@ namespace BL
         public IEnumerable<BO.LineStation> GetAllStationInLine(int id)
         {
             return from sic in dl.GetStationsInLineList(sic => sic.LineId == id)
-                   let line = dl.GetLineStation(sic.LineId)
-                   select line.CopyPropertiesTo(sic);
+                   let line = dl.GetLine(sic.LineId)
+                   select line.CopyToStationLine(sic);
         }
         #endregion
 

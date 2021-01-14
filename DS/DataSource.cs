@@ -614,6 +614,7 @@ namespace DS
                 //line 179, jerusalem
                 new LineStation
                 {
+                    Name="ברזיל ",
                     LineId=0,
                     Code = 1491,
                     LineStationIndex = 0,
