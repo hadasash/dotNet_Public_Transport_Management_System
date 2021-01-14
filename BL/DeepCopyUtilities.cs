@@ -40,6 +40,8 @@ namespace BL
             BO.LineStation result = (BO.LineStation)line.CopyPropertiesToNew(typeof(BO.LineStation));
             // propertys' names changed? copy them here...
             result.LineStationIndex = sic.LineStationIndex;
+            result.Name = sic.Name;
+            result.Code = sic.Code;
             return result;
         }
     }
