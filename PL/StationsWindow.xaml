@@ -65,13 +65,13 @@
         <Button x:Name="btDeleteStation" Content="Delete Current Station" HorizontalAlignment="Stretch"  VerticalAlignment="Center"  Background="#FF54C759" Foreground="White" Click="btDeleteStation_Click" Grid.Column="3" Grid.Row="5" />
         <Button x:Name="btAddStation" Content="Add New Station" HorizontalAlignment="Stretch"  VerticalAlignment="Center"  Grid.Column="4" Grid.Row="5" Background="#FFF386BC" Foreground="White" Click="btAddStation_Click" />
         <Button x:Name="btUpdateStation" Content="update station info" HorizontalAlignment="Stretch"  VerticalAlignment="Center"  Background="#FF91A4BF" Foreground="White" Click="btUpdateStation_Click" Grid.Column="2" Grid.Row="5"   />
-        <DataGrid x:Name="lineDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="2" Grid.RowSpan="3" RowDetailsVisibilityMode="VisibleWhenSelected"  >
+        <DataGrid x:Name="lineDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="2" Grid.RowSpan="3" RowDetailsVisibilityMode="VisibleWhenSelected"   >
 
             <DataGrid.Columns>
-                <DataGridTextColumn x:Name="firstStationColumn" Binding="{Binding FirstStation}" Header="First Station" Width="85"/>
-                <DataGridTextColumn x:Name="lastStationColumn" Binding="{Binding LastStation}" Header="Last Station" Width="85"/>
-                <DataGridTextColumn x:Name="lineIdColumn" Binding="{Binding LineId}" Header="Line Id" Width="85"/>
-                <DataGridTextColumn x:Name="numOfBusColumn" Binding="{Binding NumOfBus}" Header="Num Of Bus" Width="85"/>
+                <DataGridTextColumn x:Name="firstStationColumn" Binding="{Binding FirstStation}" Header="First Station" Width="*"/>
+                <DataGridTextColumn x:Name="lastStationColumn" Binding="{Binding LastStation}" Header="Last Station" Width="*"/>
+                <DataGridTextColumn x:Name="lineIdColumn" Binding="{Binding LineId}" Header="Line Id" Width="*"/>
+                <DataGridTextColumn x:Name="numOfBusColumn" Binding="{Binding NumOfBus}" Header="Num Of Bus" Width="*"/>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
