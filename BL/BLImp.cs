@@ -14,6 +14,12 @@ namespace BL
         IDL dl = DLFactory.GetDL();
 
         #region station
+        public IEnumerable<BO.Line> GetAllLinesPerStation(int code)
+        {
+            return from lineStation in dl.GetAllLineStationsPerStation(code)
+                   let line = dl.GetLine(lineStation.LineId)
+                   select line.CopyToListOfLines(lineStation);
+        }
 
         public BO.Station stationDoBoAdapter(DO.Station stationDO)
         {
@@ -231,45 +237,49 @@ namespace BL
         BO.LineStation lineStationDoBoAdapter(DO.LineStation lineStationDO)
         {
             BO.LineStation lineStationBO = new BO.LineStation();
-
-            DO.LineStation newlineStationDO;
+            DO.LineStation newlineStationDO;//before copying lineStationDO to lineStationBO, we need to ensure that lineStationDO is legal- legal code.
+            //sometimes we get here after the user filled lineStationDO fields. thats why we copy the given lineStationDO to a new lineStationDO and check if it is legal.
             int code = lineStationDO.Code;
+            int lineId = lineStationDO.LineId;
             try
             {
-                newlineStationDO = dl.GetLineStation(code);//if code is legal, returns a new lineStationDO. if not- ecxeption.
+                newlineStationDO = dl.GetLineStation( lineId,code);//if code is legal, returns a new lineStationDO. if not- ecxeption.
             }
             catch (DO.BadStationCodeException ex)
             {
-                throw new BO.BadStationCodeException("Station code is illegal", ex);
+                throw new BO.BadStationCodeException("Station code is illegal\n", ex);
             }
-            newlineStationDO.CopyPropertiesTo(lineStationBO);//copies- only flat properties.
+
+            //copy "Code" and "LinestationIndex":
+            //newlineStationDO.CopyPropertiesTo(lineStationBO);//copies- only flat properties.
             lineStationBO.Code = lineStationDO.Code;
+            lineStationBO.LineStationIndex = lineStationDO.LineStationIndex;
 
             //copy "Name":
             lineStationBO.Name = dl.GetStation(code).Name;
 
             //copy "Distance" and "Time":
-            if (lineStationBO.LineStationIndex == 0)
+            if (lineStationBO.LineStationIndex == 0)//if its the 1st station in the line, the distance and time from the former station =0.
             {
                 //lineStationBO.Time = 00:00:00 - default
                 //lineStationBO.Distance = 0 - default
             }
             else
             {
-                //distance from the former station:
-                //*** lineStationBO.Distance = dl.GetAdjacentStations(code).FirstOrDefault(adj => adj.Station2 == code).Distance;
+                //distance from the former station: we look for the stations pair in which our current stat is the second in the pair.
+                //it will let us find the distance and time from the former station to her.
+                lineStationBO.Distance = dl.GetAdjacentStationsBySecondOfPair(code).FirstOrDefault(adj => adj.Station2 == code).Distance;
                 //time from the former station:
-                //*** lineStationBO.Time = dl.GetAdjacentStations(code).FirstOrDefault(adj => adj.Station2 == code).Time;
+                lineStationBO.Time = dl.GetAdjacentStationsBySecondOfPair(code).FirstOrDefault(adj => adj.Station2 == code).Time;
             }
 
             return lineStationBO;
-
         }
         public IEnumerable<BO.LineStation> GetAllStationInLine(int id)
         {
             return from sic in dl.GetStationsInLineList(sic => sic.LineId == id)
-                   let line = dl.GetLine(sic.LineId)
-                   select line.CopyToStationLine(sic);
+                   let lineStationBo = lineStationDoBoAdapter(sic)
+                   select lineStationBo;
         }
         #endregion
 
@@ -323,7 +333,7 @@ namespace BL
                    select userDoBoAdapter(item);
         }
         #endregion
-
+       
     }
 
 }

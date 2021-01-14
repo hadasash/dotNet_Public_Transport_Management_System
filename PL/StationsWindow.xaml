@@ -71,11 +71,11 @@
                 <DataGridTextColumn x:Name="firstStationColumn" Binding="{Binding FirstStation}" Header="First Station" Width="*"/>
                 <DataGridTextColumn x:Name="lastStationColumn" Binding="{Binding LastStation}" Header="Last Station" Width="*"/>
                 <DataGridTextColumn x:Name="lineIdColumn" Binding="{Binding LineId}" Header="Line Id" Width="*"/>
-                <DataGridTextColumn x:Name="numOfBusColumn" Binding="{Binding NumOfBus}" Header="Num Of Bus" Width="*"/>
+                <DataGridTextColumn x:Name="numOfBusColumn" Binding="{Binding NumberBus}" Header="Num Of Bus" Width="*"/>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button x:Name="btUnRegisterLine" Content="UnRegister" ToolTip="UnRegister selected student from selected course" Width="70" Click="btUnRegisterLine_Click"/>
+                            <Button x:Name="btDeleteLine" Content="Delete" ToolTip="UnRegister selected student from selected course" Width="70" Click="btDeleteLine_Click"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

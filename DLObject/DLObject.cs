@@ -21,6 +21,13 @@ namespace DL
         #endregion
 
         #region Station
+        public IEnumerable<DO.LineStation> GetAllLineStationsPerStation(int code)
+        {
+            return from ls in DataSource.listLineStation
+                   where ls.Code == code
+                   select ls.Clone();
+        }
+
         public DO.Station GetStation(int code)
         {
             DO.Station station = DataSource.listStations.Find(p => p.Code == code);
@@ -156,9 +163,19 @@ namespace DL
             else//didnt find the station
                 throw new DO.BadStationCodeException(code, $"error in line station that its code is: {code}");
         }
-        
-          
-        
+        public DO.LineStation GetLineStation(int id,int code)
+        {
+
+            DO.LineStation stat = DataSource.listLineStation.Find(s => s.Code == code && s.LineId==id);
+
+            if (stat != null)//found the station
+                return stat.Clone();
+            else//didnt find the station
+                throw new DO.BadStationCodeException(code, $"error in line station that its code is: {code}");
+        }
+
+
+
         public void AddStationInLine(int lineID, int statCode, int lineStationIndex)
         {
             if (DataSource.listLineStation.FirstOrDefault(lis => (lis.LineId == lineID && lis.Code == statCode)) != null)
@@ -225,7 +242,21 @@ namespace DL
             }
             
         }
-       public IEnumerable<DO.User> GetAllUsers()
+        public IEnumerable<DO.AdjacentStations> GetAdjacentStationsByFirstOfPair(int code)
+        {
+            return from adjSt in DataSource.listAdjacentStations
+                   where adjSt.Station1 == code
+                   //where adjSt.Station2 == code
+                   select adjSt.Clone();//return a list of adjacent stations, in which the station with the given code apears as the 1st in the pair
+        }
+        public IEnumerable<DO.AdjacentStations> GetAdjacentStationsBySecondOfPair(int code)
+        {
+            return from adjSt in DataSource.listAdjacentStations
+                   where adjSt.Station2 == code
+                   select adjSt.Clone();//return a list of adjacent stations, in which the station with the given code apears as the 2nd in the pair
+        }
+
+        public IEnumerable<DO.User> GetAllUsers()
             {
                 return from user in DataSource.users
                        select user.Clone();

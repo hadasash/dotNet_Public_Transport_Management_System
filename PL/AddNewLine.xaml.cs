@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BLAPI;
+using BO;
 
 namespace PL
 {
@@ -25,17 +26,16 @@ namespace PL
         public AddNewLine()
         {
             InitializeComponent();
+            areaComboBox.ItemsSource = Enum.GetValues(typeof(BO.Areas));
+            //lastStationComboBox.DataContext = bl.GetAllStations();
+            //firstStationComboBox.DataContext = bl.GetAllStations();
         }
-
+       
         private void AddStation_Click(object sender, RoutedEventArgs e)
         {
           
             DO.Line s = new DO.Line();
-            s.FirstStation = int.Parse(this.firstStationTextBox.Text);
-            s.LastStation = int.Parse(this.lastStationTextBox.Text);
-            s.Area = 0;
-            s.NumberBus = int.Parse(this.numberBusTextBox.Text);
-            s.LineId++;
+            
             bl.AddLine(s);
             this.Close();
         }

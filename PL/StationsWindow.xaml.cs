@@ -22,7 +22,7 @@ namespace PL
     {
         IBL bl;
         BO.Station curStation;
-       
+
         public StationsWindow(IBL _bl)
         {
 
@@ -41,23 +41,23 @@ namespace PL
         }
         void RefreshAllRegisteredLinesGrid()
         {
-            lineDataGrid.DataContext = curStation.ListOfLines;
+            lineDataGrid.DataContext = bl.GetAllLinesPerStation(curStation.Code);
         }
         private void cbStationId_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             curStation = (cbStationId.SelectedItem as BO.Station);
             gridOneStation.DataContext = curStation;
-          
+
             if (curStation != null)
             {
                 //list of courses of selected student
-               RefreshAllRegisteredLinesGrid();
+                RefreshAllRegisteredLinesGrid();
                 //list of all courses (that selected student is not registered to it)
-               // RefreshAllNotRegisteredCoursesGrid();
+                // RefreshAllNotRegisteredCoursesGrid();
             }
         }
 
-       
+
 
         private void btUpdateStation_Click(object sender, RoutedEventArgs e)
         {
@@ -79,7 +79,7 @@ namespace PL
 
         private void btAddStation_Click(object sender, RoutedEventArgs e)
         {
-           
+
             AddNewStation newStatWin = new AddNewStation();
             newStatWin.Closed += refresh;
             newStatWin.Show();
@@ -99,7 +99,7 @@ namespace PL
                     bl.DeleteStation(curStation.Code);
 
                     RefreshAllRegisteredLinesGrid();
-                   // RefreshAllNotRegisteredCoursesGrid();
+                    // RefreshAllNotRegisteredCoursesGrid();
                     RefreshAllStationComboBox();
                 }
             }
@@ -108,21 +108,6 @@ namespace PL
                 MessageBox.Show(ex.Message, "Operation Failure", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             catch (BO.BadStationCodeException ex)
-            {
-                MessageBox.Show(ex.Message, "Operation Failure", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
-        private void btUnRegisterLine_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                BO.Line scBO = ((sender as Button).DataContext as BO.Line);
-                bl.DeleteStationInLine(curStation.Code, scBO.LineId);
-                RefreshAllRegisteredLinesGrid();
-               // RefreshAllNotRegisteredCoursesGrid();
-            }
-            catch (BO.BadStationCodeLineIDException ex)
             {
                 MessageBox.Show(ex.Message, "Operation Failure", MessageBoxButton.OK, MessageBoxImage.Error);
             }
@@ -147,6 +132,21 @@ namespace PL
             Contact_us myWin = new Contact_us();
             myWin.Show();
             this.Close();
+        }
+
+        private void btDeleteLine_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                BO.Line scBO = ((sender as Button).DataContext as BO.Line);
+                bl.DeleteStationInLine(scBO.LineId, curStation.Code);
+                RefreshAllRegisteredLinesGrid();
+
+            }
+            catch (BO.BadStationCodeLineIDException ex)
+            {
+                MessageBox.Show(ex.Message, "Operation Failure", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

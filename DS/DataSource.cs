@@ -12,8 +12,9 @@ namespace DS
         public static List<Station> listStations;
         public static List<Line> listLines;
         public static List<LineStation> listLineStation;
-        public static List<AdjacentStations> listAdjacentStation;
+        public static List<AdjacentStations> listAdjacentStations;
         public static List<User> users;
+
         static DataSource()
         {
             InitAllLists();
@@ -22,7 +23,7 @@ namespace DS
         {
             listStations = new List<Station>
             {
-                #region Boot stations//איתחול תחנות
+                #region restart stations
                 new Station
                 {
                     Code = 73,
@@ -42,7 +43,6 @@ namespace DS
                 new Station
                 {
                     Code = 77,
-
                     Name = "בית ספר אבן רשד/אלמדינה אלמונוורה",
                     Address = "רחוב:אל מדינה אל מונאוורה  עיר: ירושלים ",
                     Lattitude = 31.738676,
@@ -59,7 +59,6 @@ namespace DS
                 new Station
                 {
                     Code = 83,
-
                     Name = "בטן אלהווא/חוש אל מרג",
                     Address = "רחוב:בטן אל הווא  עיר: ירושלים",
                     Lattitude = 31.766358,
@@ -68,7 +67,6 @@ namespace DS
                 new Station
                 {
                     Code = 84,
-                   
                     Name = "מלכי ישראל/הטורים",
                     Address = " רחוב:מלכי ישראל 77 עיר: ירושלים ",
                     Lattitude = 31.790758,
@@ -77,7 +75,6 @@ namespace DS
                 new Station
                 {
                     Code = 85,
-
                     Name = "בית ספר לבנים/אלמדארס",
                     Address = "רחוב:אלמדארס  עיר: ירושלים",
                     Lattitude = 31.768643,
@@ -102,7 +99,7 @@ namespace DS
                 new Station
                 {
                     Code = 89,
-                    Name = "דרך בית לחם הישה",
+                    Name = "דרך בית לחם הישה/ואדי קדום",
                     Address = " רחוב:דרך בית לחם הישנה  עיר: ירושלים ",
                     Lattitude = 31.765863,
                     Longitude = 35.247198
@@ -134,7 +131,7 @@ namespace DS
                 new Station
                 {
                     Code = 94,
-                    Name = "דרך בית לחם ב",
+                    Name = "דרך בית לחם הישנה ב",
                     Address = " רחוב:דרך בית לחם הישנה  עיר: ירושלים",
                     Lattitude = 31.767084,
                     Longitude = 35.246655
@@ -142,7 +139,7 @@ namespace DS
                 new Station
                 {
                     Code = 95,
-                    Name = "דרך בית לחם א ",
+                    Name = "דרך בית לחם הישנה א",
                     Address = " רחוב:דרך בית לחם הישנה  עיר: ירושלים",
                     Lattitude = 31.768759,
                     Longitude = 31.768759
@@ -207,7 +204,7 @@ namespace DS
                 new Station
                 {
                     Code = 110,
-                    Name = "עזרת תורה",
+                    Name = "עזרת תורה/דורש טוב",
                     Address = " רחוב:עזרת תורה 12 עיר: ירושלים",
                     Lattitude = 31.796129,
                     Longitude = 35.212698
@@ -283,7 +280,7 @@ namespace DS
                 new Station
                 {
                     Code = 1486,
-                    Name = "מרכז קהילתי ",
+                    Name = "מרכז קהילתי /שדרות נווה יעקוב",
                     Address = "רחוב:שדרות נווה יעקוב ירושלים עיר:ירושלים ",
                     Lattitude = 31.838481,
                     Longitude = 35.23972
@@ -294,7 +291,7 @@ namespace DS
                 {
                     Code = 1487,
                     Name = " מסוף 700 /שדרות נווה יעקוב ",
-            Address = "חוב:שדרות נווה יעקב 7 עיר: ירושלים  ",
+                    Address = "חוב:שדרות נווה יעקב 7 עיר: ירושלים  ",
                     Lattitude = 31.837748,
                     Longitude = 35.231598
                 },
@@ -378,43 +375,38 @@ namespace DS
                     Lattitude = 31.759186,
                     Longitude = 35.189336
                 },
-
-
-             new Station
-            {
-            Code = 1518,
-
-            Name = "פרץ ברנשטיין/נזר דוד",
-            Address = " רחוב:פרץ ברנשטיין 56 עיר: ירושלים ",
-            Lattitude = 31.759121,
-            Longitude = 35.189178
-        },
-              new Station
-              {
-            Code = 1522,
-            Name = "מוזיאון ישראל/רופין",
-            Address = "  רחוב:דרך רופין  עיר: ירושלים ",
-            Lattitude = 31.774484,
-            Longitude = 35.204882
-                },
-
-             new Station
-                  {
-             Code = 1523,
-
-            Name = "הרצוג/טשרניחובסקי",
-            Address = "   רחוב:הרב הרצוג  עיר: ירושלים  ",
-            Lattitude = 31.769652,
-            Longitude = 35.208248
-                },
-              new Station
+                new Station
                 {
-              Code = 1524,
+                    Code = 1518,
+                    Name = "פרץ ברנשטיין/נזר דוד",
+                    Address = " רחוב:פרץ ברנשטיין 56 עיר: ירושלים ",
+                    Lattitude = 31.759121,
+                    Longitude = 35.189178
+                },
+                new Station
+                {
+                    Code = 1522,
+                    Name = "מוזיאון ישראל/רופין",
+                    Address = "  רחוב:דרך רופין  עיר: ירושלים ",
+                    Lattitude = 31.774484,
+                    Longitude = 35.204882
+                },
 
-            Name = "רופין/שד' הזז",
-            Address = "    רחוב:הרב הרצוג  עיר: ירושלים   ",
-            Lattitude = 31.769652,
-            Longitude = 35.208248,
+                new Station
+                {
+                    Code = 1523,
+                    Name = "הרצוג/טשרניחובסקי",
+                    Address = "   רחוב:הרב הרצוג  עיר: ירושלים  ",
+                    Lattitude = 31.769652,
+                    Longitude = 35.208248
+                },
+                new Station
+                {
+                    Code = 1524,
+                    Name = "רופין/שד' הזז",
+                    Address = "    רחוב:הרב הרצוג  עיר: ירושלים   ",
+                    Lattitude = 31.769652,
+                    Longitude = 35.208248,
                  },
                 new Station
                 {
@@ -440,14 +432,14 @@ namespace DS
                     Lattitude = 31.79617,
                     Longitude =35.206158
                 },
-                   new Station
-                 {
-                    Code = 46422,
-                    Name = "חזון איש/ רבי עקיבא",
-                    Address = " רחוב:חזון איש 35 עיר: בני ברק ",
-                    Lattitude = 31.759121,
-                    Longitude = 35.189178
-                 },
+                new Station
+                {
+                   Code = 46422,
+                   Name = "חזון איש/ רבי עקיבא",
+                   Address = " רחוב:חזון איש 35 עיר: בני ברק ",
+                   Lattitude = 31.759121,
+                   Longitude = 35.189178
+                },
                 new Station
                 {
                     Code = 46425,
@@ -472,7 +464,7 @@ namespace DS
                    Address = " רחוב:בהנמן 165  עיר: בני ברק   ",
                    Lattitude = 31.769652,
                    Longitude = 35.208248,
-                 },
+                },
                 new Station
                 {
                     Code = 20116,
@@ -484,7 +476,7 @@ namespace DS
                 new Station
                 {
                     Code = 32298,
-                    Name = "רבי עקיבע/הרב קוק ",
+                    Name = "רבי עקיבא/הרב קוק ",
                     Address = " רחוב:רבי עקיבא 115 עיר: בני ברק",
                     Lattitude = 31.794958,
                     Longitude =35.205216
@@ -493,18 +485,18 @@ namespace DS
                 {
                     Code = 32287,
                     Name = "רבי עקיבא/ גן ורשא ",
-                    Address = " רחוב:רבי עקיבע 49 עיר: בני ברק",
+                    Address = " רחוב:רבי עקיבא 49 עיר: בני ברק",
                     Lattitude = 31.79617,
                     Longitude =35.206158
                 }
 
-                
                 #endregion
-            };
-            listLines = new List<Line>
+                };
+
+            listLines = new List<Line>()
             {
-                 #region Boot lines//אתחול קוים
-                  new Line
+                #region restart lines
+                new Line
                 {
                     LineId= 0,
                     NumberBus = 179,
@@ -517,8 +509,8 @@ namespace DS
                     LineId= 1,
                     NumberBus = 280,
                     Area = Areas.Jerusalem,
-                    FirstStation = 73,
-                    LastStation = 76,
+                    FirstStation = 89,
+                    LastStation = 90,
                 },
                 new Line
                 {
@@ -584,7 +576,7 @@ namespace DS
                     NumberBus = 157,
                     Area = Areas.Jerusalem,
                     FirstStation = 76,
-                    LastStation = 121,
+                    LastStation = 111,
                 },
                 new Line
                 {
@@ -602,26 +594,24 @@ namespace DS
                     FirstStation = 46422,
                     LastStation = 32298,
                 },
-               new Line
+                new Line
                 {
-                   LineId= 12,
+                    LineId= 12,
                     NumberBus = 108,
                     Area = Areas.Jerusalem,
                     FirstStation = 106,
                     LastStation = 88,
-                },
-
-
-
-            #endregion
+                }
+                #endregion
             };
-            listLineStation = new List<LineStation>
+
+            listLineStation = new List<LineStation>()
             {
-                #region Boot lines//אתחול תחנות קו
+                #region restart line stations
+
                 //line 179, jerusalem
                 new LineStation
                 {
-                    Name="ברזיל ",
                     LineId=0,
                     Code = 1491,
                     LineStationIndex = 0,
@@ -630,7 +620,6 @@ namespace DS
                 },
                 new LineStation
                 {
-                    Name = "גולדה/הרטום",
                     LineId=0,
                     Code = 90,
                     LineStationIndex = 1,
@@ -639,8 +628,6 @@ namespace DS
                 },
                 new LineStation
                 {
-                  Name = "דרך בית לחם הישה/ואדי קדום",
-
                     LineId=0,
                     Code = 91,
                     LineStationIndex = 2,
@@ -649,7 +636,6 @@ namespace DS
                 },
                 new LineStation
                 {
-                    Name = "חוש סלימה 1",
                     LineId=0,
                     Code = 93,
                     LineStationIndex = 3,
@@ -658,7 +644,6 @@ namespace DS
                 },
                 new LineStation
                 {
-                    Name = "דרך בית לחם ב",
                     LineId=0,
                     Code = 94,
                     LineStationIndex = 4,
@@ -667,7 +652,6 @@ namespace DS
                 },
                 new LineStation
                 {
-                    Name = "דרך בית לחם א ",
                     LineId=0,
                     Code = 95,
                     LineStationIndex = 5,
@@ -676,7 +660,6 @@ namespace DS
                 },
                 new LineStation
                 {
-                    Name = "גולדה/הרטום",
                     LineId=0,
                     Code = 102,
                     LineStationIndex = 6,
@@ -685,7 +668,6 @@ namespace DS
                 },
                 new LineStation
                 {
-                    Name = "גולדה/הרטום",
                     LineId=0,
                     Code = 103,
                     LineStationIndex = 7,
@@ -694,8 +676,6 @@ namespace DS
                 },
                 new LineStation
                 {
-                   Name = "עזרת תורה",
-
                     LineId=0,
                     Code = 110,
                     LineStationIndex = 8,
@@ -704,8 +684,6 @@ namespace DS
                 },
                 new LineStation
                 {
-                    Name = "מרכז קהילתי ",
-
                     LineId=0,
                     Code = 1486,
                     LineStationIndex = 9,
@@ -716,7 +694,6 @@ namespace DS
                 //line 67, jerusalem
                 new LineStation
                 {
-                    Name = "גבעת משה",
                     LineId=2,
                     Code = 105,
                     LineStationIndex = 0,
@@ -725,7 +702,6 @@ namespace DS
                 },
                 new LineStation
                 {
-                    Name = "גבעת משה",
                     LineId=2,
                     Code = 106,
                     LineStationIndex = 1,
@@ -734,8 +710,6 @@ namespace DS
                 },
                 new LineStation
                 {
-                    Name = "עזרת תורה/עלי הכהן",
-
                     LineId=2,
                     Code = 108,
                     LineStationIndex = 2,
@@ -744,8 +718,6 @@ namespace DS
                 },
                 new LineStation
                 {
-                     Name = "עזרת תורה/דורש טוב",
-
                     LineId=2,
                     Code = 109,
                     LineStationIndex = 3,
@@ -754,7 +726,6 @@ namespace DS
                 },
                 new LineStation
                 {
-                    Name = "עזרת תורה",
                     LineId=2,
                     Code = 110,
                     LineStationIndex = 4,
@@ -763,7 +734,6 @@ namespace DS
                 },
                 new LineStation
                 {
-                  Name = "יעקובזון/עזרת תורה",
                     LineId=2,
                     Code = 111,
                     LineStationIndex = 5,
@@ -772,8 +742,6 @@ namespace DS
                 },
                 new LineStation
                 {
-                     Name = "סורוצקין/שנירר",
-
                     LineId=2,
                     Code = 119,
                     LineStationIndex = 6,
@@ -782,7 +750,6 @@ namespace DS
                 },
                 new LineStation
                 {
-                    Name = " מסוף 700 /שדרות נווה יעקוב",
                     LineId=2,
                     Code = 1487,
                     LineStationIndex = 7,
@@ -791,7 +758,6 @@ namespace DS
                 },
                 new LineStation
                 {
-                    Name = "בית וגן/הרב שאג ",
                     LineId=2,
                     Code = 1492,
                     LineStationIndex = 8,
@@ -800,7 +766,6 @@ namespace DS
                 },
                 new LineStation
                 {
-                    Name = " קרית יובל/שמריהו לוין ",
                     LineId=2,
                     Code = 1494,
                     LineStationIndex = 9,
@@ -811,8 +776,6 @@ namespace DS
                 //line 180, jerusalem
                 new LineStation
                 {
-
-                     Name = "מגרש כדורגל/אלמדארס",
                     LineId= 5,
                     Code = 86,
                     LineStationIndex = 0,
@@ -821,7 +784,6 @@ namespace DS
                 },
                 new LineStation
                 {
-                    Name = "בית ספר לבנים/אלמדארס",
                     LineId= 5,
                     Code = 85,
                     LineStationIndex = 1,
@@ -830,7 +792,6 @@ namespace DS
                 },
                 new LineStation
                 {
-                    Name = "מלכי ישראל/הטורים",
                     LineId= 5,
                     Code = 84,
                     LineStationIndex = 2,
@@ -839,7 +800,6 @@ namespace DS
                 },
                 new LineStation
                 {
-                    Name = "בטן אלהווא/חוש אל מרג",
                     LineId= 5,
                     Code = 83,
                     LineStationIndex = 3,
@@ -847,7 +807,7 @@ namespace DS
                     NextStation = 78,
                 },
                 new LineStation
-                { Name = "שרי ישראל/יפו",
+                {
                     LineId= 5,
                     Code = 78,
                     LineStationIndex = 4,
@@ -855,8 +815,7 @@ namespace DS
                     NextStation = 77,
                 },
                 new LineStation
-                { 
-                    Name = "בית ספר אבן רשד/אלמדינה אלמונוורה",
+                {
                     LineId= 5,
                     Code = 77,
                     LineStationIndex = 5,
@@ -865,7 +824,6 @@ namespace DS
                 },
                 new LineStation
                 {
-                   Name = "זית רענן/תורת חסד",
                     LineId= 5,
                     Code = 115,
                     LineStationIndex = 6,
@@ -874,7 +832,6 @@ namespace DS
                 },
                 new LineStation
                 {
-                    Name = "זית רענן/אוהל יהושע",
                     LineId= 5,
                     Code = 113,
                     LineStationIndex = 7,
@@ -883,7 +840,6 @@ namespace DS
                 },
                 new LineStation
                 {
-                    Name = "דרך בית לחם ב",
                     LineId= 5,
                     Code = 94,
                     LineStationIndex = 8,
@@ -892,7 +848,6 @@ namespace DS
                 },
                 new LineStation
                 {
-                    Name = "דרך בית לחם הישה",
                     LineId= 5,
                     Code = 89,
                     LineStationIndex = 9,
@@ -903,7 +858,6 @@ namespace DS
                 //line 3, jerusalem
                 new LineStation
                 {
-                     Name = "אוהל דוד/סורוצקין ",
                     LineId= 8,
                     Code = 123,
                     LineStationIndex = 0,
@@ -911,8 +865,7 @@ namespace DS
                     NextStation = 122,
                 },
                 new LineStation
-                { 
-                    Name = "מרכז סולם/סורוצקין ",
+                {
                     LineId= 8,
                     Code = 122,
                     LineStationIndex = 1,
@@ -920,7 +873,7 @@ namespace DS
                     NextStation = 1510,
                 },
                 new LineStation
-                {Name = " קורצ'אק / רינגלבלום ",
+                {
                     LineId= 8,
                     Code = 1510,
                     LineStationIndex = 2,
@@ -929,7 +882,6 @@ namespace DS
                 },
                 new LineStation
                 {
-                    Name = " טהון/גולומב ",
                     LineId= 8,
                     Code = 1511,
                     LineStationIndex = 3,
@@ -937,8 +889,7 @@ namespace DS
                     NextStation = 1514,
                 },
                 new LineStation
-                { Name = "פרץ ברנשטיין/נזר דוד ",
-
+                {
                     LineId= 8,
                     Code = 1514,
                     LineStationIndex = 4,
@@ -947,7 +898,6 @@ namespace DS
                 },
                 new LineStation
                 {
-                    Name = "פרץ ברנשטיין/נזר דוד",
                     LineId= 8,
                     Code = 1518,
                     LineStationIndex = 5,
@@ -955,7 +905,7 @@ namespace DS
                     NextStation = 1522,
                 },
                 new LineStation
-                { Name = "מוזיאון ישראל/רופין",
+                {
                     LineId= 8,
                     Code = 1522,
                     LineStationIndex = 6,
@@ -964,8 +914,6 @@ namespace DS
                 },
                 new LineStation
                 {
-                    
-            Name = "הרצוג/טשרניחובסקי",
                     LineId= 8,
                     Code = 1523,
                     LineStationIndex = 7,
@@ -974,8 +922,6 @@ namespace DS
                 },
                 new LineStation
                 {
-                   
-            Name = "רופין/שד' הזז",
                     LineId= 8,
                     Code = 1524,
                     LineStationIndex = 8,
@@ -983,8 +929,7 @@ namespace DS
                     NextStation = 121,
                 },
                 new LineStation
-                {   Name = "מרכז סולם/סורוצקין ",
-
+                {
                     LineId= 8,
                     Code = 121,
                     LineStationIndex = 9,
@@ -994,8 +939,7 @@ namespace DS
 
                 //line 108, center
                 new LineStation
-                {Name = "חזון איש/ רבי עקיבא",
-
+                {
                     LineId= 11,
                     Code = 46422,
                     LineStationIndex = 0,
@@ -1003,8 +947,7 @@ namespace DS
                     NextStation = 35272,
                 },
                 new LineStation
-                {   Name = "חזון איש/ בעל שם טוב",
-
+                {
                     LineId= 11,
                     Code = 35272,
                     LineStationIndex = 1,
@@ -1013,7 +956,6 @@ namespace DS
                 },
                 new LineStation
                 {
-                    Name = "כהנמן/ מנחת שלמה ",
                     LineId= 11,
                     Code = 20116,
                     LineStationIndex = 2,
@@ -1021,8 +963,7 @@ namespace DS
                     NextStation = 20115,
                 },
                 new LineStation
-                { Name = "כהנמן/ הרב יעקובוביץ",
-
+                {
                     LineId= 11,
                     Code = 20115,
                     LineStationIndex = 3,
@@ -1031,7 +972,6 @@ namespace DS
                 },
                 new LineStation
                 {
-                   Name = "חזון איש/ דבורה הנביאה",
                     LineId= 11,
                     Code = 46425,
                     LineStationIndex = 4,
@@ -1039,8 +979,7 @@ namespace DS
                     NextStation = 32287,
                 },
                 new LineStation
-                { Name = "רבי עקיבא/ גן ורשא ",
-
+                {
                     LineId= 11,
                     Code = 32287,
                     LineStationIndex = 5,
@@ -1049,7 +988,6 @@ namespace DS
                 },
                 new LineStation
                 {
-                    Name = "רבי עקיבע/הרב קוק ",
                     LineId= 11,
                     Code = 32298,
                     LineStationIndex = 6,
@@ -1060,7 +998,6 @@ namespace DS
             //line 280 ,Jerusalem
             new LineStation
             {
-                Name = "דרך בית לחם הישה",
                 LineId=1,
                 Code = 89,
                 LineStationIndex = 0,
@@ -1068,7 +1005,7 @@ namespace DS
                 NextStation = 76,
             },
             new LineStation
-            {   Name = "גבעת משה",
+            {
                 LineId=1,
                 Code = 105,
                 LineStationIndex = 1,
@@ -1077,8 +1014,6 @@ namespace DS
             },
             new LineStation
             {
-                 Name = "מרכז סולם/סורוצקין ",
-
                 LineId=1,
                 Code = 121,
                 LineStationIndex = 2,
@@ -1086,8 +1021,7 @@ namespace DS
                 NextStation = 1510,
             },
             new LineStation
-            {  Name = " קורצ'אק / רינגלבלום ",
-
+            {
                 LineId=1,
                 Code = 1510,
                 LineStationIndex = 3,
@@ -1095,8 +1029,7 @@ namespace DS
                 NextStation = 111,
             },
             new LineStation
-            {  Name = "יעקובזון/עזרת תורה",
-
+            {
                 LineId=1,
                 Code = 111,
                 LineStationIndex = 4,
@@ -1104,8 +1037,7 @@ namespace DS
                 NextStation = 76,
             },
             new LineStation
-            {   Name = "דרך בית לחם הישה",
-
+            {
                 LineId=1,
                 Code = 89,
                 LineStationIndex = 5,
@@ -1113,8 +1045,7 @@ namespace DS
                 NextStation = 109,
             },
             new LineStation
-            {   Name = "עזרת תורה/דורש טוב",
-
+            {
                 LineId=1,
                 Code = 109,
                 LineStationIndex = 6,
@@ -1122,8 +1053,7 @@ namespace DS
                 NextStation = 119,
             },
             new LineStation
-            {    Name = "סורוצקין/שנירר",
-
+            {
                 LineId=1,
                 Code = 119,
                 LineStationIndex = 7,
@@ -1132,8 +1062,6 @@ namespace DS
             },
               new LineStation
             {
-               Name = "סורוצקין/שנירר",
-
                 LineId=1,
                 Code = 119,
                 LineStationIndex = 8,
@@ -1183,8 +1111,7 @@ namespace DS
                 NextStation = 111,
             },
             new LineStation
-            {   Name = "יעקובזון/עזרת תורה",
-
+            {
                 LineId=4,
                 Code = 111,
                 LineStationIndex = 4,
@@ -1234,8 +1161,7 @@ namespace DS
 
              //line 277 ,Jerusalem
              new LineStation
-            {  Name = "עזרת תורה/דורש טוב",
-
+            {
                 LineId= 6,
                 Code = 109,
                 LineStationIndex = 0,
@@ -1308,8 +1234,6 @@ namespace DS
             },
                 new LineStation
             {
-                Name = "סורוצקין/שנירר",
-
                 LineId= 6,
                 Code = 119,
                 LineStationIndex = 9,
@@ -1352,8 +1276,6 @@ namespace DS
             },
             new LineStation
             {
-              Name = " הרב פרדס/אסטורהב ",
-
                 LineId= 7,
                 Code = 1488,
                 LineStationIndex = 4,
@@ -1400,7 +1322,7 @@ namespace DS
                 PrevStation = 106,
                 NextStation = -1,
             },
-           
+            
             // line 92,Center
             new LineStation
             {
@@ -1408,12 +1330,12 @@ namespace DS
                 Code = 46422,
                 LineStationIndex = 0,
                 PrevStation = -1,
-                NextStation = 32295,
+                NextStation = 1510,
             },
             new LineStation
             {
                 LineId= 10,
-                Code = 32295,
+                Code = 1510,
                 LineStationIndex = 1,
                 PrevStation = 46422,
                 NextStation = 20116,
@@ -1423,7 +1345,7 @@ namespace DS
                 LineId= 10,
                 Code = 20116,
                 LineStationIndex = 2,
-                PrevStation = 32295,
+                PrevStation = 1510,
                 NextStation = 20115,
             },
             new LineStation
@@ -1458,6 +1380,8 @@ namespace DS
                 PrevStation = 46425,
                 NextStation = -1,
             },
+            
+            //line 108 ,Jerusalem
            new LineStation
             {
                 LineId= 10,
@@ -1466,7 +1390,7 @@ namespace DS
                 PrevStation = -1,
                 NextStation = 83,
             },
-           // line 108 ,Jerusalem
+
             new LineStation
             {
                 LineId= 12,
@@ -1579,8 +1503,6 @@ namespace DS
                 },
                 new LineStation
                 {
-                   Name = "דרך בית לחם הישה",
-
                     LineId=3,
                     Code = 89,
                     LineStationIndex = 4,
@@ -1625,8 +1547,7 @@ namespace DS
 
                 },
                 new LineStation
-                {   Name = "יעקובזון/עזרת תורה",
-
+                {
                     LineId=3,
                     Code = 111,
                     LineStationIndex = 9,
@@ -1635,7 +1556,7 @@ namespace DS
 
                 },
 
-                //line 157, jerusalem
+                //line 157, jerusalem 
                 new LineStation
                 {
                     LineId= 9,
@@ -1709,8 +1630,7 @@ namespace DS
 
                 },
                 new LineStation
-                {   Name = "עזרת תורה/דורש טוב",
-
+                {
                     LineId= 9,
                     Code = 109,
                     LineStationIndex = 8,
@@ -1719,8 +1639,7 @@ namespace DS
 
                 },
                 new LineStation
-                {  Name = "יעקובזון/עזרת תורה",
-
+                {
                     LineId= 9,
                     Code = 111,
                     LineStationIndex = 9,
@@ -1729,48 +1648,67 @@ namespace DS
 
                 },
 
-               #endregion
-            };
-            listAdjacentStation = new List<AdjacentStations>();
-            {
-                #region Boot //אתחול תחנות עוקבות
-              
-
-                foreach (LineStation ls in listLineStation)
-                {
-                    if (!listLines.Exists(l => l.LastStation == ls.Code && l.LineId == ls.LineId))//if the lineStation is not the last in the bus
-                    {
-                        AdjacentStations newAdj = new AdjacentStations();
-                        //we make each line station a pair of the station after it
-                        newAdj.Station1 = ls.Code;
-                        newAdj.Station2 = ls.NextStation;
-
-                        //double long1 = listStations.Find(st => st.Code == ls.Station).Longitude;
-                        //double long2 = listStations.Find(st => st.Code == newAdj.Station2).Longitude;
-                        //double lat1 = listStations.Find(st => st.Code == ls.Station).Lattitude;
-                        //double lat2 = listStations.Find(st => st.Code == newAdj.Station2).Lattitude;
-                        //newAdj.Distance = Math.Sqrt(Math.Pow(long1 - long2, 2) + Math.Pow(lat1 - lat2, 2));
-
-                        int timeInMin = (int)(newAdj.Distance * 1.0 / r.Next(20, 50)) * 60;
-                        TimeSpan time = new TimeSpan(0, timeInMin, 0);
-                        newAdj.Time = time;
-
-                        listAdjacentStation.Add(newAdj);
-                    }
-                    else
-                    {
-                        //no need to create a pair. its the last station in a line.
-                    }
-                }
-
-                //(sender as TryToRide).dis;
-                // Time =(TimeSpan) v;
-
-
                 #endregion
-              
             };
-            users = new List<User>
+
+            listAdjacentStations = new List<AdjacentStations>();
+
+            #region restart AdjacentStations
+
+            foreach (LineStation ls in listLineStation)
+            {
+                if (!listLines.Exists(l => l.LastStation == ls.Code && l.LineId == ls.LineId))//if the lineStation is not the last in the bus
+                {
+                    AdjacentStations newAdj = new AdjacentStations();
+                    //we make each line station a pair of the station after it
+                    newAdj.Station1 = ls.Code;
+                    newAdj.Station2 = ls.NextStation;
+
+                    double long1 = listStations.Find(st => st.Code == ls.Code).Longitude;
+                    double long2 = listStations.Find(st => st.Code == newAdj.Station2).Longitude;
+                    double lat1 = listStations.Find(st => st.Code == ls.Code).Lattitude;
+                    double lat2 = listStations.Find(st => st.Code == newAdj.Station2).Lattitude;
+
+                    //the distance between each 2 cordinates is 111 km.
+                    //the hefresh between lat1-lat2 and long1-long2, is a part of the distance between the lat lines and long lines witch is 111 each.
+                    newAdj.Distance = (Math.Sqrt((Math.Pow(long1 - long2, 2) * 111) + (Math.Pow(lat1 - lat2, 2)) * 111));
+
+                    //int timeInMin = (int)(newAdj.Distance * 1.0 / r.Next(20, 50) * 60);
+                    //int min;
+                    //if (timeInMin == 0)//lost info because of (int), thats why restart with 1 instead of 0.
+                    //    min = 1;
+                    //else
+                    //    min = timeInMin;
+
+                    //TimeSpan time = new TimeSpan(0, min, 0);
+
+                    double timeInSec = ((newAdj.Distance * 1.5) / r.Next(20, 50)) * 60 * 60;//dis*1.5= לחישוב מרחק אמיתי ולא אוירי
+                    int hours = (int)(timeInSec / 3600);
+                    int min = (int)(timeInSec / 60);
+                    int sec = (int)timeInSec;
+
+                    if (sec == 0)
+                    {
+                        sec = 1;//since we dont want the TimeSpan to be all 00:00:00. at least 00:00:01.
+                    }
+
+                    TimeSpan time = new TimeSpan(hours, min, sec);
+                    newAdj.Time = time;
+
+                    listAdjacentStations.Add(newAdj);
+                }
+                else
+                {
+                    //no need to create a pair. its the last station in a line.
+                }
+            }
+
+
+            #endregion
+
+
+
+            users = new List<User>()
             {
                 #region User //אתחול משתמשים
                 new User
@@ -1782,7 +1720,6 @@ namespace DS
             };
 
         }
-
     }
 }
 

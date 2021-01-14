@@ -13,6 +13,7 @@ namespace DLAPI
     public interface IDL
     {
         #region Station
+        IEnumerable<DO.LineStation> GetAllLineStationsPerStation(int code);
         DO.Station GetStation(int code);
         IEnumerable<DO.Station> GetAllStations();
         void AddStation(DO.Station station);
@@ -35,11 +36,14 @@ namespace DLAPI
         IEnumerable<DO.LineStation> GetStationsInLineList(Predicate<DO.LineStation> predicate);
         //  IEnumerable<DO.LineStation> GetAlllineStations();
         DO.LineStation GetLineStation(int ID);
+        DO.LineStation GetLineStation(int id, int code);
         void AddStationInLine(int lineID, int statCode, int lineStationIndex);
         void UpdateStationInLine(int lineID, int statCode, int lineStationIndex);
         void DeleteStationInLine(int lineID, int statCode);
         void DeleteStationsFromAllLines(int statCode);
         void DeleteAllLineStationsPerLine(int lineID);
+        IEnumerable<DO.AdjacentStations> GetAdjacentStationsByFirstOfPair(int code);
+        IEnumerable<DO.AdjacentStations> GetAdjacentStationsBySecondOfPair(int code);
         #endregion
         #region User
         DO.User GetUser(string name);

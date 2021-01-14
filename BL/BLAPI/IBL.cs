@@ -11,7 +11,7 @@ namespace BLAPI
     public interface IBL
     {
         #region Station
-
+        IEnumerable<BO.Line> GetAllLinesPerStation(int code);
         BO.Station stationDoBoAdapter(DO.Station stationDO);
          IEnumerable<BO.Station> GetAllStations();
          BO.Station GetStation(int code);
