@@ -243,7 +243,7 @@ namespace BL
                 throw new BO.BadStationCodeException("Station code is illegal", ex);
             }
             newlineStationDO.CopyPropertiesTo(lineStationBO);//copies- only flat properties.
-            lineStationBO.Code = lineStationDO.Station;
+            lineStationBO.Code = lineStationDO.Code;
 
             //copy "Name":
             lineStationBO.Name = dl.GetStation(code).Name;

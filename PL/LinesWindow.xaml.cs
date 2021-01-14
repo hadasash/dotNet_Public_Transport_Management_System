@@ -48,7 +48,7 @@ namespace PL
         }
         void RefreshAllRegisteredLineStationGrid()
         {
-            stationLineDataGrid.DataContext = bl.GetAllStationInLine(curLine.LineId);
+            stationLineDataGrid.DataContext = curLine.LineStations;
         }
         private void cbLineId_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -123,7 +123,9 @@ namespace PL
             try
             {
                 BO.LineStation slBO = ((sender as Button).DataContext as BO.LineStation);
+
                 bl.DeleteStationInLine(curLine.LineId ,slBO.Code );
+
                 RefreshAllRegisteredLineStationGrid();
               
             }

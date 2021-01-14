@@ -149,7 +149,7 @@ namespace DL
         public DO.LineStation GetLineStation(int code)
         {
 
-            DO.LineStation stat = DataSource.listLineStation.Find(s => s.Station == code);
+            DO.LineStation stat = DataSource.listLineStation.Find(s => s.Code == code);
 
             if (stat != null)//found the station
                 return stat.Clone();
@@ -161,15 +161,15 @@ namespace DL
         
         public void AddStationInLine(int lineID, int statCode, int lineStationIndex)
         {
-            if (DataSource.listLineStation.FirstOrDefault(lis => (lis.LineId == lineID && lis.Station == statCode)) != null)
+            if (DataSource.listLineStation.FirstOrDefault(lis => (lis.LineId == lineID && lis.Code == statCode)) != null)
                 throw new DO.BadStationCodeLineID(lineID, statCode, "Station Code is already registered to line ID");
-            DO.LineStation sil = new DO.LineStation() { Station = statCode, LineId = lineID, LineStationIndex = lineStationIndex };
+            DO.LineStation sil = new DO.LineStation() { Code = statCode, LineId = lineID, LineStationIndex = lineStationIndex };
             DataSource.listLineStation.Add(sil);
         }
 
         public void UpdateStationInLine(int lineID, int statCode, int lineStationIndex)
         {
-            DO.LineStation sil = DataSource.listLineStation.Find(lis => (lis.LineId == lineID && lis.Station == statCode));
+            DO.LineStation sil = DataSource.listLineStation.Find(lis => (lis.LineId == lineID && lis.Code == statCode));
 
             if (sil != null)
             {
@@ -182,7 +182,7 @@ namespace DL
         public void DeleteStationInLine(int lineID, int statCode)
         {
 
-            DO.LineStation sil = DataSource.listLineStation.Find(lis => (lis.LineId == lineID && lis.Station == statCode));
+            DO.LineStation sil = DataSource.listLineStation.Find(lis => (lis.LineId == lineID && lis.Code == statCode));
 
             if (sil != null)
             {
@@ -195,7 +195,7 @@ namespace DL
 
         public void DeleteStationsFromAllLines(int statCode)
         {
-            DataSource.listLineStation.RemoveAll(s => s.Station == statCode);
+            DataSource.listLineStation.RemoveAll(s => s.Code == statCode);
         }
         public void DeleteAllLineStationsPerLine(int lineID)
         {
