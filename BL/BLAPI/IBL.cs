@@ -8,11 +8,11 @@ using BO;
 
 namespace BLAPI
 {
+   
     public interface IBL
     {
         #region Station
         IEnumerable<BO.Line> GetAllLinesPerStation(int code);
-        BO.Station stationDoBoAdapter(DO.Station stationDO);
          IEnumerable<BO.Station> GetAllStations();
          BO.Station GetStation(int code);
          void UpdateStationPersonalDetails(BO.Station station);
@@ -20,6 +20,11 @@ namespace BLAPI
          void DeleteStation(int code);
 
         #endregion
+        //Add Station to line
+        //get all lines for stations
+        //get stations /get station
+        //delete station
+        //update station
 
         #region Line
 
@@ -30,6 +35,10 @@ namespace BLAPI
         void DeleteLine(int lineID);
 
         #endregion
+        //add line
+        //get lines /get line
+        //delete line
+        //update line
 
         #region Station In Line
         void AddStationInLine(int statCode, int lineID, int index = 0);
@@ -38,13 +47,19 @@ namespace BLAPI
         IEnumerable<BO.LineStation> GetAllStationInLine(int id);
 
         #endregion
+        //add line
+        //get lines /get line
+        //delete line
+        //update line
 
         #region User
-        BO.User userDoBoAdapter(DO.User userDO);
         BO.User GetUser(string name);
         void AddUser(DO.User user);
         IEnumerable<BO.User> GetAllUsers();
         #endregion
+        // get user 
+        // add user
+        // get all users
 
     }
 }

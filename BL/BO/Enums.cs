@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BO
 {
-  
+  // area
         public enum Areas
         {
             General, North, South, Center, Jerusalem

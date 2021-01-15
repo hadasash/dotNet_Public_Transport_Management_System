@@ -22,6 +22,11 @@ namespace DLAPI
         void DeleteStation(int code);
 
         #endregion
+        //Add Station to line
+        //get all lines for stations
+        //get stations /get station
+        //delete station
+        //update station
 
         #region Line
         DO.Line GetLine(int LineId);
@@ -29,8 +34,12 @@ namespace DLAPI
         void AddLine(DO.Line line);
         void UpdateLine(DO.Line line);
         void UpdateLine(int idLine, Action<DO.Line> update); 
-        void DeleteLine(int idLine); 
+        void DeleteLine(int idLine);
         #endregion
+        //add line
+        //get lines /get line
+        //delete line
+        //update line
 
         #region Stations In Line//line station
         IEnumerable<DO.LineStation> GetStationsInLineList(Predicate<DO.LineStation> predicate);
@@ -45,11 +54,18 @@ namespace DLAPI
         IEnumerable<DO.AdjacentStations> GetAdjacentStationsByFirstOfPair(int code);
         IEnumerable<DO.AdjacentStations> GetAdjacentStationsBySecondOfPair(int code);
         #endregion
+        //add line
+        //get lines /get line
+        //delete line
+        //update line
         #region User
         DO.User GetUser(string name);
         IEnumerable<DO.User> GetAllUsers();
         void AddUser(DO.User user);
         #endregion
+        // get user 
+        // add user
+        // get all users
 
     }
 

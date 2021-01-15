@@ -1654,42 +1654,29 @@ namespace DS
             listAdjacentStations = new List<AdjacentStations>();
 
             #region restart AdjacentStations
-
+            //Gets two consecutive line stations and calculates the distance and time between them by longitude and latitude. And thus initializes the subsequent stations
             foreach (LineStation ls in listLineStation)
             {
                 if (!listLines.Exists(l => l.LastStation == ls.Code && l.LineId == ls.LineId))//if the lineStation is not the last in the bus
                 {
                     AdjacentStations newAdj = new AdjacentStations();
-                    //we make each line station a pair of the station after it
                     newAdj.Station1 = ls.Code;
                     newAdj.Station2 = ls.NextStation;
-
                     double long1 = listStations.Find(st => st.Code == ls.Code).Longitude;
                     double long2 = listStations.Find(st => st.Code == newAdj.Station2).Longitude;
                     double lat1 = listStations.Find(st => st.Code == ls.Code).Lattitude;
                     double lat2 = listStations.Find(st => st.Code == newAdj.Station2).Lattitude;
 
-                    //the distance between each 2 cordinates is 111 km.
-                    //the hefresh between lat1-lat2 and long1-long2, is a part of the distance between the lat lines and long lines witch is 111 each.
-                    newAdj.Distance = (Math.Sqrt((Math.Pow(long1 - long2, 2) * 111) + (Math.Pow(lat1 - lat2, 2)) * 111));
+                    newAdj.Distance = ((Math.Sqrt((Math.Pow(long1 - long2, 2) * 11) + (Math.Pow(lat1 - lat2, 2)) * 11)));
 
-                    //int timeInMin = (int)(newAdj.Distance * 1.0 / r.Next(20, 50) * 60);
-                    //int min;
-                    //if (timeInMin == 0)//lost info because of (int), thats why restart with 1 instead of 0.
-                    //    min = 1;
-                    //else
-                    //    min = timeInMin;
-
-                    //TimeSpan time = new TimeSpan(0, min, 0);
-
-                    double timeInSec = ((newAdj.Distance * 1.5) / r.Next(20, 50)) * 60 * 60;//dis*1.5= לחישוב מרחק אמיתי ולא אוירי
+                    double timeInSec = ((newAdj.Distance * 1.5) / r.Next(20, 50))* 60;
                     int hours = (int)(timeInSec / 3600);
                     int min = (int)(timeInSec / 60);
                     int sec = (int)timeInSec;
 
                     if (sec == 0)
                     {
-                        sec = 1;//since we dont want the TimeSpan to be all 00:00:00. at least 00:00:01.
+                        sec = 1;
                     }
 
                     TimeSpan time = new TimeSpan(hours, min, sec);
@@ -1697,16 +1684,11 @@ namespace DS
 
                     listAdjacentStations.Add(newAdj);
                 }
-                else
-                {
-                    //no need to create a pair. its the last station in a line.
-                }
+               
             }
 
 
             #endregion
-
-
 
             users = new List<User>()
             {

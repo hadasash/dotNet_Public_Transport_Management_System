@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:PL"
         xmlns:BO="clr-namespace:BO;assembly=BL" x:Class="PL.LinesWindow"
         mc:Ignorable="d"
-        Title="LinesWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" Icon="green.png" >
+        Title="LinesWindow" Height="550" Width="800" WindowStartupLocation="CenterScreen" Icon="green.png" >
     <Window.Resources>
         <CollectionViewSource x:Key="lineViewSource" d:DesignSource="{d:DesignInstance {x:Type BO:Line}, CreateList=True}"/>
         <CollectionViewSource x:Key="lineStationViewSource" d:DesignSource="{d:DesignInstance {x:Type BO:LineStation}, CreateList=True}"/>
@@ -44,7 +44,7 @@
         <Button x:Name="bLogOut"  Content="  Logout" HorizontalAlignment="Right"  Grid.Row="0" Grid.Column="4" VerticalAlignment="Center"  Click="bLogOut_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"/>
         <Button x:Name="bLContact"  Content="Contact us  | "  HorizontalAlignment="Center"  Grid.Row="0" Grid.Column="4" VerticalAlignment="Center"  Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="bLContact_Click"/>
         <Label Content="Select Line:         " Grid.Row="1" Grid.Column="1"  HorizontalAlignment="Right"  VerticalAlignment="Center" Height="30" FontSize="15" Foreground="#FF2B8B30"  FontWeight="Bold" />
-        <Button x:Name="btDeleteLine" Content="Delete Current line" HorizontalAlignment="Stretch"  VerticalAlignment="Center"  Background="#FF54C759" Foreground="White"  Grid.Column="3" Grid.Row="5" Click="btDeleteLine_Click" />
+        <Button x:Name="btDeleteLine" Content="Delete Current line" HorizontalAlignment="Stretch"  VerticalAlignment="Center"  Background="#FF54C759" Foreground="White"  Grid.Column="2" Grid.Row="5" Click="btDeleteLine_Click" Grid.ColumnSpan="3"  />
         <Button x:Name="btAddSLine" Content="Add New line" HorizontalAlignment="Stretch"  VerticalAlignment="Center"  Grid.Column="4" Grid.Row="5" Background="#FFF386BC" Foreground="White" Click="btAddSLine_Click" />
         <Button x:Name="btUpdateLine" Content="Update line info" HorizontalAlignment="Stretch"  VerticalAlignment="Center"  Background="#FF91A4BF" Foreground="White"  Grid.Column="2" Grid.Row="5" Click="btUpdateLine_Click"   />
         <Grid x:Name="gridOneLine" Grid.Column="1"  HorizontalAlignment="Left"  Grid.Row="2" VerticalAlignment="Stretch"  Grid.RowSpan="4">
@@ -72,20 +72,23 @@
         </Grid>
         <DataGrid x:Name="stationLineDataGrid" AutoGenerateColumns="False" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="2" Grid.RowSpan="3" EnableRowVirtualization="True" ItemsSource="{Binding}"  RowDetailsVisibilityMode="VisibleWhenSelected">
             <DataGrid.Columns>
-                <DataGridTextColumn x:Name="codeColumn" Binding="{Binding Code}" Header="Code" Width="*"/>
+                <DataGridTextColumn x:Name="codeColumn" Binding="{Binding Code}" Header="Code" Width="0.7*"/>
                 <DataGridTextColumn x:Name="distanceColumn" Binding="{Binding Distance}" Header="Distance" Width="*"/>
-                <DataGridTextColumn x:Name="lineStationIndexColumn" Binding="{Binding LineStationIndex}" Header="Line Station Index" Width="*"/>
-                <DataGridTextColumn x:Name="nameColumn" Binding="{Binding Name}" Header="Name" Width="*"/>
+                <DataGridTextColumn x:Name="index" Binding="{Binding LineStationIndex}" Header="Index" Width="0.7*"/>
+                <DataGridTextColumn x:Name="nameColumn" Binding="{Binding Name}" Header="Name" Width="2*"/>
                 <DataGridTextColumn x:Name="timeColumn" Binding="{Binding Time}" Header="Time" Width="*"/>
 
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button x:Name="btDeleteStat" Content="Delete" ToolTip="UnRegister selected student from selected course" Width="70" Click="btDeleteStat_Click" />
+                            <Button x:Name="btDeleteStat" Content="Delete" ToolTip="delete selected station from selected line" Width="70" Click="btDeleteStat_Click" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
+
             </DataGrid.Columns>
         </DataGrid>
+        <Button Content="Button" Grid.Column="4" HorizontalAlignment="Stretch"  Grid.Row="1" VerticalAlignment="Center" Background="#FFE7BC6E" Foreground="White" Click="Button_Click" ToolTip="add a station for selected line"/>
+         
     </Grid>
 </Window>

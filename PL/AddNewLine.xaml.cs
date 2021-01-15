@@ -39,9 +39,6 @@ namespace PL
             bl.AddLine(s);
             this.Close();
         }
-
-       
-
         private void bBack_Click(object sender, RoutedEventArgs e)
         {
             LinesWindow myWin = new LinesWindow(bl);

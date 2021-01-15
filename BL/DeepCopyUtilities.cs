@@ -8,8 +8,13 @@ using System.Threading.Tasks;
 
 namespace BL
 {
+   
     public static class DeepCopyUtilities
     {
+        /// <summary>
+        /// copy the properties to template
+        /// </summary>
+       
         public static void CopyPropertiesTo<T, S>(this S from, T to)
         {
             foreach (PropertyInfo propTo in to.GetType().GetProperties())
@@ -22,12 +27,20 @@ namespace BL
                     propTo.SetValue(to, value);
             }
         }
+        /// <summary>
+        /// copy the properties to new object
+        /// </summary>
+
         public static object CopyPropertiesToNew<S>(this S from, Type type)
         {
             object to = Activator.CreateInstance(type); // new object of Type
             from.CopyPropertiesTo(to);
             return to;
         }
+        /// <summary>
+        /// copy the properties to list of lines
+        /// </summary>
+
         public static BO.Line CopyToListOfLines(this DO.Line line, DO.LineStation sic)
         {
             BO.Line result = (BO.Line)line.CopyPropertiesToNew(typeof(BO.Line));
@@ -35,6 +48,10 @@ namespace BL
             result.LineId = sic.LineId;
             return result;
         }
+        /// <summary>
+        /// copy the properties to statio line
+        /// </summary>
+
         public static BO.LineStation CopyToStationLine(this DO.Line line, DO.LineStation sic)
         {
             BO.LineStation result = (BO.LineStation)line.CopyPropertiesToNew(typeof(BO.LineStation));

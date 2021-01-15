@@ -136,7 +136,15 @@ namespace PL
 
         }
 
-       
+        private void Button_Click(object sender, RoutedEventArgs e)
+
+        { 
+        //{
+        //    BO.LineStation scBO = ((sender as Button).DataContext as BO.LineStation);
+        //    AddStationInLine win = new AddStationInLine(, curLine);
+        //   // win.Closing += WinUpdateGrade_Closing;
+        //    win.ShowDialog();
+        }
     }
 }
 

@@ -10,7 +10,7 @@ namespace BO
     
     public class Line
     {
-        public int LineId { get; set; }
+        public int LineId { get; set; }// run number
         public int NumberBus { get; set; }
         public int FirstStation { get; set; }
         public int LastStation { get; set; }
