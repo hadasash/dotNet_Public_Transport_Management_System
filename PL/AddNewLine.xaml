@@ -7,9 +7,10 @@
         xmlns:BO="clr-namespace:BO;assembly=BL" x:Class="PL.AddNewLine"
         mc:Ignorable="d"
         Title="AddNewLine" Height="550" Width="800" Icon="green.png" WindowStartupLocation="CenterScreen" >
-   
+
     <Grid  HorizontalAlignment="Center"  Width="790"  >
         <Grid.ColumnDefinitions>
+
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
@@ -27,19 +28,18 @@
         <TextBox x:Name="tbcolor" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"  Background="#FF2B8B30"  BorderBrush="{x:Null}"   TextWrapping="Wrap"  Text=" © 2021   Bondi.com " Foreground="White" FontSize="11"  />
 
 
-        <Button x:Name="AddStation" Content="Add Line"  Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="5" HorizontalAlignment="Center" Width="150" Height="25" Background="HotPink" Foreground="White" FontWeight="Bold" Click="AddStation_Click"/>
-        <Image HorizontalAlignment="Left"  Grid.RowSpan="4" VerticalAlignment="Bottom"   Grid.Row="3" Source="station.png" Height="200"  Width="200"/>
-        <Grid x:Name="grid1"  HorizontalAlignment="Left" Margin="297,74,0,0" Grid.Row="1" Grid.RowSpan="4" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="267" Width="235">
+        <Button x:Name="AddStation" Content="Add Line"  Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="5" HorizontalAlignment="Center" Width="180" Height="25" Background="HotPink" Foreground="White" FontWeight="Bold" Click="AddStation_Click"/>
+        <Image HorizontalAlignment="Left"  Grid.RowSpan="4" VerticalAlignment="Bottom"   Grid.Row="4" Source="traffic.png" Height="170"  Width="170" Margin="45,0,0,25.6"/>
+        <Grid x:Name="grid1"  HorizontalAlignment="Center" Grid.Row="2" Grid.RowSpan="3" VerticalAlignment="Stretch" Grid.ColumnSpan="2" >
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Label Content="Area:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
             <ComboBox x:Name="areaComboBox" Grid.Column="1" DisplayMemberPath="Area" HorizontalAlignment="Left" Height="Auto" ItemsSource="{Binding Area}" Margin="3" Grid.Row="0" VerticalAlignment="Center" Width="120">
@@ -49,6 +49,7 @@
                     </ItemsPanelTemplate>
                 </ComboBox.ItemsPanel>
             </ComboBox>
+
             <Label Content="First Station:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
             <ComboBox x:Name="firstStationComboBox" Grid.Column="1" DisplayMemberPath="FirstStation" HorizontalAlignment="Left" Height="Auto" ItemsSource="{Binding}" Text="{Binding Code}" Margin="3" Grid.Row="1" VerticalAlignment="Center" Width="120">
                 <ComboBox.ItemsPanel>
@@ -65,9 +66,13 @@
                     </ItemsPanelTemplate>
                 </ComboBox.ItemsPanel>
             </ComboBox>
-                   <Label Content="Number Bus:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
+            <Label Content="Number Bus:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
             <TextBox x:Name="numberBusTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding NumberBus, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
         </Grid>
-
+        <Button x:Name="bBack" Content="back" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"  Width="45" Height="35" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="bBack_Click"   >
+            <Button.Background>
+                <ImageBrush ImageSource="back-arrow (1).png"/>
+            </Button.Background>
+        </Button>
     </Grid>
 </Window>

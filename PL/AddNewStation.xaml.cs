@@ -41,5 +41,13 @@ namespace PL
             bl.AddStation(s);
             this.Close();
         }
+
+        private void bBack_Click(object sender, RoutedEventArgs e)
+        {            
+                StationsWindow myWin = new StationsWindow(bl);
+                myWin.Show();
+                this.Close();
+            
+        }
     }
 }

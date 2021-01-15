@@ -40,6 +40,13 @@ namespace PL
             this.Close();
         }
 
-        
+       
+
+        private void bBack_Click(object sender, RoutedEventArgs e)
+        {
+            LinesWindow myWin = new LinesWindow(bl);
+            myWin.Show();
+            this.Close();
+        }
     }
 }

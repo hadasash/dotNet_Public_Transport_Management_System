@@ -170,28 +170,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="green.png" />
-    <Resource Include="3dfc241d9c.svg.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="greenwhite.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="conf.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="station.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="dibujo.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="login.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="back.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="back-arrow.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="back-arrow %281%29.png" />
@@ -201,6 +188,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="unlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="traffic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="route.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="conversation.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

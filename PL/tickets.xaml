@@ -54,7 +54,7 @@ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 
 
         </StackPanel>
-        <Image Grid.ColumnSpan="2" Grid.Column="3" HorizontalAlignment="Center" Height="160"  Grid.Row="4" Grid.RowSpan="2" VerticalAlignment="Center" Width="205" Source="dibujo.jpg"/>
+        <Image Grid.ColumnSpan="2" Grid.Column="3" HorizontalAlignment="Center" Height="160"  Grid.Row="4" Grid.RowSpan="2" VerticalAlignment="Top" Width="205" Source="route.png"/>
         <Button Content="Back" x:Name="bBack" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Center"  Click="bBack_Click" Width="45" Height="35" BorderBrush="{x:Null}" Foreground="{x:Null}"   >
             <Button.Background>
                 <ImageBrush ImageSource="back-arrow (1).png"/>
