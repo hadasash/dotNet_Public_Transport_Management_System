@@ -28,6 +28,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		bin\config.xml = bin\config.xml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DLXML", "DLXML\DLXML.csproj", "{7160F3C5-358D-47E0-BB23-573C9DB3DE33}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -74,6 +76,10 @@ Global
 		{2A8C40D2-C035-45F9-AF1E-7874ED36F6AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A8C40D2-C035-45F9-AF1E-7874ED36F6AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A8C40D2-C035-45F9-AF1E-7874ED36F6AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7160F3C5-358D-47E0-BB23-573C9DB3DE33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7160F3C5-358D-47E0-BB23-573C9DB3DE33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7160F3C5-358D-47E0-BB23-573C9DB3DE33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7160F3C5-358D-47E0-BB23-573C9DB3DE33}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

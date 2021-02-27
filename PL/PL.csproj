@@ -73,6 +73,12 @@
     <Compile Include="Newuser.xaml.cs">
       <DependentUpon>Newuser.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SelectStation.xaml.cs">
+      <DependentUpon>SelectStation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StationSimulator.xaml.cs">
+      <DependentUpon>StationSimulator.xaml</DependentUpon>
+    </Compile>
     <Compile Include="StationsWindow.xaml.cs">
       <DependentUpon>StationsWindow.xaml</DependentUpon>
     </Compile>
@@ -81,6 +87,9 @@
     </Compile>
     <Compile Include="User.xaml.cs">
       <DependentUpon>User.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LinesSchedule.xaml.cs">
+      <DependentUpon>LinesSchedule.xaml</DependentUpon>
     </Compile>
     <Page Include="AddNewLine.xaml">
       <SubType>Designer</SubType>
@@ -118,6 +127,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="SelectStation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StationSimulator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="StationsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -127,6 +144,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="User.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LinesSchedule.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -204,6 +225,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="conversation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bus-stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="clock.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

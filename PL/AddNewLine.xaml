@@ -42,16 +42,11 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Label Content="Area:" Foreground="#FF2B8B30" FontWeight="Bold" Grid.Column="0" HorizontalAlignment="Left"  Grid.Row="0" VerticalAlignment="Center"/>
-            <ComboBox x:Name="areaComboBox"  Grid.Column="1" DisplayMemberPath="Area" HorizontalAlignment="Left" Height="Auto" ItemsSource="{Binding Area}"  Grid.Row="0" VerticalAlignment="Center" Width="120">
-                <ComboBox.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <VirtualizingStackPanel/>
-                    </ItemsPanelTemplate>
-                </ComboBox.ItemsPanel>
-            </ComboBox>
+            <ComboBox x:Name="areaComboBox"  Grid.Column="1"  HorizontalAlignment="Left" Height="Auto"  SelectedItem="{Binding Area}" Grid.Row="0" VerticalAlignment="Center" Width="120"/>
+
 
             <Label Content="First Station:" Grid.Column="0" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Center" Foreground="#FF2B8B30" FontWeight="Bold"/>
-            <ComboBox x:Name="firstStationComboBox" Grid.Column="1" DisplayMemberPath="FirstStation" HorizontalAlignment="Left" Height="Auto" ItemsSource="{Binding}" Text="{Binding Code}"  Grid.Row="1" VerticalAlignment="Center" Width="120">
+            <ComboBox x:Name="firstStationComboBox" Grid.Column="1" DisplayMemberPath="Code" HorizontalAlignment="Left" Height="Auto" ItemsSource="{Binding}"  Grid.Row="1" VerticalAlignment="Center" Width="120">
                 <ComboBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <VirtualizingStackPanel/>
@@ -59,7 +54,7 @@
                 </ComboBox.ItemsPanel>
             </ComboBox>
             <Label Content="Last Station:" Grid.Column="0" HorizontalAlignment="Left"  Grid.Row="2" VerticalAlignment="Center" Foreground="#FF2B8B30" FontWeight="Bold"/>
-            <ComboBox x:Name="lastStationComboBox" Grid.Column="1" DisplayMemberPath="LastStation" HorizontalAlignment="Left" Height="Auto" ItemsSource="{Binding}" Text="{Binding Code}"  Grid.Row="2" VerticalAlignment="Center" Width="120">
+            <ComboBox x:Name="lastStationComboBox" Grid.Column="1" DisplayMemberPath="Name" SelectedValuePath="Code" HorizontalAlignment="Left" Height="Auto" ItemsSource="{Binding}"   Grid.Row="2" VerticalAlignment="Center" Width="120">
                 <ComboBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <VirtualizingStackPanel/>

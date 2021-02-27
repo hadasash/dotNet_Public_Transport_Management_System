@@ -21,23 +21,34 @@ namespace PL
     /// </summary>
     public partial class AddNewLine : Window
     {
-        IBL bl = BLFactory.GetBL("1");
+
+        IBL bl;
         DO.Line s = new DO.Line();
-        public AddNewLine()
+        public AddNewLine( IBL _bl)
         {
             InitializeComponent();
+            bl = _bl;
             areaComboBox.ItemsSource = Enum.GetValues(typeof(BO.Areas));
+            grid1.DataContext = s;
             //lastStationComboBox.DataContext = bl.GetAllStations();
             //firstStationComboBox.DataContext = bl.GetAllStations();
         }
-       
+
         private void AddStation_Click(object sender, RoutedEventArgs e)
         {
-          
-            DO.Line s = new DO.Line();
-            
+            //MB
+
+            //try
+            //{
+
             bl.AddLine(s);
             this.Close();
+            //}
+            // catch ()//(BO.)
+
+            //{
+            //    //MB
+            //}
         }
         private void bBack_Click(object sender, RoutedEventArgs e)
         {

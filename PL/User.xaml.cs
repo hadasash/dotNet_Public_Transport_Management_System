@@ -26,7 +26,9 @@ namespace PL
         public User()
         {
            InitializeComponent();
-       // bl = _bl;
+            bl.restartXmlLists();
+            
+            // bl = _bl;
         } 
 
         private void bLogIn_Click(object sender, RoutedEventArgs e)

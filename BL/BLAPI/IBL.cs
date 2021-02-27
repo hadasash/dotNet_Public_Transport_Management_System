@@ -61,5 +61,13 @@ namespace BLAPI
         // add user
         // get all users
 
+        #region LineTrip
+        IEnumerable<BO.LineTrip> GetAllLineTripPerLine(int lineid);
+        #endregion
+
+        #region LineAndTime
+        IEnumerable<BO.Time> GetLineAndTimePerStation(BO.Station stationBO, TimeSpan currentTime);
+        #endregion
+        void restartXmlLists();
     }
 }

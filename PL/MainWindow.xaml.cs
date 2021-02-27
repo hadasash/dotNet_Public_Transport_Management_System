@@ -46,9 +46,22 @@ namespace PL
                 win.Show();
                 this.Close();
             }
-            if (rbticket.IsChecked == true)
+            else if (rbticket.IsChecked == true)
             {
                 tickets win = new tickets(bl);
+                win.Show();
+                this.Close();
+
+            }
+            else if (rbSimulator.IsChecked == true)
+            {
+                SelectStation win = new SelectStation(bl);
+                win.Show();
+                this.Close();
+            }
+            else if (rbSchedule.IsChecked == true)
+            {
+                LinesSchedule win = new LinesSchedule(bl);
                 win.Show();
                 this.Close();
 

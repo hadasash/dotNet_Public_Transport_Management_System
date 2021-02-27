@@ -67,6 +67,12 @@ namespace DLAPI
         // add user
         // get all users
 
+        #region LineTrip
+        IEnumerable<DO.LineTrip> GetAllLineTripPerLine(int lineid);
+        IEnumerable<DO.LineTrip> GetAllLineTripsBy(Predicate<DO.LineTrip> predicate);
+        #endregion
+        void restartXmlLists();
+
     }
 
 }

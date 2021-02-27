@@ -112,8 +112,9 @@ namespace PL
             RefreshAllLinesComboBox();
         }
         private void btAddSLine_Click(object sender, RoutedEventArgs e)
-        {
-            AddNewLine newStatWin = new AddNewLine();
+        { 
+
+            AddNewLine newStatWin = new AddNewLine(bl);
             newStatWin.Closed += refresh;
             newStatWin.Show();
         }
