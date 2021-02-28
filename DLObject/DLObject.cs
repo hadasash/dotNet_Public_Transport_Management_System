@@ -322,53 +322,53 @@ namespace DL
 
             #region save all list from data source to xml files
 
-            //string stationsPath = @"StationsXml.xml"; //Serializer
-            //string lineStationsPath = @"LineStationsXml.xml"; //Serializer
-            //string linesPath = @"LinesXml.xml"; //Serializer
-            //string usersPath = @"UsersXml.xml"; //Serializer
-            //string adjacentStationsPath = @"AdjacentStationsXml.xml"; //XElement
-            //string lineTripPath = @"LineTripXml.xml"; //XElement
+            string stationsPath = @"StationsXml.xml"; //Serializer
+            string lineStationsPath = @"LineStationsXml.xml"; //Serializer
+            string linesPath = @"LinesXml.xml"; //Serializer
+            string usersPath = @"UsersXml.xml"; //Serializer
+            string adjacentStationsPath = @"AdjacentStationsXml.xml"; //XElement
+            string lineTripPath = @"LineTripXml.xml"; //XElement
 
-            //string runningNumberPath = @"RunningNumberXml.xml";
+            string runningNumberPath = @"RunningNumberXml.xml";
 
-            //SaveListToXMLSerializer(DataSource.listStations, stationsPath);
-            //SaveListToXMLSerializer(DataSource.listLineStation, lineStationsPath);
-            //SaveListToXMLSerializer(DataSource.listLines, linesPath);
-            //SaveListToXMLSerializer(DataSource.users, usersPath);
-
-
-            //XElement adjacentStationsRootElem = new XElement("listAdjacentStations");
-
-            //foreach (DO.AdjacentStations adj in DataSource.listAdjacentStations)
-            //{
-            //    adjacentStationsRootElem.Add(new XElement("AdjacentStations",
-            //        new XElement("Station1", adj.Station1.ToString()),
-            //        new XElement("Station2", adj.Station2.ToString()),
-            //        new XElement("Distance", adj.Distance.ToString()),
-            //        new XElement("Time", adj.Time.ToString())));
-            //}
-
-            //SaveListToXMLElement(adjacentStationsRootElem, adjacentStationsPath);
+            SaveListToXMLSerializer(DataSource.listStations, stationsPath);
+            SaveListToXMLSerializer(DataSource.listLineStation, lineStationsPath);
+            SaveListToXMLSerializer(DataSource.listLines, linesPath);
+            SaveListToXMLSerializer(DataSource.users, usersPath);
 
 
-            //XElement lineTripRootElem = new XElement("listLineTrips");
+            XElement adjacentStationsRootElem = new XElement("listAdjacentStations");
 
-            //foreach (DO.LineTrip lnTrip in DataSource.listLineTrips)
-            //{
+            foreach (DO.AdjacentStations adj in DataSource.listAdjacentStations)
+            {
+                adjacentStationsRootElem.Add(new XElement("AdjacentStations",
+                    new XElement("Station1", adj.Station1.ToString()),
+                    new XElement("Station2", adj.Station2.ToString()),
+                    new XElement("Distance", adj.Distance.ToString()),
+                    new XElement("Time", adj.Time.ToString())));
+            }
 
-            //    lineTripRootElem.Add(new XElement("LineTrip",
-            //        new XElement("LineTripID", lnTrip.LineTripID.ToString()),
-            //        new XElement("LineID", lnTrip.LineID.ToString()),
-            //        new XElement("StartAt", lnTrip.StartAt.ToString())));
-            //}
-
-            //SaveListToXMLElement(lineTripRootElem, lineTripPath);
+            SaveListToXMLElement(adjacentStationsRootElem, adjacentStationsPath);
 
 
-            //XElement runningNumberRootElem = new XElement("runningNumber");
+            XElement lineTripRootElem = new XElement("listLineTrips");
 
-            //runningNumberRootElem.Add(new XElement("LineId", "13"));
-            //SaveListToXMLElement(runningNumberRootElem, runningNumberPath);
+            foreach (DO.LineTrip lnTrip in DataSource.listLineTrips)
+            {
+
+                lineTripRootElem.Add(new XElement("LineTrip",
+                    new XElement("LineTripID", lnTrip.LineTripID.ToString()),
+                    new XElement("LineID", lnTrip.LineID.ToString()),
+                    new XElement("StartAt", lnTrip.StartAt.ToString())));
+            }
+
+            SaveListToXMLElement(lineTripRootElem, lineTripPath);
+
+
+            XElement runningNumberRootElem = new XElement("runningNumber");
+
+            runningNumberRootElem.Add(new XElement("LineId", "13"));
+            SaveListToXMLElement(runningNumberRootElem, runningNumberPath);
 
             #endregion
         }
