@@ -458,7 +458,7 @@ namespace BL
         #endregion
 
         #region LineAndTime
-        public IEnumerable<BO.Time> GetLineAndTimePerStation(BO.Station stationBO, TimeSpan currentTime)
+        public IEnumerable<BO.Time> GetTimePerStation(BO.Station stationBO, TimeSpan currentTime)
         {
             //list of lines that pass in the station
             List<BO.Line> listLines = (from l in GetAllLines()

@@ -64,10 +64,12 @@ namespace BLAPI
         #region LineTrip
         IEnumerable<BO.LineTrip> GetAllLineTripPerLine(int lineid);
         #endregion
+        //Get All Line Trip Per Line
 
-        #region LineAndTime
-        IEnumerable<BO.Time> GetLineAndTimePerStation(BO.Station stationBO, TimeSpan currentTime);
+        #region Time
+        IEnumerable<BO.Time> GetTimePerStation(BO.Station stationBO, TimeSpan currentTime);
         #endregion
+        //Get Time Per Station
         void restartXmlLists();
     }
 }

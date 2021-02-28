@@ -4,6 +4,37 @@
              xmlns:local="clr-namespace:PL"
              StartupUri="User.xaml">
     <Application.Resources>
-         
+
+        <Style TargetType="ComboBox" >
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="Foreground" Value="Black"/>
+         </Style>
+
+        <Style  TargetType="Button" >
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontWeight" Value="ExtraBold"/>
+         </Style>
+
+        <Style  TargetType="Label" >
+            <Setter Property="Height" Value="26"/>
+
+            <Setter Property="Foreground" Value="#FF2B8B30"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style  TargetType="RadioButton" >
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="15"/>
+
+        </Style>
+
+
     </Application.Resources>
 </Application>

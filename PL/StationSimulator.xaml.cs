@@ -64,7 +64,7 @@ namespace PL
             string timmerText = tsCurrentTime.ToString().Substring(0, 8);//take only hour, min, sec. 00:00:00 , 8 characters.
             timerTextBlock.Text = timmerText;//show the current Time. (as TimeSpan).
 
-            LineAndTimeGrid.ItemsSource = bl.GetLineAndTimePerStation(currStat, tsCurrentTime).ToList();
+            LineAndTimeGrid.ItemsSource = bl.GetTimePerStation(currStat, tsCurrentTime).ToList();
             if (LineAndTimeGrid.Items.Count == 0)
                 NoBusesSoon.Visibility = Visibility.Visible;
 

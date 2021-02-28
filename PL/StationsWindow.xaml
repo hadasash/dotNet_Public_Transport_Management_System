@@ -33,7 +33,7 @@
         <TextBox x:Name="tbcolorup" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6" HorizontalAlignment="Stretch" TextWrapping="Wrap"  Text="  Bondi" VerticalAlignment="Stretch"  Background="#FF2B8B30" FontWeight="Bold" Foreground="White"  FontSize="18" BorderBrush="{x:Null}"   />
         <TextBox x:Name="tbcolor" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="6" HorizontalAlignment="Stretch"   VerticalAlignment="Bottom"  Background="#FF2B8B30" BorderBrush="{x:Null}" TextWrapping="Wrap"  Text=" © 2021   Bondi.com " Foreground="White" FontSize="12"  />
         <Label Content="Select Station:         " Grid.Row="1" Grid.Column="1"  HorizontalAlignment="Right"  VerticalAlignment="Center" Height="30" FontSize="15" Foreground="#FF2B8B30"  FontWeight="Bold" />
-        <ComboBox x:Name="cbStationId" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" HorizontalAlignment="Stretch"  VerticalAlignment="Center"
+        <ComboBox x:Name="cbStationId" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1"
                    
                   ItemsSource="{Binding}" 
                  SelectionChanged="cbStationId_SelectionChanged"  />
@@ -51,21 +51,21 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Label Content="Address: " Grid.Column="0" HorizontalAlignment="Left"  Grid.Row="5" VerticalAlignment="Top" Height="26"  Foreground="#FF2B8B30"  FontWeight="Bold"/>
-            <TextBox x:Name="addressTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3.6,5,0,5.6" Grid.Row="5" Text="{Binding Address, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="180" Grid.ColumnSpan="3"/>
-            <Label Content="Code: " Grid.Column="0" HorizontalAlignment="Left" Margin="3,3.4,0,3.4" Grid.Row="1" VerticalAlignment="Top" Height="26"   Foreground="#FF2B8B30"  FontWeight="Bold"/>
-            <TextBox x:Name="codeTextBox" Grid.Column="1" HorizontalAlignment="Left" Margin="3.6,4.8,0,5" Grid.Row="1" Text="{Binding Code, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Width="180" Grid.ColumnSpan="3" VerticalAlignment="Top" Height="24"/>
-            <Label Content="Lattitude: " Grid.Column="0" HorizontalAlignment="Left" Margin="3,3.6,0,3.2" Grid.Row="2" VerticalAlignment="Top" Height="26"   Foreground="#FF2B8B30"  FontWeight="Bold"/>
-            <TextBox x:Name="lattitudeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="3.6,4.6,0,4.2" Grid.Row="2" Text="{Binding Lattitude, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="180" Grid.ColumnSpan="3"/>
-            <Label Content="Longitude: " Grid.Column="0" HorizontalAlignment="Left" Margin="3,3.8,0,3" Grid.Row="3" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="26"   Foreground="#FF2B8B30" BorderBrush="#FF2FA535" FontWeight="Bold"/>
-            <TextBox x:Name="longitudeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3.6,4.8,0,5" Grid.Row="3" Text="{Binding Longitude, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="180" Grid.ColumnSpan="3"/>
-            <Label Content="Name: " Grid.Column="0" HorizontalAlignment="Left" Margin="3,4,0,34.2" Grid.Row="0"  Foreground="#FF2B8B30"  FontWeight="Bold"/>
-            <TextBox x:Name="nameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3.6,5,0,5.6" Grid.Row="0" Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="180" Grid.ColumnSpan="3"/>
+            <Label Content="Address: " Grid.Column="0"   Grid.Row="5"    />
+            <TextBox x:Name="addressTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23"  Grid.Row="5" Text="{Binding Address, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="180" Grid.ColumnSpan="3"/>
+            <Label Content="Code: " Grid.Column="0"   Grid.Row="1" />
+            <TextBox x:Name="codeTextBox" Grid.Column="1" HorizontalAlignment="Left"  Grid.Row="1" Text="{Binding Code, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Width="180" Grid.ColumnSpan="3" VerticalAlignment="Top" Height="24"/>
+            <Label Content="Lattitude: " Grid.Column="0" HorizontalAlignment="Left"  Grid.Row="2"    />
+            <TextBox x:Name="lattitudeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24"  Grid.Row="2" Text="{Binding Lattitude, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="180" Grid.ColumnSpan="3"/>
+            <Label Content="Longitude: " Grid.Column="0"   Grid.Row="3"  Grid.ColumnSpan="2"    />
+            <TextBox x:Name="longitudeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23"  Grid.Row="3" Text="{Binding Longitude, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="180" Grid.ColumnSpan="3"/>
+            <Label Content="Name: " Grid.Column="0"   Grid.Row="0"   />
+            <TextBox x:Name="nameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23"  Grid.Row="0" Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="180" Grid.ColumnSpan="3"/>
         </Grid>
-        <Button x:Name="btDeleteStation" Content="Delete Current Station" HorizontalAlignment="Stretch"  VerticalAlignment="Center"  Background="#FF54C759" Foreground="White" Click="btDeleteStation_Click" Grid.Column="3" Grid.Row="5" />
-        <Button x:Name="btAddStation" Content="Add New Station" HorizontalAlignment="Stretch"  VerticalAlignment="Center"  Grid.Column="4" Grid.Row="5" Background="#FFF386BC" Foreground="White" Click="btAddStation_Click" />
-        <Button x:Name="btUpdateStation" Content="update station info" HorizontalAlignment="Stretch"  VerticalAlignment="Center"  Background="#FF91A4BF" Foreground="White" Click="btUpdateStation_Click" Grid.Column="2" Grid.Row="5"   />
-        <DataGrid x:Name="lineDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="2" Grid.RowSpan="3" RowDetailsVisibilityMode="VisibleWhenSelected"   >
+        <Button x:Name="btDeleteStation" Content="Delete Current Station"    Background="#FF54C759"  Click="btDeleteStation_Click" Grid.Column="3" Grid.Row="5" Foreground="White"/>
+        <Button x:Name="btAddStation" Content="Add New Station"     Grid.Column="4" Grid.Row="5" Background="#FFF386BC"  Click="btAddStation_Click" Foreground="White" />
+        <Button x:Name="btUpdateStation" Content="update station info"     Background="#FF91A4BF"  Click="btUpdateStation_Click" Grid.Column="2" Grid.Row="5" Foreground="White"  />
+        <DataGrid x:Name="lineDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="2" Foreground="White" Grid.RowSpan="3" RowDetailsVisibilityMode="VisibleWhenSelected"   >
 
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="firstStationColumn" Binding="{Binding FirstStation}" Header="First Station" Width="*"/>
@@ -81,13 +81,13 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="bBack" Content="back" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"  Click="bBack_Click" Width="45" Height="35" BorderBrush="{x:Null}" Foreground="{x:Null}"   >
+        <Button x:Name="bBack" Content="back" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1"   Click="bBack_Click" Width="45" Height="35" BorderBrush="{x:Null}" Foreground="{x:Null}"   >
             <Button.Background>
                 <ImageBrush ImageSource="back-arrow (1).png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="bLogOut" Content="  Logout" Grid.Column="4" HorizontalAlignment="Right"  Grid.Row="0" VerticalAlignment="Center"  Click="bLogOut_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"/>
-        <Button x:Name="bLContactUs"  Content="Contact us  | "  HorizontalAlignment="Center"  Grid.Row="0" Grid.Column="4" VerticalAlignment="Center"  Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="bLContactUs_Click"/>
+        <Button x:Name="bLogOut" Content="  Logout" Grid.Column="4" HorizontalAlignment="Right"  Grid.Row="0"   Click="bLogOut_Click" Background="{x:Null}" BorderBrush="{x:Null}" FontWeight="Regular" />
+        <Button x:Name="bLContactUs"  Content="Contact us  | "  HorizontalAlignment="Center"  Grid.Row="0" Grid.Column="4"   Background="{x:Null}" BorderBrush="{x:Null}"  Click="bLContactUs_Click" FontWeight="Regular" Margin="39.2,0,39.2,4" VerticalAlignment="Bottom"  />
 
     </Grid>
 </Window>

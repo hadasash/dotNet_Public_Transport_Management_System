@@ -41,10 +41,10 @@ namespace PL
                 myMainWindow.Show();
                 this.Close();
             }
-            else if ((pbPass.Password =="") && (tbUser.Text== ""))
-            {
-                MessageBox.Show(" Something went wrong. Try again!");
-            }
+            //else if ((pbPass.Password =="") && (tbUser.Text== ""))
+            //{
+            //    MessageBox.Show(" Something went wrong. Try again!");
+            //}
             else
             {
                 MessageBox.Show(" Something went wrong. Try again!");

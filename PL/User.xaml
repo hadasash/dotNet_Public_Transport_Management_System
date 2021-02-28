@@ -35,7 +35,7 @@
         <TextBox x:Name="tbUser" HorizontalAlignment="Stretch"  TextWrapping="Wrap" VerticalAlignment="Center" Grid.Column="3" Grid.Row="2" Height="20" />
         <Button x:Name="bLogIn" Content="Log in" HorizontalAlignment="Stretch"  VerticalAlignment="Bottom"  Height="25" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="4" Click="bLogIn_Click" FontSize="15" Background="#FF2FA535" Foreground="White"/>
         <Image Grid.Column="2" HorizontalAlignment="center"  Grid.Row="1"  VerticalAlignment="Center"  Source="login.png" Height="30"  Width="30"/>
-        <Button x:Name="bSignUp" Content="Sign up here" Grid.Column="3" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Top" Click="bSignUp_Click" Height="20" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Blue"/>
+        <Button x:Name="bSignUp" Content="Sign up here" Grid.Column="3" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Top" Click="bSignUp_Click" Height="20" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Blue" FontWeight="Regular" />
         <TextBlock Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Right"  Grid.Row="5" TextWrapping="Wrap" Text="Not a member? " VerticalAlignment="Top" Opacity="0.6" Margin="11.6,2.8,9.6,0" RenderTransformOrigin="0.457,-0.37"  />
         <Image HorizontalAlignment="Center" Height="20"  Grid.Row="2" VerticalAlignment="Center" Width="21" Grid.Column="1" Source="unlock.png"/>
         <Image HorizontalAlignment="Center" Height="20"  Grid.Row="3" VerticalAlignment="Center" Width="21" Grid.Column="1" Source="unlock.png"/>
