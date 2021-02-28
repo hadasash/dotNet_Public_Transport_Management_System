@@ -32,7 +32,7 @@
         </Grid.RowDefinitions>
 
 
-        <RadioButton x:Name ="rbStations" Grid.Row="2"  Grid.Column="1" Grid.ColumnSpan="3" Content="  Bus Stations"  IsChecked="True"/>
+        <RadioButton x:Name ="rbStations" Grid.Row="2"  Grid.Column="1" Grid.ColumnSpan="3" Content="  Bus Stations"  IsChecked="True" />
         <RadioButton x:Name ="rbLines"   Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="1"  Content="  Bus Lines" />
         <RadioButton x:Name ="rbticket"   Grid.Row="4"  Grid.Column="1" Grid.ColumnSpan="3"  Content="  Tickets info" />
         <RadioButton x:Name ="rbSchedule"   Grid.Row="2"  Grid.Column="3" Grid.ColumnSpan="3"  Content="  Line schedule" />

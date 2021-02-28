@@ -27,7 +27,7 @@
             <Setter Property="FontWeight" Value="Bold"/>
         </Style>
         <Style  TargetType="RadioButton" >
-            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Cursor" Value="Pen"/>
             <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="FontWeight" Value="Bold"/>
