@@ -318,8 +318,6 @@ namespace DL
         }
         public void restartXmlLists()
         {
-
-
             #region save all list from data source to xml files
 
             //string stationsPath = @"StationsXml.xml"; //Serializer

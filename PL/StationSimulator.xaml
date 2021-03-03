@@ -57,8 +57,8 @@
         <ListBox x:Name="LineAndTimeGrid" FlowDirection="RightToLeft"  ItemsSource="{Binding}" ItemTemplate="{StaticResource LineTemplate}"  Height="230" VerticalAlignment="Stretch"  Background="#FFBDF1BF" Grid.ColumnSpan="3" Grid.Column="1"  Grid.Row="2" Grid.RowSpan="4" HorizontalAlignment="Stretch" />
         <Label x:Name="NoBusesSoon" Content="No buses coming soon" HorizontalAlignment="Left" Margin="40,52,0,0" VerticalAlignment="Top" Height="42" Width="188" FontSize="15" Background="{x:Null}" Visibility="Hidden" Foreground="White" />
         <Image  Height="230" Grid.Row="2" Grid.RowSpan="4" Grid.Column="4" Grid.ColumnSpan="2" VerticalAlignment="Top" HorizontalAlignment="Stretch" Source="bus-stop.png"  />
-        <TextBox x:Name="tbcolorup" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6" HorizontalAlignment="Stretch" TextWrapping="Wrap"  Text="  Bondi" VerticalAlignment="Stretch"  Background="#FF2B8B30" FontWeight="Bold" Foreground="#FFFCFBFA"  FontSize="18" BorderBrush="{x:Null}"  />
+        <TextBox x:Name="tbcolorup" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6" HorizontalAlignment="Stretch" TextWrapping="Wrap"  Text="  Bondi" VerticalAlignment="Stretch"  Background="#FF2B8B30" FontWeight="Bold" Foreground="Gray"  FontSize="18" BorderBrush="{x:Null}"  />
         <TextBox x:Name="tbcolor" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="6" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"  Background="#FF2B8B30" BorderBrush="{x:Null}"  TextWrapping="Wrap"  Text=" © 2021 Bondi.com " Foreground="White" FontSize="11" />
-        <Label Content="The time now:" HorizontalAlignment="Left"  Grid.Row="1" Foreground="ForestGreen" VerticalAlignment="Top"  FontWeight="Bold" FontSize="20" Grid.ColumnSpan="3" Margin="38,58,0,0" />
+        <Label Content="The time now:" HorizontalAlignment="Center"  Grid.Row="1" Foreground="ForestGreen"  FontWeight="Bold" FontSize="20" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Grid.Column="1"  Height="40" Margin="69.6,0,69.6,10.4" />
     </Grid>
 </Window>

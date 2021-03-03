@@ -68,10 +68,10 @@
         <DataGrid x:Name="lineDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="2" Foreground="White" Grid.RowSpan="3" RowDetailsVisibilityMode="VisibleWhenSelected"   >
 
             <DataGrid.Columns>
-                <DataGridTextColumn x:Name="firstStationColumn" Binding="{Binding FirstStation}" Header="First Station" Width="*"/>
-                <DataGridTextColumn x:Name="lastStationColumn" Binding="{Binding LastStation}" Header="Last Station" Width="*"/>
-                <DataGridTextColumn x:Name="lineIdColumn" Binding="{Binding LineId}" Header="Line Id" Width="*"/>
-                <DataGridTextColumn x:Name="numOfBusColumn" Binding="{Binding NumberBus}" Header="Num Of Bus" Width="*"/>
+                <DataGridTextColumn x:Name="firstStationColumn" Binding="{Binding FirstStation}" Header="First Station" Width="*"  Foreground="Black"/>
+                <DataGridTextColumn x:Name="lastStationColumn" Binding="{Binding LastStation}" Header="Last Station" Width="*"  Foreground="Black"/>
+                <DataGridTextColumn x:Name="lineIdColumn" Binding="{Binding LineId}" Header="Line Id" Width="*"  Foreground="Black"/>
+                <DataGridTextColumn x:Name="numOfBusColumn" Binding="{Binding NumberBus}" Header="Num Of Bus" Width="*" Foreground="Black"/>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
